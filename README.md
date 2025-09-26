@@ -1,1 +1,1 @@
-# scounting_strategy_yr2526
+# scouting_strategy_yr2526
