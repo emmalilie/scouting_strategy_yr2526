@@ -1,0 +1,223 @@
+URL,Match,Game Status_1,Game Status_2,Player_1,Player_2,Set 1_1,Set 1_2,Set 2_1,Set 2_2,Set 3_1,Set 3_2,Set 4_1,Set 4_2,Set 5_1,Set 5_2,Team_1,Team_2,Winning Team_1
+https://uclabruins.com/api/v2/Stats/boxscore/32975,1,0,0,"Nanda, Govind",G. Espin Busleiman,7,5,4,5,0,95,,,,,UCLA,Utah,0
+https://uclabruins.com/api/v2/Stats/boxscore/32975,2,0,0,"Johnson, Spencer",Bruno Krenn,7,5,4,6,1,0,0,95,,,UCLA,Utah,0
+https://uclabruins.com/api/v2/Stats/boxscore/32975,3,1,0,"Hoogmartens, Alexander",Jayson Blando,6,0,6,2,,,,,,,UCLA,Utah,1
+https://uclabruins.com/api/v2/Stats/boxscore/32975,4,1,0,"Revelli, Giacomo",Dylan Applegate,7,5,7,5,,,,,,,UCLA,Utah,0
+https://uclabruins.com/api/v2/Stats/boxscore/32975,5,0,0,"Ballotta, Gianluca",Gianluca Citadini,5,7,6,0,2,1,0,95,,,UCLA,Utah,0
+https://uclabruins.com/api/v2/Stats/boxscore/32975,6,1,0,"Plans Gonzalez, Jorge",Michael Blando,6,2,6,2,,,,,,,UCLA,Utah,0
+https://uclabruins.com/api/v2/Stats/boxscore/33114,1,1,0,"Nanda, Govind",Cesar Bouchelaghem,6,0,7,5,,,,,,,UCLA,Washington,0
+https://uclabruins.com/api/v2/Stats/boxscore/33114,2,0,0,"Johnson, Spencer",Dzianis Zharyn,4,6,5,5,0,95,,,,,UCLA,Washington,0
+https://uclabruins.com/api/v2/Stats/boxscore/33114,3,0,0,"Revelli, Giacomo",Han-Chih Lin,6,3,5,4,0,95,,,,,UCLA,Washington,0
+https://uclabruins.com/api/v2/Stats/boxscore/33114,4,1,0,"Hoogmartens, Alexander",Nedim Suko,6,4,6,2,,,,,,,UCLA,Washington,0
+https://uclabruins.com/api/v2/Stats/boxscore/33114,5,0,0,"Ballotta, Gianluca",Ivan Sodan,4,6,6,4,0,95,,,,,UCLA,Washington,0
+https://uclabruins.com/api/v2/Stats/boxscore/33114,6,1,0,"Plans Gonzalez, Jorge",Brett Pearson,6,3,6,3,,,,,,,UCLA,Washington,0
+https://uclabruins.com/api/v2/Stats/boxscore/33183,1,1,0,Nishesh Basavareddy,"Nanda, Govind",6,2,6,2,,,,,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33183,2,0,1,Samir Banerjee,"Johnson, Spencer",6,3,4,6,6,7,,,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33183,3,1,0,Max Basing,"Revelli, Giacomo",7,5,6,3,,,,,,,Stanford,UCLA,1
+https://uclabruins.com/api/v2/Stats/boxscore/33183,4,0,1,Kyle Kang,"Hoogmartens, Alexander",6,4,4,6,4,6,,,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33183,5,1,0,Neel Rajesh,"Ballotta, Gianluca",7,5,6,3,,,,,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33183,6,0,1,Hudson Rivera,"Plans Gonzalez, Jorge",4,6,7,5,3,6,,,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33247,1,0,1,"Nanda, Govind",Quinn Vandecasteele,3,6,6,1,3,6,,,,,UCLA,Oregon,0
+https://uclabruins.com/api/v2/Stats/boxscore/33247,2,1,0,"Johnson, Spencer",Vlad Breazu,6,2,6,3,,,,,,,UCLA,Oregon,0
+https://uclabruins.com/api/v2/Stats/boxscore/33247,3,1,0,"Revelli, Giacomo",Matthew Burton,4,6,6,4,6,3,,,,,UCLA,Oregon,1
+https://uclabruins.com/api/v2/Stats/boxscore/33247,4,1,0,"Hoogmartens, Alexander",Lenn Luemkemann,6,1,6,4,,,,,,,UCLA,Oregon,0
+https://uclabruins.com/api/v2/Stats/boxscore/33247,5,0,1,"Ballotta, Gianluca",Ray Lo,4,6,6,7,,,,,,,UCLA,Oregon,0
+https://uclabruins.com/api/v2/Stats/boxscore/33247,6,1,0,"Plans Gonzalez, Jorge",Avi Shugar,6,2,6,2,,,,,,,UCLA,Oregon,0
+https://uclabruins.com/api/v2/Stats/boxscore/33248,1,0,1,Peter Makk,"Nanda, Govind",5,7,3,6,,,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33248,2,0,1,Oscar Weightman,"Johnson, Spencer",6,7,4,6,,,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33248,3,0,0,Lodewijk Weststrate,"Hoogmartens, Alexander",3,6,6,1,4,5,0,95,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33248,4,1,0,Volodymyr Iakubenko,"Revelli, Giacomo",6,4,7,5,,,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33248,5,0,1,Samuel Rubell,"Ballotta, Gianluca",3,6,6,2,2,6,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33248,6,1,0,Karl Lee,"Plans Gonzalez, Jorge",6,3,6,3,,,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33249,1,0,1,Stefan Latinovic,"Nanda, Govind",4,6,4,6,,,,,,,LSU,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33249,2,1,0,Alessio Vasquez,"Johnson, Spencer",6,4,6,4,,,,,,,LSU,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33249,3,1,0,Rudy Ceccon,"Hoogmartens, Alexander",6,4,6,3,,,,,,,LSU,UCLA,1
+https://uclabruins.com/api/v2/Stats/boxscore/33249,4,1,0,Julien Penzlin,"Revelli, Giacomo",6,4,6,0,,,,,,,LSU,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33249,5,0,1,Chen Dong,"Ballotta, Gianluca",4,6,4,6,,,,,,,LSU,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33249,6,0,1,Welsh Hotard,"Plans Gonzalez, Jorge",0,6,3,6,,,,,,,LSU,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33448,1,0,1,Carson Lee,"Nanda, Govind",0,6,3,6,,,,,,,UC San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33448,2,0,1,Phillip Lan,"Johnson, Spencer",3,6,1,6,,,,,,,UC San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33448,3,0,0,Diogo Tinoco,"Plans Gonzalez, Jorge",5,7,3,3,0,95,,,,,UC San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33448,4,0,1,Pelayo Rodriguez,"Tripathi, Aadarsh",3,6,3,6,,,,,,,UC San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33448,5,0,0,Zach Pellouchoud,"van Loben Sels, Emon",5,7,5,2,0,95,,,,,UC San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33448,6,0,0,Charles Qian,"Visaya, Azuma",4,6,3,5,0,95,,,,,UC San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33489,1,1,0,Quinn Vandecasteele,"Nanda, Govind",6,3,6,4,,,,,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33489,2,0,0,David Cierny,"Johnson, Spencer",3,6,6,4,3,3,0,95,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33489,3,1,0,Vlad Breazu,"Hoogmartens, Alexander",6,4,6,2,,,,,,,Oregon,UCLA,1
+https://uclabruins.com/api/v2/Stats/boxscore/33489,4,1,0,Matthew Burton,"Revelli, Giacomo",6,4,3,6,6,0,,,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33489,5,1,0,Lenn Luemkemann,"Ballotta, Gianluca",6,4,7,5,,,,,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33489,6,0,0,Ray Lo,"Plans Gonzalez, Jorge",5,7,5,6,0,95,,,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/33510,1,0,0,"Nanda, Govind",Eliot Spizzirri,7,6,4,1,0,95,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/33510,2,0,0,"Johnson, Spencer",Micah Braswell,6,7,4,5,0,95,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/33510,3,0,1,"Hoogmartens, Alexander",Gilles-Arnaud Bailly,4,6,4,6,,,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/33510,4,0,1,"Revelli, Giacomo",Siem Woldeab,4,6,4,6,,,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/33510,5,0,0,"Ballotta, Gianluca",Jonah Braswell,4,6,3,3,0,95,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/33510,6,0,1,"Plans Gonzalez, Jorge",Cleeve Harper,4,6,1,6,,,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/34008,1,1,0,"Johnson, Spencer",Noah Zamora,6,3,6,4,,,,,,,UCLA,UC Irvine,0
+https://uclabruins.com/api/v2/Stats/boxscore/34008,2,1,0,"Quan, Rudy",Andy Nguyen,6,4,6,3,,,,,,,UCLA,UC Irvine,0
+https://uclabruins.com/api/v2/Stats/boxscore/34008,3,0,0,"Bigun, Kaylan",Hiroki Sakagawa,6,7,2,5,0,95,,,,,UCLA,UC Irvine,0
+https://uclabruins.com/api/v2/Stats/boxscore/34008,4,0,0,"van Loben Sels, Emon",Rithvik Krishna,7,6,4,5,0,95,,,,,UCLA,UC Irvine,0
+https://uclabruins.com/api/v2/Stats/boxscore/34008,5,1,0,"Hoogmartens, Alexander",Lawee Sherif,6,2,6,3,,,,,,,UCLA,UC Irvine,0
+https://uclabruins.com/api/v2/Stats/boxscore/34008,6,1,0,"Tripathi, Aadarsh",Ruining Huang,6,4,7,6,,,,,,,UCLA,UC Irvine,0
+https://uclabruins.com/api/v2/Stats/boxscore/34010,1,1,0,Oliver Tarvet,"Johnson, Spencer",7,6,6,4,,,,,,,San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34010,2,0,1,Iiro Vasa,"Quan, Rudy",3,6,6,7,,,,,,,San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34010,3,1,0,Savriyan Danilov,"Bigun, Kaylan",6,3,5,7,2,0,96,0,,,San Diego,UCLA,1
+https://uclabruins.com/api/v2/Stats/boxscore/34010,4,1,0,Stian Klaassen,"van Loben Sels, Emon",6,4,5,7,6,4,,,,,San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34010,5,1,0,Adrien Berrut,"Hoogmartens, Alexander",7,5,6,4,,,,,,,San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34010,6,0,1,Neo Niedner,"Tripathi, Aadarsh",3,6,1,6,,,,,,,San Diego,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34011,1,0,1,"Johnson, Spencer",Theo Papamalamis,3,6,1,6,,,,,,,UCLA,Texas A+M,0
+https://uclabruins.com/api/v2/Stats/boxscore/34011,2,0,1,"Quan, Rudy",JC Roddick,3,6,6,2,3,6,,,,,UCLA,Texas A+M,0
+https://uclabruins.com/api/v2/Stats/boxscore/34011,3,0,1,"Bigun, Kaylan",Luke Casper,4,6,3,6,,,,,,,UCLA,Texas A+M,0
+https://uclabruins.com/api/v2/Stats/boxscore/34011,4,1,0,"van Loben Sels, Emon",Tiago Pires,6,2,6,3,,,,,,,UCLA,Texas A+M,0
+https://uclabruins.com/api/v2/Stats/boxscore/34011,5,1,0,"Hoogmartens, Alexander",Togan Tokac,6,4,6,3,,,,,,,UCLA,Texas A+M,0
+https://uclabruins.com/api/v2/Stats/boxscore/34011,6,0,1,"Tripathi, Aadarsh",Giulio Perego,2,6,2,6,,,,,,,UCLA,Texas A+M,0
+https://uclabruins.com/api/v2/Stats/boxscore/34012,1,0,1,Thomas Paulsell,"Johnson, Spencer",2,6,6,7,,,,,,,Georgia,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34012,2,0,1,Ryan Colby,"Quan, Rudy",2,6,3,6,,,,,,,Georgia,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34012,3,1,0,Miguel Perez Pena,"Bigun, Kaylan",7,5,6,4,,,,,,,Georgia,UCLA,1
+https://uclabruins.com/api/v2/Stats/boxscore/34012,4,0,0,Niels Ratiu,"van Loben Sels, Emon",3,6,6,4,0,95,,,,,Georgia,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34012,5,0,1,Oscar Pinto Sansano,"Hoogmartens, Alexander",1,6,5,7,,,,,,,Georgia,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34012,6,0,1,Gabriele Vulpitta,"Tripathi, Aadarsh",1,6,3,6,,,,,,,Georgia,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34013,1,1,0,Carl Emil Overbeck,"Quan, Rudy",6,7,6,3,6,4,,,,,California,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34013,2,0,0,Alex Chang,"Johnson, Spencer",6,7,7,6,2,2,0,95,,,California,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34013,3,0,1,Theo Dean,"van Loben Sels, Emon",4,6,3,6,,,,,,,California,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34013,4,0,1,Derrick Chen,"Hoogmartens, Alexander",3,6,1,6,,,,,,,California,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34013,5,1,0,Timofey Stepanov,"Revelli, Giacomo",6,4,6,4,,,,,,,California,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34013,6,1,0,Bernardo Munk Mesa,"Ballotta, Gianluca",7,6,6,4,,,,,,,California,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34014,1,1,0,Samir Banerjee,"Johnson, Spencer",6,3,3,6,6,4,,,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34014,2,0,0,Max Basing,"van Loben Sels, Emon",6,3,4,6,2,5,0,95,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34014,3,1,0,von der Schulenburg,"Hoogmartens, Alexander",6,4,6,4,,,,,,,Stanford,UCLA,1
+https://uclabruins.com/api/v2/Stats/boxscore/34014,4,1,0,Hudson Rivera,"Tripathi, Aadarsh",4,6,7,5,6,3,,,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34014,5,0,0,Nico Godsick,"Revelli, Giacomo",7,6,6,7,3,4,0,95,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34014,6,0,0,Alex Razeghi,"Ballotta, Gianluca",4,6,7,6,0,1,0,95,,,Stanford,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34016,1,0,1,Peter Makk,"Quan, Rudy",2,6,3,6,,,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34016,2,1,0,Nathan Trouve,"Bigun, Kaylan",7,5,6,2,,,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34016,3,0,1,Oscar Weightman,"van Loben Sels, Emon",2,6,1,6,,,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34016,4,0,1,Volodymyr Iakubenko,"Hoogmartens, Alexander",3,6,2,6,,,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34016,5,1,0,Matteo Morazzi,"Tripathi, Aadarsh",6,3,1,6,6,4,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34016,6,1,0,Karl Lee,"Ballotta, Gianluca",7,5,2,6,6,2,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34018,1,0,1,Deacon Thomas,"Quan, Rudy",2,6,4,6,,,,,,,Indiana,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34018,2,0,1,Jip van Assendelft,"Bigun, Kaylan",3,6,3,6,,,,,,,Indiana,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34018,3,0,1,Ben Pomeranets,"van Loben Sels, Emon",3,6,2,6,,,,,,,Indiana,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34018,4,0,1,Sam Scherer,"Hoogmartens, Alexander",6,7,6,3,0,1,,,,,Indiana,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34018,5,0,1,Braedon Gelletich,"Tripathi, Aadarsh",3,6,4,6,,,,,,,Indiana,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34018,6,0,1,Karan Raghavendra,"Ballotta, Gianluca",2,6,2,6,,,,,,,Indiana,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34019,1,0,1,Aleksa Krivokapic,"Quan, Rudy",6,4,3,6,0,1,,,,,Purdue,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34019,2,0,1,Juan David Velasquez,"Bigun, Kaylan",0,6,2,6,,,,,,,Purdue,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34019,3,0,1,Henrik Villanger,"van Loben Sels, Emon",2,6,1,6,,,,,,,Purdue,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34019,4,0,1,Stefan Simeunovic,"Hoogmartens, Alexander",5,7,1,6,,,,,,,Purdue,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34019,5,0,1,Maj Premzl,"Ballotta, Gianluca",2,6,6,7,,,,,,,Purdue,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34019,6,0,1,Nour Fathalla,"Revelli, Giacomo",3,6,1,6,,,,,,,Purdue,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34020,1,0,1,"Quan, Rudy",Peter Makk,4,6,4,6,,,,,,,UCLA,USC,0
+https://uclabruins.com/api/v2/Stats/boxscore/34020,2,0,1,"Bigun, Kaylan",Nathan Trouve,6,1,0,6,1,6,,,,,UCLA,USC,0
+https://uclabruins.com/api/v2/Stats/boxscore/34020,3,1,0,"van Loben Sels, Emon",Volodymyr Iakubenko,7,6,6,4,,,,,,,UCLA,USC,1
+https://uclabruins.com/api/v2/Stats/boxscore/34020,4,0,1,"Hoogmartens, Alexander",Oscar Weightman,7,5,4,6,3,6,,,,,UCLA,USC,0
+https://uclabruins.com/api/v2/Stats/boxscore/34020,5,1,0,"Tripathi, Aadarsh",Matteo Morazzi,7,5,2,6,6,1,,,,,UCLA,USC,0
+https://uclabruins.com/api/v2/Stats/boxscore/34020,6,0,1,"Revelli, Giacomo",Karl Lee,2,6,4,6,,,,,,,UCLA,USC,0
+https://uclabruins.com/api/v2/Stats/boxscore/34021,1,0,0,"Quan, Rudy",Kenta Miyoshi,6,7,1,5,0,95,,,,,UCLA,Illinois,0
+https://uclabruins.com/api/v2/Stats/boxscore/34021,2,0,0,"Bigun, Kaylan",William Mroz,2,6,6,3,0,4,0,95,,,UCLA,Illinois,0
+https://uclabruins.com/api/v2/Stats/boxscore/34021,3,1,0,"van Loben Sels, Emon",Jeremy Zhang,6,1,6,4,,,,,,,UCLA,Illinois,1
+https://uclabruins.com/api/v2/Stats/boxscore/34021,4,1,0,"Hoogmartens, Alexander",Tyler Bowers,6,1,6,0,,,,,,,UCLA,Illinois,0
+https://uclabruins.com/api/v2/Stats/boxscore/34021,5,1,0,"Tripathi, Aadarsh",Zach Viiala,6,4,6,0,,,,,,,UCLA,Illinois,0
+https://uclabruins.com/api/v2/Stats/boxscore/34021,6,0,1,"Revelli, Giacomo",Mathis Debru,4,6,4,6,,,,,,,UCLA,Illinois,0
+https://uclabruins.com/api/v2/Stats/boxscore/34022,1,0,0,"Quan, Rudy",Saiprakash Goli,5,7,3,3,0,95,,,,,UCLA,Northwestern,0
+https://uclabruins.com/api/v2/Stats/boxscore/34022,2,1,0,"van Loben Sels, Emon",Felix Nordby,6,2,6,4,,,,,,,UCLA,Northwestern,0
+https://uclabruins.com/api/v2/Stats/boxscore/34022,3,0,0,"Hoogmartens, Alexander",Greyson Casey,7,5,3,4,0,95,,,,,UCLA,Northwestern,0
+https://uclabruins.com/api/v2/Stats/boxscore/34022,4,1,0,"Tripathi, Aadarsh",Max Bengtsson,6,2,7,5,,,,,,,UCLA,Northwestern,0
+https://uclabruins.com/api/v2/Stats/boxscore/34022,5,0,0,"Ballotta, Gianluca",Chad Miller,6,4,3,6,0,95,,,,,UCLA,Northwestern,0
+https://uclabruins.com/api/v2/Stats/boxscore/34022,6,1,0,"Revelli, Giacomo",Vincent Yang,6,3,6,4,,,,,,,UCLA,Northwestern,0
+https://uclabruins.com/api/v2/Stats/boxscore/34023,1,0,0,Lenn Luemkemann,"Quan, Rudy",3,6,3,5,0,95,,,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34023,2,0,1,Vlad Breazu,"van Loben Sels, Emon",2,6,4,6,,,,,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34023,3,0,1,Paris Pouatcha,"Bigun, Kaylan",3,6,3,6,,,,,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34023,4,0,0,Clement Lemire,"Tripathi, Aadarsh",6,4,3,4,0,95,,,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34023,5,0,0,Matthew Burton,"Ballotta, Gianluca",6,3,2,6,1,1,0,95,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34023,6,0,1,Lachlan Robertson,"Revelli, Giacomo",0,6,2,6,,,,,,,Oregon,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34024,1,0,0,Cesar Bouchelaghem,"Quan, Rudy",4,6,4,4,0,95,,,,,Washington,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34024,2,0,0,Dzianis Zharyn,"van Loben Sels, Emon",3,6,4,5,0,95,,,,,Washington,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34024,3,0,0,Soham Purohit,"Bigun, Kaylan",7,5,1,6,0,95,,,,,Washington,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34024,4,0,1,Nedim Suko,"Hoogmartens, Alexander",2,6,3,6,,,,,,,Washington,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34024,5,0,1,Ivan Sodan,"Tripathi, Aadarsh",4,6,2,6,,,,,,,Washington,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34024,6,0,1,Rohan Belday,"Revelli, Giacomo",1,6,4,6,,,,,,,Washington,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34025,1,0,0,"Quan, Rudy",Alexander Bernard,6,7,6,0,1,3,0,95,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34025,2,0,0,"van Loben Sels, Emon",Aidan Kim,7,5,4,6,0,95,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34025,3,0,1,"Bigun, Kaylan",Will Jansen,3,6,6,7,,,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34025,4,0,1,"Hoogmartens, Alexander",Jack Anthrop,1,6,3,6,,,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34025,5,0,0,"Tripathi, Aadarsh",Bryce Nakashima,5,7,3,4,0,95,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34025,6,0,1,"Revelli, Giacomo",Brandon Carpico,0,6,6,7,,,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34026,1,1,0,"Quan, Rudy",Charl Morgan,6,3,6,3,,,,,,,UCLA,Penn State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34026,2,0,0,"van Loben Sels, Emon",Sam Bossem,6,1,5,6,0,95,,,,,UCLA,Penn State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34026,3,1,0,"Bigun, Kaylan",Marcus Schoeman,6,4,6,2,,,,,,,UCLA,Penn State,1
+https://uclabruins.com/api/v2/Stats/boxscore/34026,4,1,0,"Hoogmartens, Alexander",Reiya Hattori,6,2,6,3,,,,,,,UCLA,Penn State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34026,5,0,0,"Revelli, Giacomo",Shrikeshav Murugesan,0,0,,,,,,,,,UCLA,Penn State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34026,6,0,0,"Ballotta, Gianluca",Nolan Ranger,0,0,,,,,,,,,UCLA,Penn State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34027,1,0,1,Will Cooksey,"Quan, Rudy",3,6,3,6,,,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34027,2,0,0,Bjorn Swenson,"van Loben Sels, Emon",5,7,1,5,0,95,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34027,3,0,0,Patorn Hanchaikul,"Bigun, Kaylan",3,6,6,3,1,1,0,95,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34027,4,0,1,Nicholas Steiglehner,"Hoogmartens, Alexander",4,6,3,6,,,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34027,5,0,1,Alex Cairo,"Ballotta, Gianluca",3,6,2,6,,,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34027,6,0,1,Mert Oral,"Revelli, Giacomo",2,6,3,6,,,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34028,1,0,1,Ozan Baris,"Quan, Rudy",1,6,2,6,,,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34028,2,0,1,Max Sheldon,"van Loben Sels, Emon",2,6,4,6,,,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34028,3,0,0,Matthew Forbes,"Bigun, Kaylan",3,6,4,5,0,95,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34028,4,0,1,Vuk Radjenovic,"Hoogmartens, Alexander",6,3,1,6,1,6,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34028,5,0,1,Mitchell Sheldon,"Tripathi, Aadarsh",4,6,4,6,,,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34028,6,0,0,D. Rakhmatullayev,"Revelli, Giacomo",5,7,3,4,0,95,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34029,1,0,0,"Quan, Rudy",Michael Minasyan,6,2,3,6,0,95,,,,,UCLA,Wisconsin,0
+https://uclabruins.com/api/v2/Stats/boxscore/34029,2,1,0,"van Loben Sels, Emon",Patrik Meszaros,6,4,6,1,,,,,,,UCLA,Wisconsin,0
+https://uclabruins.com/api/v2/Stats/boxscore/34029,3,1,0,"Bigun, Kaylan",Edouard Aubert,7,5,6,1,,,,,,,UCLA,Wisconsin,1
+https://uclabruins.com/api/v2/Stats/boxscore/34029,4,0,0,"Johnson, Spencer",Matthew Fullerton,1,6,5,5,0,95,,,,,UCLA,Wisconsin,0
+https://uclabruins.com/api/v2/Stats/boxscore/34029,5,1,0,"Hoogmartens, Alexander",Tomas Zlatohlavek,6,1,6,4,,,,,,,UCLA,Wisconsin,0
+https://uclabruins.com/api/v2/Stats/boxscore/34029,6,0,0,"Tripathi, Aadarsh",Sachiv Kumar,6,7,0,95,,,,,,,UCLA,Wisconsin,0
+https://uclabruins.com/api/v2/Stats/boxscore/34030,1,1,0,"Quan, Rudy",Calvin Mueller,3,6,6,3,6,1,,,,,UCLA,Nebraska,0
+https://uclabruins.com/api/v2/Stats/boxscore/34030,2,0,1,"van Loben Sels, Emon",Anton Shepp,6,3,3,6,4,6,,,,,UCLA,Nebraska,0
+https://uclabruins.com/api/v2/Stats/boxscore/34030,3,1,0,"Bigun, Kaylan",Nikolay Sysoev,6,7,6,1,7,6,,,,,UCLA,Nebraska,1
+https://uclabruins.com/api/v2/Stats/boxscore/34030,4,1,0,"Hoogmartens, Alexander",Lars Johann,6,4,6,4,,,,,,,UCLA,Nebraska,0
+https://uclabruins.com/api/v2/Stats/boxscore/34030,5,0,0,"Johnson, Spencer",Roni Hietaranta,6,3,4,6,6,6,,,,,UCLA,Nebraska,0
+https://uclabruins.com/api/v2/Stats/boxscore/34030,6,0,0,"Tripathi, Aadarsh",Leo Linquet,3,6,6,4,5,5,,,,,UCLA,Nebraska,0
+https://uclabruins.com/api/v2/Stats/boxscore/34031,1,0,0,Will Cooksey,"Quan, Rudy",3,6,6,5,0,95,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34031,2,1,0,Bjorn Swenson,"van Loben Sels, Emon",6,4,6,4,,,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34031,3,0,1,Patorn Hanchaikul,"Bigun, Kaylan",3,6,1,6,,,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34031,4,0,0,Nicholas Steiglehner,"Hoogmartens, Alexander",6,2,3,6,2,2,0,95,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34031,5,0,1,Alex Cairo,"Johnson, Spencer",1,6,1,6,,,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34031,6,0,1,Mert Oral,"Revelli, Giacomo",4,6,3,6,,,,,,,Michigan,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34032,1,0,0,Gianluca Brunkow,"Quan, Rudy",7,5,2,6,1,0,0,95,,,UC Santa Barbara,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34032,2,0,0,Dominique Rolland,"van Loben Sels, Emon",6,4,4,4,0,95,,,,,UC Santa Barbara,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34032,3,0,1,Lucca Liu,"Bigun, Kaylan",3,6,2,6,,,,,,,UC Santa Barbara,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34032,4,0,0,Diogo Morais,"Hoogmartens, Alexander",6,4,3,6,2,1,0,95,,,UC Santa Barbara,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34032,5,0,1,Charlie Underwood,"Johnson, Spencer",6,7,2,6,,,,,,,UC Santa Barbara,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34032,6,0,1,Matei Gavrea,"Revelli, Giacomo",3,6,5,7,,,,,,,UC Santa Barbara,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34033,1,0,0,Peter Makk,"Quan, Rudy",6,7,6,3,3,3,0,95,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34033,2,0,1,Nathan Trouve,"van Loben Sels, Emon",4,6,7,5,3,6,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34033,3,0,1,Oscar Weightman,"Bigun, Kaylan",2,6,6,3,2,6,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34033,4,0,1,Karl Lee,"Hoogmartens, Alexander",6,4,3,6,3,6,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34033,5,0,1,Volodymyr Iakubenko,"Johnson, Spencer",7,6,4,6,4,6,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34033,6,1,0,Connor Church,"Tripathi, Aadarsh",7,5,6,7,6,4,,,,,USC,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34034,1,0,1,"Quan, Rudy",Timo Legout,5,7,2,6,,,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/34034,2,1,0,"van Loben Sels, Emon",Sebastian Gorzny,6,3,7,6,,,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/34034,3,0,1,"Bigun, Kaylan",Pierre-Yves Bailly,4,6,4,6,,,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/34034,4,0,1,"Johnson, Spencer",Sebastian Eriksson,4,6,4,6,,,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/34034,5,0,0,"Tripathi, Aadarsh",Jonah Braswell,6,7,1,2,0,95,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/34034,6,0,0,"Revelli, Giacomo",Lucas Brown,2,6,7,5,0,95,,,,,UCLA,Texas,0
+https://uclabruins.com/api/v2/Stats/boxscore/34169,1,1,0,Edward Winter,"Quan, Rudy",4,6,6,0,6,2,,,,,Pepperdine,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34169,2,0,1,Maxi Homberg,"Bigun, Kaylan",2,6,3,6,,,,,,,Pepperdine,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34169,3,1,0,L. Carlsson Halldin,"van Loben Sels, Emon",6,7,6,4,7,6,,,,,Pepperdine,UCLA,1
+https://uclabruins.com/api/v2/Stats/boxscore/34169,4,0,1,Aleksa Pisaric,"Hoogmartens, Alexander",6,7,4,6,,,,,,,Pepperdine,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34169,5,1,0,Lasse Poertner,"Tripathi, Aadarsh",7,6,7,6,,,,,,,Pepperdine,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34169,6,0,0,David Fix,"Ballotta, Gianluca",7,6,6,7,4,5,0,95,,,Pepperdine,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34210,1,0,0,Aritotelis Thanos,"Quan, Rudy",6,4,1,3,0,95,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34210,2,0,0,Ozan Baris,"van Loben Sels, Emon",5,7,2,3,0,95,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34210,3,0,1,Max Sheldon,"Bigun, Kaylan",4,6,1,6,,,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34210,4,0,0,Matthew Forbes,"Hoogmartens, Alexander",6,3,0,5,0,95,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34210,5,0,1,Mitchell Sheldon,"Johnson, Spencer",2,6,3,6,,,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34210,6,0,1,Vuk Radjenovic,"Revelli, Giacomo",3,6,4,6,,,,,,,Michigan State,UCLA,0
+https://uclabruins.com/api/v2/Stats/boxscore/34211,1,0,1,"Quan, Rudy",Aidan Kim,6,7,2,6,,,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34211,2,1,0,"van Loben Sels, Emon",Alexander Bernard,7,6,5,7,6,3,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34211,3,1,0,"Bigun, Kaylan",Will Jansen,6,2,7,5,,,,,,,UCLA,Ohio State,1
+https://uclabruins.com/api/v2/Stats/boxscore/34211,4,1,0,"Hoogmartens, Alexander",Jack Anthrop,7,5,0,6,6,4,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34211,5,0,1,"Johnson, Spencer",Bryce Nakashima,2,6,4,6,,,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34211,6,0,1,"Tripathi, Aadarsh",Preston Stearns,3,6,6,2,2,6,,,,,UCLA,Ohio State,0
+https://uclabruins.com/api/v2/Stats/boxscore/34217,1,0,1,"Quan, Rudy",Carl Emil Overbeck,7,5,5,7,3,6,,,,,UCLA,California,0
+https://uclabruins.com/api/v2/Stats/boxscore/34217,2,0,0,"van Loben Sels, Emon",Alex Chang,3,6,7,5,5,5,0,95,,,UCLA,California,0
+https://uclabruins.com/api/v2/Stats/boxscore/34217,3,1,0,"Bigun, Kaylan",Theo Dean,4,6,6,3,7,6,,,,,UCLA,California,1
+https://uclabruins.com/api/v2/Stats/boxscore/34217,4,1,0,"Hoogmartens, Alexander",Timofey Stepanov,7,6,1,6,6,3,,,,,UCLA,California,0
+https://uclabruins.com/api/v2/Stats/boxscore/34217,5,1,0,"Johnson, Spencer",Derrick Chen,6,2,6,3,,,,,,,UCLA,California,0
+https://uclabruins.com/api/v2/Stats/boxscore/34217,6,1,0,"Revelli, Giacomo",Bernardo Munk Mesa,6,4,7,6,,,,,,,UCLA,California,0

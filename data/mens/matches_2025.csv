@@ -1,0 +1,169 @@
+date,singles_number,order_finished,clincher,player1_school,player2_school,player1_name,player2_name,score,match_winner,home_team_record,away_team_record
+2025-05-16,1,2,False,UCLA,Texas,Rudy Quan,Timo Legout,"5-7, 2-6",Timo Legout,29-4,19-9
+2025-05-16,2,1,False,UCLA,Texas,Emon van Loben Sels,Sebastian Gorzny,"6-3, 7-6(2)",Emon van Loben Sels,29-4,19-9
+2025-05-16,3,4,True,UCLA,Texas,Kaylan Bigun,Pierre-Yves Bailly,"4-6, 4-6",Pierre-Yves Bailly,29-4,19-9
+2025-05-16,4,3,False,UCLA,Texas,Spencer Johnson,Sebastian Eriksson,"4-6, 4-6",Sebastian Eriksson,29-4,19-9
+2025-05-16,5,0,False,UCLA,Texas,Aadarsh Tripathi,Jonah Braswell,"6-7(7), 1-2",Unfinished,29-4,19-9
+2025-05-16,6,0,False,UCLA,Texas,Giacomo Revelli,Lucas Brown,"2-6, 7-5",Unfinished,29-4,19-9
+2025-05-09,1,0,False,USC,UCLA,Peter Makk,Rudy Quan,"6-7(4), 6-3, 3-3",Unfinished,19-8,16-11
+2025-05-09,2,3,False,USC,UCLA,Nathan Trouve,Emon van Loben Sels,"4-6, 7-5, 3-6",Emon van Loben Sels,19-8,16-11
+2025-05-09,3,2,False,USC,UCLA,Oscar Weightman,Kaylan Bigun,"2-6, 6-3, 2-6",Kaylan Bigun,19-8,16-11
+2025-05-09,4,1,False,USC,UCLA,Karl Lee,Alexander Hoogmartens,"6-4, 3-6, 3-6",Alexander Hoogmartens,19-8,16-11
+2025-05-09,5,5,True,USC,UCLA,Volodymyr Iakubenko,Spencer Johnson,"7-6(6), 4-6, 4-6",Spencer Johnson,19-8,16-11
+2025-05-09,6,4,False,USC,UCLA,Connor Church,Aadarsh Tripathi,"7-5, 6-7(5), 6-4",Connor Church,19-8,16-11
+2025-05-03,1,4,False,UCLA,California,Rudy Quan,Carl Emil Overbeck,"7-5, 5-7, 3-6",Carl Emil Overbeck,19-5,18-8
+2025-05-03,2,0,False,UCLA,California,Emon van Loben Sels,Alex Chang,"3-6, 7-5, 5-5",Unfinished,19-5,18-8
+2025-05-03,3,3,False,UCLA,California,Kaylan Bigun,Theo Dean,"4-6, 6-3, 7-6(4)",Kaylan Bigun,19-5,18-8
+2025-05-03,4,5,True,UCLA,California,Alexander Hoogmartens,Timofey Stepanov,"7-6(7), 1-6, 6-3",Alexander Hoogmartens,19-5,18-8
+2025-05-03,5,1,False,UCLA,California,Spencer Johnson,Derrick Chen,"6-2, 6-3",Spencer Johnson,19-5,18-8
+2025-05-03,6,2,False,UCLA,California,Giacomo Revelli,Bernardo Munk Mesa,"6-4, 7-6(5)",Giacomo Revelli,19-5,18-8
+2025-05-02,1,0,False,UC Santa Barbara,UCLA,Gianluca Brunkow,Rudy Quan,"7-5, 2-6, 1-0",Unfinished,17-8,18-5
+2025-05-02,2,0,False,UC Santa Barbara,UCLA,Dominique Rolland,Emon van Loben Sels,"6-4, 4-4",Unfinished,17-8,18-5
+2025-05-02,3,1,False,UC Santa Barbara,UCLA,Lucca Liu,Kaylan Bigun,"3-6, 2-6",Kaylan Bigun,17-8,18-5
+2025-05-02,4,0,False,UC Santa Barbara,UCLA,Diogo Morais,Alexander Hoogmartens,"6-4, 3-6, 2-1",Unfinished,17-8,18-5
+2025-05-02,5,2,False,UC Santa Barbara,UCLA,Charlie Underwood,Spencer Johnson,"6-7(3), 2-6",Spencer Johnson,17-8,18-5
+2025-05-02,6,3,True,UC Santa Barbara,UCLA,Matei Gavrea,Giacomo Revelli,"3-6, 5-7",Giacomo Revelli,17-8,18-5
+2025-04-27,1,2,False,UCLA,Ohio State,Rudy Quan,Aidan Kim,"6-7(3), 2-6",Aidan Kim,26-3,16-8
+2025-04-27,2,6,True,UCLA,Ohio State,Emon van Loben Sels,Alexander Bernard,"7-6(5), 5-7, 6-3",Emon van Loben Sels,26-3,16-8
+2025-04-27,3,3,False,UCLA,Ohio State,Kaylan Bigun,Will Jansen,"6-2, 7-5",Kaylan Bigun,26-3,16-8
+2025-04-27,4,5,False,UCLA,Ohio State,Alexander Hoogmartens,Jack Anthrop,"7-5, 0-6, 6-4",Alexander Hoogmartens,26-3,16-8
+2025-04-27,5,1,False,UCLA,Ohio State,Spencer Johnson,Bryce Nakashima,"2-6, 4-6",Bryce Nakashima,26-3,16-8
+2025-04-27,6,4,False,UCLA,Ohio State,Aadarsh Tripathi,Preston Stearns,"3-6, 6-2, 2-6",Preston Stearns,26-3,16-8
+2025-04-26,1,0,False,Michigan State,UCLA,Aritotelis Thanos,Rudy Quan,"6-4, 1-3",Unfinished,15-8,16-9
+2025-04-26,2,0,False,Michigan State,UCLA,Ozan Baris,Emon van Loben Sels,"5-7, 2-3",Unfinished,15-8,16-9
+2025-04-26,3,2,False,Michigan State,UCLA,Max Sheldon,Kaylan Bigun,"4-6, 1-6",Kaylan Bigun,15-8,16-9
+2025-04-26,4,0,False,Michigan State,UCLA,Matthew Forbes,Alexander Hoogmartens,"6-3, 0-5",Unfinished,15-8,16-9
+2025-04-26,5,1,False,Michigan State,UCLA,Mitchell Sheldon,Spencer Johnson,"2-6, 3-6",Spencer Johnson,15-8,16-9
+2025-04-26,6,3,True,Michigan State,UCLA,Vuk Radjenovic,Giacomo Revelli,"3-6, 4-6",Giacomo Revelli,15-8,16-9
+2025-04-25,1,0,False,Michigan,UCLA,Will Cooksey,Rudy Quan,"3-6, 6-5",Unfinished,14-8,15-12
+2025-04-25,2,3,False,Michigan,UCLA,Bjorn Swenson,Emon van Loben Sels,"6-4, 6-4",Bjorn Swenson,14-8,15-12
+2025-04-25,3,2,False,Michigan,UCLA,Patorn Hanchaikul,Kaylan Bigun,"3-6, 1-6",Kaylan Bigun,14-8,15-12
+2025-04-25,4,0,False,Michigan,UCLA,Nicholas Steiglehner,Alexander Hoogmartens,"6-2, 3-6, 2-2",Unfinished,14-8,15-12
+2025-04-25,5,1,False,Michigan,UCLA,Alex Cairo,Spencer Johnson,"1-6, 1-6",Spencer Johnson,14-8,15-12
+2025-04-25,6,4,True,Michigan,UCLA,Mert Oral,Giacomo Revelli,"4-6, 3-6",Giacomo Revelli,14-8,15-12
+2025-04-20,1,0,False,UCLA,Nebraska,Rudy Quan,Calvin Mueller,"3-6, 6-3, 6-1",Rudy Quan,15-8,13-8
+2025-04-20,2,3,False,UCLA,Nebraska,Emon van Loben Sels,Anton Shepp,"6-3, 3-6, 4-6",Anton Shepp,15-8,13-8
+2025-04-20,3,4,True,UCLA,Nebraska,Kaylan Bigun,Nikolay Sysoev,"6-7(5), 6-1, 7-6(6)",Kaylan Bigun,15-8,13-8
+2025-04-20,4,1,False,UCLA,Nebraska,Alexander Hoogmartens,Lars Johann,"6-4, 6-4",Alexander Hoogmartens,15-8,13-8
+2025-04-20,5,0,False,UCLA,Nebraska,Spencer Johnson,Roni Hietaranta,"6-3, 4-6, 6-6",Unfinished,15-8,13-8
+2025-04-20,6,0,False,UCLA,Nebraska,Aadarsh Tripathi,Leo Linquet,"3-6, 6-4, 5-5",Unfinished,15-8,13-8
+2025-04-18,1,0,False,UCLA,Wisconsin,Rudy Quan,Michael Minasyan,"6-2, 3-6",Unfinished,9-11,12-8
+2025-04-18,2,2,False,UCLA,Wisconsin,Emon van Loben Sels,Patrik Meszaros,"6-4, 6-1",Emon van Loben Sels,9-11,12-8
+2025-04-18,3,3,True,UCLA,Wisconsin,Kaylan Bigun,Edouard Aubert,"7-5, 6-1",Kaylan Bigun,9-11,12-8
+2025-04-18,4,0,False,UCLA,Wisconsin,Spencer Johnson,Matthew Fullerton,"1-6, 5-5",Unfinished,9-11,12-8
+2025-04-18,5,1,False,UCLA,Wisconsin,Alexander Hoogmartens,Tomas Zlatohlavek,"6-1, 6-4",Alexander Hoogmartens,9-11,12-8
+2025-04-18,6,0,False,UCLA,Wisconsin,Aadarsh Tripathi,Sachiv Kumar,6-7(9),Unfinished,9-11,12-8
+2025-04-13,1,1,False,Michigan State,UCLA,Ozan Baris,Rudy Quan,"1-6, 2-6",Rudy Quan,11-8,14-8
+2025-04-13,2,3,False,Michigan State,UCLA,Max Sheldon,Emon van Loben Sels,"2-6, 4-6",Emon van Loben Sels,11-8,14-8
+2025-04-13,3,0,False,Michigan State,UCLA,Matthew Forbes,Kaylan Bigun,"3-6, 4-5",Unfinished,11-8,14-8
+2025-04-13,4,2,False,Michigan State,UCLA,Vuk Radjenovic,Alexander Hoogmartens,"6-3, 1-6, 1-6",Alexander Hoogmartens,11-8,14-8
+2025-04-13,5,4,True,Michigan State,UCLA,Mitchell Sheldon,Aadarsh Tripathi,"4-6, 4-6",Aadarsh Tripathi,11-8,14-8
+2025-04-13,6,0,False,Michigan State,UCLA,D. Rakhmatullayev,Giacomo Revelli,"5-7, 3-4",Unfinished,11-8,14-8
+2025-04-11,1,4,True,Michigan,UCLA,Will Cooksey,Rudy Quan,"3-6, 3-6",Rudy Quan,10-8,14-9
+2025-04-11,2,0,False,Michigan,UCLA,Bjorn Swenson,Emon van Loben Sels,"5-7, 1-5",Unfinished,10-8,14-9
+2025-04-11,3,0,False,Michigan,UCLA,Patorn Hanchaikul,Kaylan Bigun,"3-6, 6-3, 1-1",Unfinished,10-8,14-9
+2025-04-11,4,1,False,Michigan,UCLA,Nicholas Steiglehner,Alexander Hoogmartens,"4-6, 3-6",Alexander Hoogmartens,10-8,14-9
+2025-04-11,5,3,False,Michigan,UCLA,Alex Cairo,Gianluca Ballotta,"3-6, 2-6",Gianluca Ballotta,10-8,14-9
+2025-04-11,6,2,False,Michigan,UCLA,Mert Oral,Giacomo Revelli,"2-6, 3-6",Giacomo Revelli,10-8,14-9
+2025-04-06,1,2,False,UCLA,Penn State,Rudy Quan,Charl Morgan,"6-3, 6-3",Rudy Quan,11-11,9-8
+2025-04-06,2,0,False,UCLA,Penn State,Emon van Loben Sels,Sam Bossem,"6-1, 5-6",Unfinished,11-11,9-8
+2025-04-06,3,3,True,UCLA,Penn State,Kaylan Bigun,Marcus Schoeman,"6-4, 6-2",Kaylan Bigun,11-11,9-8
+2025-04-06,4,1,False,UCLA,Penn State,Alexander Hoogmartens,Reiya Hattori,"6-2, 6-3",Alexander Hoogmartens,11-11,9-8
+2025-04-06,5,0,False,UCLA,Penn State,Giacomo Revelli,Shrikeshav Murugesan,0-0,Unfinished,11-11,9-8
+2025-04-06,6,0,False,UCLA,Penn State,Gianluca Ballotta,Nolan Ranger,0-0,Unfinished,11-11,9-8
+2025-04-04,1,0,False,UCLA,Ohio State,Rudy Quan,Alexander Bernard,"6-7(5), 6-0, 1-3",Unfinished,19-2,8-8
+2025-04-04,2,0,False,UCLA,Ohio State,Emon van Loben Sels,Aidan Kim,"7-5, 4-6",Unfinished,19-2,8-8
+2025-04-04,3,3,True,UCLA,Ohio State,Kaylan Bigun,Will Jansen,"3-6, 6-7(7)",Will Jansen,19-2,8-8
+2025-04-04,4,1,False,UCLA,Ohio State,Alexander Hoogmartens,Jack Anthrop,"1-6, 3-6",Jack Anthrop,19-2,8-8
+2025-04-04,5,0,False,UCLA,Ohio State,Aadarsh Tripathi,Bryce Nakashima,"5-7, 3-4",Unfinished,19-2,8-8
+2025-04-04,6,2,False,UCLA,Ohio State,Giacomo Revelli,Brandon Carpico,"0-6, 6-7(5)",Brandon Carpico,19-2,8-8
+2025-04-01,1,3,False,UCLA,USC,Rudy Quan,Peter Makk,"4-6, 4-6",Peter Makk,11-6,8-7
+2025-04-01,2,2,False,UCLA,USC,Kaylan Bigun,Nathan Trouve,"6-1, 0-6, 1-6",Nathan Trouve,11-6,8-7
+2025-04-01,3,4,False,UCLA,USC,Emon van Loben Sels,Volodymyr Iakubenko,"7-6(4), 6-4",Emon van Loben Sels,11-6,8-7
+2025-04-01,4,6,True,UCLA,USC,Alexander Hoogmartens,Oscar Weightman,"7-5, 4-6, 3-6",Oscar Weightman,11-6,8-7
+2025-04-01,5,5,False,UCLA,USC,Aadarsh Tripathi,Matteo Morazzi,"7-5, 2-6, 6-1",Aadarsh Tripathi,11-6,8-7
+2025-04-01,6,1,False,UCLA,USC,Giacomo Revelli,Karl Lee,"2-6, 4-6",Karl Lee,11-6,8-7
+2025-03-30,1,0,False,Washington,UCLA,Cesar Bouchelaghem,Rudy Quan,"4-6, 4-4",Unfinished,8-6,11-6
+2025-03-30,2,0,False,Washington,UCLA,Dzianis Zharyn,Emon van Loben Sels,"3-6, 4-5",Unfinished,8-6,11-6
+2025-03-30,3,0,False,Washington,UCLA,Soham Purohit,Kaylan Bigun,"7-5, 1-6",Unfinished,8-6,11-6
+2025-03-30,4,3,True,Washington,UCLA,Nedim Suko,Alexander Hoogmartens,"2-6, 3-6",Alexander Hoogmartens,8-6,11-6
+2025-03-30,5,2,False,Washington,UCLA,Ivan Sodan,Aadarsh Tripathi,"4-6, 2-6",Aadarsh Tripathi,8-6,11-6
+2025-03-30,6,1,False,Washington,UCLA,Rohan Belday,Giacomo Revelli,"1-6, 4-6",Giacomo Revelli,8-6,11-6
+2025-03-29,1,0,False,Oregon,UCLA,Lenn Luemkemann,Rudy Quan,"3-6, 3-5",Unfinished,7-6,9-9
+2025-03-29,2,3,True,Oregon,UCLA,Vlad Breazu,Emon van Loben Sels,"2-6, 4-6",Emon van Loben Sels,7-6,9-9
+2025-03-29,3,2,False,Oregon,UCLA,Paris Pouatcha,Kaylan Bigun,"3-6, 3-6",Kaylan Bigun,7-6,9-9
+2025-03-29,4,0,False,Oregon,UCLA,Clement Lemire,Aadarsh Tripathi,"6-4, 3-4",Unfinished,7-6,9-9
+2025-03-29,5,0,False,Oregon,UCLA,Matthew Burton,Gianluca Ballotta,"6-3, 2-6, 1-1",Unfinished,7-6,9-9
+2025-03-29,6,1,False,Oregon,UCLA,Lachlan Robertson,Giacomo Revelli,"0-6, 2-6",Giacomo Revelli,7-6,9-9
+2025-03-23,1,0,False,UCLA,Northwestern,Rudy Quan,Saiprakash Goli,"5-7, 3-3",Unfinished,10-10,6-6
+2025-03-23,2,2,False,UCLA,Northwestern,Emon van Loben Sels,Felix Nordby,"6-2, 6-4",Emon van Loben Sels,10-10,6-6
+2025-03-23,3,0,False,UCLA,Northwestern,Alexander Hoogmartens,Greyson Casey,"7-5, 3-4",Unfinished,10-10,6-6
+2025-03-23,4,3,True,UCLA,Northwestern,Aadarsh Tripathi,Max Bengtsson,"6-2, 7-5",Aadarsh Tripathi,10-10,6-6
+2025-03-23,5,0,False,UCLA,Northwestern,Gianluca Ballotta,Chad Miller,"6-4, 3-6",Unfinished,10-10,6-6
+2025-03-23,6,1,False,UCLA,Northwestern,Giacomo Revelli,Vincent Yang,"6-3, 6-4",Giacomo Revelli,10-10,6-6
+2025-03-21,1,0,False,UCLA,Illinois,Rudy Quan,Kenta Miyoshi,"6-7(5), 1-5",Unfinished,9-6,5-6
+2025-03-21,2,0,False,UCLA,Illinois,Kaylan Bigun,William Mroz,"2-6, 6-3, 0-4",Unfinished,9-6,5-6
+2025-03-21,3,4,True,UCLA,Illinois,Emon van Loben Sels,Jeremy Zhang,"6-1, 6-4",Emon van Loben Sels,9-6,5-6
+2025-03-21,4,1,False,UCLA,Illinois,Alexander Hoogmartens,Tyler Bowers,"6-1, 6-0",Alexander Hoogmartens,9-6,5-6
+2025-03-21,5,2,False,UCLA,Illinois,Aadarsh Tripathi,Zach Viiala,"6-4, 6-0",Aadarsh Tripathi,9-6,5-6
+2025-03-21,6,3,False,UCLA,Illinois,Giacomo Revelli,Mathis Debru,"4-6, 4-6",Mathis Debru,9-6,5-6
+2025-03-09,1,4,False,Purdue,UCLA,Aleksa Krivokapic,Rudy Quan,"6-4, 3-6, 0-1",Rudy Quan,4-6,8-3
+2025-03-09,2,1,False,Purdue,UCLA,Juan David Velasquez,Kaylan Bigun,"0-6, 2-6",Kaylan Bigun,4-6,8-3
+2025-03-09,3,2,False,Purdue,UCLA,Henrik Villanger,Emon van Loben Sels,"2-6, 1-6",Emon van Loben Sels,4-6,8-3
+2025-03-09,4,5,False,Purdue,UCLA,Stefan Simeunovic,Alexander Hoogmartens,"5-7, 1-6",Alexander Hoogmartens,4-6,8-3
+2025-03-09,5,6,True,Purdue,UCLA,Maj Premzl,Gianluca Ballotta,"2-6, 6-7(4)",Gianluca Ballotta,4-6,8-3
+2025-03-09,6,3,False,Purdue,UCLA,Nour Fathalla,Giacomo Revelli,"3-6, 1-6",Giacomo Revelli,4-6,8-3
+2025-03-07,1,2,False,Indiana,UCLA,Deacon Thomas,Rudy Quan,"2-6, 4-6",Rudy Quan,3-6,9-3
+2025-03-07,2,1,False,Indiana,UCLA,Jip van Assendelft,Kaylan Bigun,"3-6, 3-6",Kaylan Bigun,3-6,9-3
+2025-03-07,3,3,False,Indiana,UCLA,Ben Pomeranets,Emon van Loben Sels,"3-6, 2-6",Emon van Loben Sels,3-6,9-3
+2025-03-07,4,6,True,Indiana,UCLA,Sam Scherer,Alexander Hoogmartens,"6-7(3), 6-3, 0-1",Alexander Hoogmartens,3-6,9-3
+2025-03-07,5,5,False,Indiana,UCLA,Braedon Gelletich,Aadarsh Tripathi,"3-6, 4-6",Aadarsh Tripathi,3-6,9-3
+2025-03-07,6,4,False,Indiana,UCLA,Karan Raghavendra,Gianluca Ballotta,"2-6, 2-6",Gianluca Ballotta,3-6,9-3
+2025-02-22,1,4,False,USC,UCLA,Peter Makk,Rudy Quan,"2-6, 3-6",Rudy Quan,2-6,6-3
+2025-02-22,2,2,False,USC,UCLA,Nathan Trouve,Kaylan Bigun,"7-5, 6-2",Nathan Trouve,2-6,6-3
+2025-02-22,3,1,False,USC,UCLA,Oscar Weightman,Emon van Loben Sels,"2-6, 1-6",Emon van Loben Sels,2-6,6-3
+2025-02-22,4,3,False,USC,UCLA,Volodymyr Iakubenko,Alexander Hoogmartens,"3-6, 2-6",Alexander Hoogmartens,2-6,6-3
+2025-02-22,5,5,False,USC,UCLA,Matteo Morazzi,Aadarsh Tripathi,"6-3, 1-6, 6-4",Matteo Morazzi,2-6,6-3
+2025-02-22,6,6,True,USC,UCLA,Karl Lee,Gianluca Ballotta,"7-5, 2-6, 6-2",Karl Lee,2-6,6-3
+2025-02-16,1,3,False,Pepperdine,UCLA,Edward Winter,Rudy Quan,"4-6, 6-0, 6-2",Edward Winter,2-5,6-4
+2025-02-16,2,1,False,Pepperdine,UCLA,Maxi Homberg,Kaylan Bigun,"2-6, 3-6",Kaylan Bigun,2-5,6-4
+2025-02-16,3,5,True,Pepperdine,UCLA,L. Carlsson Halldin,Emon van Loben Sels,"6-7(5), 6-4, 7-6(3)",L. Carlsson Halldin,2-5,6-4
+2025-02-16,4,2,False,Pepperdine,UCLA,Aleksa Pisaric,Alexander Hoogmartens,"6-7(3), 4-6",Alexander Hoogmartens,2-5,6-4
+2025-02-16,5,4,False,Pepperdine,UCLA,Lasse Poertner,Aadarsh Tripathi,"7-6(3), 7-6(5)",Lasse Poertner,2-5,6-4
+2025-02-16,6,0,False,Pepperdine,UCLA,David Fix,Gianluca Ballotta,"7-6(3), 6-7(3), 4-5",Unfinished,2-5,6-4
+2025-02-02,1,2,False,Stanford,UCLA,Samir Banerjee,Spencer Johnson,"6-3, 3-6, 6-4",Samir Banerjee,2-4,5-1
+2025-02-02,2,0,False,Stanford,UCLA,Max Basing,Emon van Loben Sels,"6-3, 4-6, 2-5",Unfinished,2-4,5-1
+2025-02-02,3,1,False,Stanford,UCLA,von der Schulenburg,Alexander Hoogmartens,"6-4, 6-4",von der Schulenburg,2-4,5-1
+2025-02-02,4,3,True,Stanford,UCLA,Hudson Rivera,Aadarsh Tripathi,"4-6, 7-5, 6-3",Hudson Rivera,2-4,5-1
+2025-02-02,5,0,False,Stanford,UCLA,Nico Godsick,Giacomo Revelli,"7-6(1), 6-7(3), 3-4",Unfinished,2-4,5-1
+2025-02-02,6,0,False,Stanford,UCLA,Alex Razeghi,Gianluca Ballotta,"4-6, 7-6(7), 0-1",Unfinished,2-4,5-1
+2025-02-01,1,5,True,California,UCLA,Carl Emil Overbeck,Rudy Quan,"6-7(5), 6-3, 6-4",Carl Emil Overbeck,2-3,5-0
+2025-02-01,2,0,False,California,UCLA,Alex Chang,Spencer Johnson,"6-7(1), 7-6(5), 2-2",Unfinished,2-3,5-0
+2025-02-01,3,2,False,California,UCLA,Theo Dean,Emon van Loben Sels,"4-6, 3-6",Emon van Loben Sels,2-3,5-0
+2025-02-01,4,1,False,California,UCLA,Derrick Chen,Alexander Hoogmartens,"3-6, 1-6",Alexander Hoogmartens,2-3,5-0
+2025-02-01,5,3,False,California,UCLA,Timofey Stepanov,Giacomo Revelli,"6-4, 6-4",Timofey Stepanov,2-3,5-0
+2025-02-01,6,4,False,California,UCLA,Bernardo Munk Mesa,Gianluca Ballotta,"7-6(5), 6-4",Bernardo Munk Mesa,2-3,5-0
+2025-01-26,1,5,True,Georgia,UCLA,Thomas Paulsell,Spencer Johnson,"2-6, 6-7(3)",Spencer Johnson,2-2,2-2
+2025-01-26,2,3,False,Georgia,UCLA,Ryan Colby,Rudy Quan,"2-6, 3-6",Rudy Quan,2-2,2-2
+2025-01-26,3,4,False,Georgia,UCLA,Miguel Perez Pena,Kaylan Bigun,"7-5, 6-4",Miguel Perez Pena,2-2,2-2
+2025-01-26,4,0,False,Georgia,UCLA,Niels Ratiu,Emon van Loben Sels,"3-6, 6-4",Unfinished,2-2,2-2
+2025-01-26,5,1,False,Georgia,UCLA,Oscar Pinto Sansano,Alexander Hoogmartens,"1-6, 5-7",Alexander Hoogmartens,2-2,2-2
+2025-01-26,6,2,False,Georgia,UCLA,Gabriele Vulpitta,Aadarsh Tripathi,"1-6, 3-6",Aadarsh Tripathi,2-2,2-2
+2025-01-25,1,2,False,UCLA,Texas A+M,Spencer Johnson,Theo Papamalamis,"3-6, 1-6",Theo Papamalamis,2-0,1-2
+2025-01-25,2,6,True,UCLA,Texas A+M,Rudy Quan,JC Roddick,"3-6, 6-2, 3-6",JC Roddick,2-0,1-2
+2025-01-25,3,3,False,UCLA,Texas A+M,Kaylan Bigun,Luke Casper,"4-6, 3-6",Luke Casper,2-0,1-2
+2025-01-25,4,4,False,UCLA,Texas A+M,Emon van Loben Sels,Tiago Pires,"6-2, 6-3",Emon van Loben Sels,2-0,1-2
+2025-01-25,5,5,False,UCLA,Texas A+M,Alexander Hoogmartens,Togan Tokac,"6-4, 6-3",Alexander Hoogmartens,2-0,1-2
+2025-01-25,6,1,False,UCLA,Texas A+M,Aadarsh Tripathi,Giulio Perego,"2-6, 2-6",Giulio Perego,2-0,1-2
+2025-01-20,1,5,False,San Diego,UCLA,Oliver Tarvet,Spencer Johnson,"7-6(2), 6-4",Oliver Tarvet,1-1,2-0
+2025-01-20,2,4,False,San Diego,UCLA,Iiro Vasa,Rudy Quan,"3-6, 6-7(5)",Rudy Quan,1-1,2-0
+2025-01-20,3,3,False,San Diego,UCLA,Savriyan Danilov,Kaylan Bigun,"6-3, 5-7, 2-0",Savriyan Danilov,1-1,2-0
+2025-01-20,4,6,True,San Diego,UCLA,Stian Klaassen,Emon van Loben Sels,"6-4, 5-7, 6-4",Stian Klaassen,1-1,2-0
+2025-01-20,5,2,False,San Diego,UCLA,Adrien Berrut,Alexander Hoogmartens,"7-5, 6-4",Adrien Berrut,1-1,2-0
+2025-01-20,6,1,False,San Diego,UCLA,Neo Niedner,Aadarsh Tripathi,"3-6, 1-6",Aadarsh Tripathi,1-1,2-0
+2025-01-17,1,2,False,UCLA,UC Irvine,Spencer Johnson,Noah Zamora,"6-3, 6-4",Spencer Johnson,0-1,1-0
+2025-01-17,2,3,False,UCLA,UC Irvine,Rudy Quan,Andy Nguyen,"6-4, 6-3",Rudy Quan,0-1,1-0
+2025-01-17,3,0,False,UCLA,UC Irvine,Kaylan Bigun,Hiroki Sakagawa,"6-7(7), 2-5",Unfinished,0-1,1-0
+2025-01-17,4,0,False,UCLA,UC Irvine,Emon van Loben Sels,Rithvik Krishna,"7-6(3), 4-5",Unfinished,0-1,1-0
+2025-01-17,5,1,False,UCLA,UC Irvine,Alexander Hoogmartens,Lawee Sherif,"6-2, 6-3",Alexander Hoogmartens,0-1,1-0
+2025-01-17,6,4,True,UCLA,UC Irvine,Aadarsh Tripathi,Ruining Huang,"6-4, 7-6(4)",Aadarsh Tripathi,0-1,1-0
