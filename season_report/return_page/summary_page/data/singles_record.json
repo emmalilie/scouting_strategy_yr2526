@@ -1,0 +1,16 @@
+{
+    "records": [
+        {
+            "type": "Overall Record",
+            "total": 23,
+            "won": 13,
+            "lost": 10
+        },
+        {
+            "type": "Conference Record",
+            "total": 6,
+            "won": 6,
+            "lost": 0
+        }
+    ]
+}

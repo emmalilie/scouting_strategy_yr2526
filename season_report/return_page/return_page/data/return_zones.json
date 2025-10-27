@@ -1,0 +1,62 @@
+{
+  "returns": [
+    {
+      "type": "First Return",
+      "sides": {
+        "deuce": {
+          "Forehand": {
+            "Cross Court": 30,
+            "Down the Line": 31,
+            "Middle": 60
+          },
+          "Backhand": {
+            "Cross Court": 32,
+            "Down the Line": 28,
+            "Middle": 58
+          }
+        },
+        "ad": {
+          "Forehand": {
+            "Cross Court": 11,
+            "Down the Line": 9,
+            "Middle": 42
+          },
+          "Backhand": {
+            "Cross Court": 33,
+            "Down the Line": 29,
+            "Middle": 80
+          }
+        }
+      }
+    },
+    {
+      "type": "Second Return",
+      "sides": {
+        "deuce": {
+          "Forehand": {
+            "Cross Court": 29,
+            "Down the Line": 23,
+            "Middle": 45
+          },
+          "Backhand": {
+            "Cross Court": 14,
+            "Down the Line": 11,
+            "Middle": 28
+          }
+        },
+        "ad": {
+          "Forehand": {
+            "Cross Court": 6,
+            "Down the Line": 5,
+            "Middle": 17
+          },
+          "Backhand": {
+            "Cross Court": 38,
+            "Down the Line": 30,
+            "Middle": 50
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>High-Res Full Court</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/save-svg-as-png/1.4.17/saveSvgAsPng.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+    svg {
+      width: 800px;
+      height: 1000px;
+      display: block;
+      background: #86AC91;
+    }
+  </style>
+</head>
+<body>
+  <svg id="court" width="800" height="1000" viewBox="0 0 800 1000"></svg>
+  <button onclick="exportSvgToPng('court', 'first_ad_forehand_return_court')">Download PNG</button>
+
+  <script>
+    const svg = d3.select("#court");
+
+    // Set court size
+    const courtWidth = 400;
+    const courtHeight = 740;
+
+    // Set court coordinate scaling based on SwingVision-style dimensions
+    const xScale = d3.scaleLinear()
+        .domain([-210, 210])              // full court width
+        .range([0, courtWidth]);          // svg width
+    const yScale = d3.scaleLinear()
+        .domain([-455, 455])              // full court length
+        .range([courtHeight, 0]);         // svg height (flip Y)
+
+    const courtGroup = svg.append("g").attr("transform", "translate(200, 60)");
+
+    // Court background (full width: -210 to 210, full length: -455 to 455)
+    courtGroup.append("rect")
+        .attr("x", xScale(-210))
+        .attr("y", yScale(455))
+        .attr("width", xScale(210) - xScale(-210))
+        .attr("height", yScale(-455) - yScale(455))
+        .attr("fill", "#6092CE");
+
+    // Court lines
+    const courtLines = [
+        { x1: -210, y1: -455, x2: -210, y2: 455 },    // left doubles
+        { x1: 210, y1: -455, x2: 210, y2: 455 },      // right doubles
+        { x1: -157.5, y1: -455, x2: -157.5, y2: 455 },// left singles
+        { x1: 157.5, y1: -455, x2: 157.5, y2: 455 },  // right singles
+        { x1: -212, y1: 455, x2: 212, y2: 455 },      // far baseline
+        { x1: -212, y1: -455, x2: 212, y2: -455 },    // near baseline
+        { x1: -250, y1: 0, x2: 250, y2: 0 },          // net
+        { x1: -157.5, y1: 245, x2: 157.5, y2: 245 },  // far service line
+        { x1: -157.5, y1: -245, x2: 157.5, y2: -245 },// near service line
+        { x1: 0, y1: -245, x2: 0, y2: 245 }           // center service line
+        ];
+
+    courtLines.forEach(line => {
+    courtGroup.append("line")
+        .attr("x1", xScale(line.x1))
+        .attr("y1", yScale(line.y1))
+        .attr("x2", xScale(line.x2))
+        .attr("y2", yScale(line.y2))
+        .attr("stroke", "white")
+        .attr("stroke-width", line.width || 4);
+    });
+
+    // Hash marks at center baseline
+    courtGroup.append("line") // Top baseline center hash
+        .attr("x1", xScale(0))
+        .attr("x2", xScale(0))
+        .attr("y1", yScale(455))
+        .attr("y2", yScale(455) + 10)
+        .attr("stroke", "white")
+        .attr("stroke-width", 4);
+
+    courtGroup.append("line") // Bottom baseline center hash
+        .attr("x1", xScale(0))
+        .attr("x2", xScale(0))
+        .attr("y1", yScale(-455))
+        .attr("y2", yScale(-455) - 10)
+        .attr("stroke", "white")
+        .attr("stroke-width", 4);
+
+    
+    // ADD THE BALLS
+
+    d3.csv("../data/first_ad_forehand_return_court.csv").then(function(data) {
+        const shapeSize = 8;
+
+        data.forEach(d => {
+        d.shotContactX = +d.shotContactX;
+        d.shotContactY = +d.shotContactY;
+        d.shotLocationX = +d.shotLocationX;
+        d.shotLocationY = +d.shotLocationY;
+
+        // --- Determine color ---
+        const color =
+            d.Result === "Out" || d.Result === "Net" ? "#808080" :
+            d.Result === "host" ? "#2BB673" :
+            d.Result === "guest" ? "#DD3333" : "black";
+
+
+        // --- OPTIONAL: Add Court Lines ---
+        // courtGroup.append("line")
+        //     .attr("x1", xScale(d.shotContactX))
+        //     .attr("y1", yScale(d.shotContactY))
+        //     .attr("x2", xScale(d.shotLocationX))
+        //     .attr("y2", yScale(d.shotLocationY))
+        //     .attr("stroke", color)
+        //     .attr("stroke-width", 1)
+        //     .attr("stroke-opacity", 0.7);
+
+        // --- Bottom half: returner contact ---
+        const cxReturn = xScale(d.shotContactX);
+        const cyReturn = yScale(d.shotContactY);
+
+        if (d.Stroke === "Forehand") {
+            courtGroup.append("circle")
+            .attr("cx", cxReturn)
+            .attr("cy", cyReturn)
+            .attr("r", shapeSize / 2)
+            .attr("fill", color)
+            .attr("stroke", "black")
+            .attr("stroke-width", 0.2);
+        } else if (d.Stroke === "Backhand") {
+            courtGroup.append("path")
+            .attr("d", d3.symbol().type(d3.symbolTriangle).size((shapeSize - 2) ** 2)())
+            .attr("transform", `translate(${cxReturn}, ${cyReturn})`)
+            .attr("fill", color)
+            .attr("stroke", "black")
+            .attr("stroke-width", 0.2);
+        }
+
+        // --- Top half: ball landing ---
+        const cxLand = xScale(d.shotLocationX);
+        const cyLand = yScale(d.shotLocationY);
+
+        if (d.Stroke === "Forehand") {
+            courtGroup.append("circle")
+            .attr("cx", cxLand)
+            .attr("cy", cyLand)
+            .attr("r", shapeSize / 2)
+            .attr("fill", color)
+            .attr("stroke", "black")
+            .attr("stroke-width", 0.2);
+        } else if (d.Stroke === "Backhand") {
+            courtGroup.append("path")
+            .attr("d", d3.symbol().type(d3.symbolTriangle).size((shapeSize - 2) ** 2)())
+            .attr("transform", `translate(${cxLand}, ${cyLand})`)
+            .attr("fill", color)
+            .attr("stroke", "black")
+            .attr("stroke-width", 0.2);
+        }
+        });
+    });
+
+    // Export to PNG
+    function exportSvgToPng(svgId, filename, scale = 5) {
+      const svgElement = document.getElementById(svgId);
+      saveSvgAsPng(svgElement, filename + ".png", {
+        scale: scale,
+        backgroundColor: null
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+
+    
+
+
+

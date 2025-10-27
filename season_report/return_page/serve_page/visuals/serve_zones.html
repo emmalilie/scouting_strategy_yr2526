@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Serve Placement Zones</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f5f5f5;
+      font-family: 'Clash Display', sans-serif;
+      font-size: 8px;
+      margin: 0;
+      padding: 40px 0;
+    }
+
+    .chart-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .chart-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button {
+      margin: 5px 0;
+      padding: 4px 8px;
+      border: none;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+      font-family: 'Clash Display', sans-serif;
+      font-size: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="download-all">Download All PNGs</button>
+  <div class="chart-container" id="charts"></div>
+
+  <script>
+    d3.json("../data/serve_zones.json").then(function (data) {
+      const barWidth = 273;
+      const barHeight = 24;
+      const spacing = 2; // spacing between zones
+      const totalZoneWidth = barWidth - (spacing * 2); // 273 - 4 = 269
+      const margin = 2; // 1px on left and right (not vertical)
+      const colors = ["#012B46", "#005586", "#3B92D6"];
+      const chartIds = [];
+
+      function normalizeSide(side) {
+        const raw = [side.wide, side.body, side.t];
+        const total = d3.sum(raw);
+
+        const percentages = raw.map(v => (v / total) * 100);
+
+        const rounded1 = Math.round(percentages[0]);
+        const rounded2 = Math.round(percentages[1]);
+        const rounded3 = 100 - (rounded1 + rounded2); // force total to 100
+
+        return [rounded1, rounded2, rounded3];
+      }
+
+
+      const orderedLabels = [
+        { serve: "First Serve", side: "Deuce" },
+        { serve: "First Serve", side: "Ad" },
+        { serve: "Second Serve", side: "Deuce" },
+        { serve: "Second Serve", side: "Ad" }
+      ];
+
+      orderedLabels.forEach((entry, index) => {
+        const serveData = data.serves.find(d => d.type === entry.serve);
+        const values = normalizeSide(serveData.sides[entry.side.toLowerCase()]);
+
+        const wrapper = d3.select("#charts")
+          .append("div")
+          .attr("class", "chart-wrapper");
+
+        const id = `chart-${index}`;
+        chartIds.push({ id, label: `${entry.serve} ${entry.side}` });
+
+        const svg = wrapper.append("svg")
+          .attr("id", id)
+          .attr("width", barWidth + margin * 2)
+          .attr("height", barHeight)
+          .attr("xmlns", "http://www.w3.org/2000/svg")
+          .style("font-family", "'Clash Display', sans-serif");
+
+      let x = margin;
+      const totalZoneWidth = barWidth - spacing * 2;
+
+      values.forEach((val, i) => {
+        const width = (val / 100) * totalZoneWidth;
+
+        let rx = 2, ry = 2;
+        if (i === 0) { // Wide
+          rx = { tl: 10, bl: 10, tr: 2, br: 2 };
+        } else if (i === 1) { // Body
+          rx = { tl: 2, bl: 2, tr: 2, br: 2 };
+        } else if (i === 2) { // T
+          rx = { tl: 2, bl: 2, tr: 10, br: 10 };
+        }
+
+        const pathData = createRoundedRectPath(x, 0, width, barHeight, rx);
+
+        svg.append("path")
+          .attr("d", pathData)
+          .attr("fill", colors[i]);
+
+        svg.append("text")
+          .attr("x", x + width / 2)
+          .attr("y", barHeight / 2)
+          .attr("text-anchor", "middle")
+          .attr("dominant-baseline", "middle")
+          .attr("fill", "white")
+          .attr("font-size", "8px")
+          .text(`${val}%`);
+
+        x += width + spacing;
+      });
+
+
+        wrapper.append("button")
+          .text(`${entry.serve} ${entry.side}`)
+          .on("click", () => exportSvgToPng(id, `${entry.serve} ${entry.side}`));
+      });
+
+      document.getElementById("download-all").addEventListener("click", () => {
+        chartIds.forEach(({ id, label }, i) => {
+          setTimeout(() => exportSvgToPng(id, label), i * 500); // staggered delay to ensure render time
+        });
+      });
+
+      function createRoundedRectPath(x, y, width, height, r) {
+        // Ensure all corners are defined
+        const { tl = 0, tr = 0, br = 0, bl = 0 } = typeof r === 'object' ? r : {
+          tl: r, tr: r, br: r, bl: r
+        };
+
+        return `
+          M${x + tl},${y}
+          H${x + width - tr}
+          A${tr},${tr} 0 0 1 ${x + width},${y + tr}
+          V${y + height - br}
+          A${br},${br} 0 0 1 ${x + width - br},${y + height}
+          H${x + bl}
+          A${bl},${bl} 0 0 1 ${x},${y + height - bl}
+          V${y + tl}
+          A${tl},${tl} 0 0 1 ${x + tl},${y}
+          Z
+        `;
+      }
+
+
+      function exportSvgToPng(svgId, label) {
+        const svgElement = document.getElementById(svgId);
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svgElement);
+
+        const width = barWidth + margin * 2;
+        const height = barHeight;
+        const scale = 10;
+
+        const canvas = document.createElement("canvas");
+        canvas.width = width * scale;
+        canvas.height = height * scale;
+
+        const ctx = canvas.getContext("2d");
+        ctx.setTransform(scale, 0, 0, scale, 0, 0);
+
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+
+        img.onload = function () {
+          ctx.drawImage(img, 0, 0);
+          const png = canvas.toDataURL("image/png");
+
+          const a = document.createElement("a");
+          a.download = `${label.replace(/\s+/g, "_").toLowerCase()}_bar.png`;
+          a.href = png;
+          a.click();
+        };
+
+        img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgString)));
+      }
+
+    });
+  </script>
+</body>
+
+</html>

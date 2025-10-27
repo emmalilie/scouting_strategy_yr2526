@@ -1,0 +1,2 @@
+serve_state,side,return_in,return_won,best_return_zone,best_return_stroke,cross_placement_count,middle_placement_count,line_placement_count,cross_placement_won,middle_placement_won,line_placement_won,inside_contact_count,mid_contact_count,deep_contact_count,inside_contact_won,mid_contact_won,deep_contact_won
+second,deuce,85%,55%,Middle,BH,43,73,34,51.2%,52.1%,47.1%,98,37,15,55.1%,37.8%,53.3%

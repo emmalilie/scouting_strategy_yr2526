@@ -1,0 +1,16 @@
+{
+    "ratings": [
+        {
+            "type": "Serve",
+            "rating": 233.8
+        },
+        {
+            "type": "Return",
+            "rating": 191.0
+        },
+        {
+            "type": "Under Pressure",
+            "rating": 172.1
+        }
+    ]
+}
