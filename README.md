@@ -28,7 +28,11 @@ Currently contains:
 ---
 
 ## Setup
+Previous year repository:
+```bash
+https://github.com/cjgimena/consulting-spring2025.git
+```
 Clone the repository:
-
 ```bash
 https://github.com/emmalilie/scounting_strategy_yr2526.git
+```
