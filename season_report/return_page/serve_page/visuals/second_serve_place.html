@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Serve Placement</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/save-svg-as-png/1.4.17/saveSvgAsPng.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: transparent; /* No background for clean PNG */
+        font-family: 'Clash Display', sans-serif;
+    }
+
+    svg {
+        width: 700px;
+        height: 600px;
+        display: block;
+        background: transparent;
+    }
+
+    .dashed-line {
+      stroke: white;
+      stroke-width: 2;
+      stroke-dasharray: 5,5;
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background: transparent;">
+    <svg id="court" width="1000" height="800" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg"></svg>
+    <button onclick="exportSvgToPng('court', 'second_serve_placement')">Download PNG</button>
+
+</body>
+
+<script>
+Promise.all([d3.json("../data/second_serve_place.json"), d3.json("../data/second_serve_place_labels.json")]).then(function([serves_ucla, labels]) {
+    const svg = d3.select("svg");
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
+
+    const xScale = d3.scaleLinear()
+                    .domain([-350, 350])
+                    .range([0, width]);
+
+    const yScale = d3.scaleLinear()
+                    .domain([-150, 600])
+                    .range([height, 0]);
+
+    // Court background
+    svg.append("rect")
+    .attr("x", xScale(-210))
+    .attr("y", yScale(455))
+    .attr("width", xScale(210) - xScale(-210))
+    .attr("height", yScale(-25) - yScale(455))
+    .attr("fill", "#6092CE");
+
+    // Court lines
+    const courtLines = [
+        { x1: 210, y1: -25, x2: 210, y2: 455 },
+        { x1: -210, y1: -25, x2: -210, y2: 455 },
+        { x1: 157.5, y1: -25, x2: 157.5, y2: 455 },
+        { x1: -157.5, y1: -25, x2: -157.5, y2: 455 },
+        { x1: 240, y1: 0, x2: -240, y2: 0, width: 7 },
+        { x1: 0, y1: -25, x2: 0, y2: 245 },
+        { x1: 157.5, y1: 245, x2: -157.5, y2: 245 },
+        { x1: 211.25, y1: 455, x2: -211.25, y2: 455 },
+        { x1: 0, y1: 445, x2: 0, y2: 455 }
+    ];
+
+    courtLines.forEach(line => {
+        svg.append("line")
+            .attr("x1", xScale(line.x1))
+            .attr("y1", yScale(line.y1))
+            .attr("x2", xScale(line.x2))
+            .attr("y2", yScale(line.y2))
+            .attr("stroke", "white")
+            .attr("stroke-width", line.width || 4);
+    });
+
+    const zones = {
+        "Deuce Wide": { x: -155.5, width: 51.5, label: "Wide", side: "Deuce" },
+        "Deuce Body": { x: -104, width: 51.5, label: "Body", side: "Deuce" },
+        "Deuce T": { x: -52.5, width: 50.5, label: "T", side: "Deuce" },
+        "Ad T": { x: 2, width: 50.5, label: "T", side: "Ad" },
+        "Ad Body": { x: 52.5, width: 51.5, label: "Body", side: "Ad" },
+        "Ad Wide": { x: 104, width: 51.5, label: "Wide", side: "Ad" }
+    };
+
+    const sideServeCounts = { "Ad": 0, "Deuce": 0 };
+    let maxPercent = -Infinity;
+    let minPercent = Infinity;
+
+    labels.forEach(d => {
+        const proportion = d.proportion * 100;
+        maxPercent = Math.max(maxPercent, proportion);
+        minPercent = Math.min(minPercent, proportion);
+        sideServeCounts[d.side] += d.count;
+    });
+
+    labels.forEach(function(d) {
+        const zoneKey = `${d.side} ${d.serveInPlacement}`;
+        const zone = zones[zoneKey];
+        if (!zone) return;
+
+        const winPercent = d.proportion;
+        const fillRectColor = d.count / sideServeCounts[d.side] >= 0.4 ? "#16537E" : "#6FA8DC"; // Zone Colors here
+
+        svg.append("rect")
+            .attr("x", xScale(zone.x))
+            .attr("y", yScale(243))
+            .attr("width", xScale(zone.x + zone.width) - xScale(zone.x))
+            .attr("height", yScale(0) - yScale(240))
+            .attr("fill", fillRectColor)
+            .attr("stroke-width", 0);
+    });
+
+    // Add vertical dashed lines between serve zones
+    const zoneSeparators = [
+        zones["Deuce Wide"].x + zones["Deuce Wide"].width,
+        zones["Deuce Body"].x + zones["Deuce Body"].width,
+        zones["Ad T"].x + zones["Ad T"].width,
+        zones["Ad Body"].x + zones["Ad Body"].width
+    ];
+
+    zoneSeparators.forEach(xVal => {
+        svg.append("line")
+            .attr("x1", xScale(xVal))
+            .attr("y1", yScale(245))
+            .attr("x2", xScale(xVal))
+            .attr("y2", yScale(0) + 3)
+            .attr("stroke", "white")
+            .attr("stroke-width", 2)
+            .attr("stroke-dasharray", "5,5");
+    });
+    
+    // Add Serve Points
+    svg.selectAll("circle")
+        .data(serves_ucla.filter(d => d.serveOutcome !== "Ace"))
+        .enter()
+        .append("circle")
+        .attr("cx", d => xScale(d.x))
+        .attr("cy", d => yScale(d.y))
+        .attr("r", 4)
+        .attr("stroke", "black")
+        .attr("stroke-width", 0.2)
+        .attr("fill", d => d.serveOutcome === "Won" ? "#00cc00" : "red");
+
+    // Add Aces
+    svg.selectAll(".star")
+        .data(serves_ucla.filter(d => d.serveOutcome === "Ace"))
+        .enter()
+        .append("polygon")
+        .attr("points", function(d) {
+            const cx = xScale(d.x);
+            const cy = yScale(d.y);
+            const outerRadius = 5;
+            const innerRadius = 2.5;
+            let starPoints = "";
+            for (let i = 0; i < 10; i++) {
+                const angle = i * Math.PI / 5 - Math.PI / 2;
+                const r = i % 2 === 0 ? outerRadius : innerRadius;
+                const x = cx + r * Math.cos(angle);
+                const y = cy + r * Math.sin(angle);
+                starPoints += `${x},${y} `;
+            }
+            return starPoints.trim();
+        })
+        .attr("fill", "#f8c84f")
+        .attr("stroke", "black")
+        .attr("stroke-width", 0.2);
+
+
+    // // Create drop Shadow attribute
+    // const defs = svg.append("defs");
+
+    // const filter = defs.append("filter")
+    //     .attr("id", "drop-shadow")
+    //     .attr("height", "130%");
+
+    // filter.append("feDropShadow")
+    //     .attr("dx", 0)
+    //     .attr("dy", 1)
+    //     .attr("stdDeviation", 4)
+    //     .attr("flood-color", "#000")
+        
+
+    // Labels
+    // Create box for zone & count 
+    svg.selectAll(".count-rect")
+        .data(labels)
+        .enter()
+        .append("rect")
+        .attr("class", "count-rect")
+        .attr("x", d => xScale(d.x) - 30)  // center horizontally
+        .attr("y", yScale(312))
+        .attr("width", 60)
+        .attr("height", 50)
+        .attr("rx", 10)
+        .attr("ry", 10)
+        .attr("fill", d => d.count / sideServeCounts[d.side] >= 0.4 ? "#16537E" : "#6FA8DC")
+        .attr("stroke", "white")
+        .attr("stroke-width", 1.25)
+        // .attr("filter", "url(#drop-shadow)")
+        .attr("shape-rendering", "crispEdges");  // Optional for sharper edges
+
+    // // Add "Count" labels
+    // svg.selectAll(".count-label")
+    //     .data(labels)
+    //     .enter()
+    //     .append("text")
+    //     .attr("class", "count-label")
+    //     .attr("x", function(d) { return xScale(d.x); })
+    //     .attr("y", yScale(272))
+    //     .attr("text-anchor", "middle")
+    //     .attr("fill", "white")
+    //     .style("font-size", "14.5px")
+    //     .text(function(d) { return `${d.count_label}`; });
+
+
+    // // Add bottom "Win %" labels
+    // svg.selectAll(".proportion-label")
+    //     .data(labels)
+    //     .enter()
+    //     .append("text")
+    //     .attr("class", "proportion-label")
+    //     .attr("x", function(d) { return xScale(d.x); })
+    //     .attr("y", yScale(15))
+    //     .attr("text-anchor", "middle")
+    //     .attr("fill", "white")
+    //     .style("font-size", "15px")
+    //     .text(function(d) { return d.proportion_label; });
+    
+    // // Define label names
+    // const servePlacementLabels = [
+    //     { label: "T", x: 26.25, y: 294 },
+    //     { label: "T", x: -26.25, y: 294 },
+    //     { label: "BODY", x: 78.75, y: 294 },
+    //     { label: "BODY", x: -78.75, y: 294 },
+    //     { label: "WIDE", x: 131.25, y: 294 },
+    //     { label: "WIDE", x: -131.25, y: 294 },
+    //     { label: "ZONE", x: -181.25, y: 294 },
+    //     { label: "COUNT", x: -181.25, y: 272 },
+    //     { label: "WIN %", x: -181.25, y: 15 }
+    // ];
+
+    // servePlacementLabels.forEach(function(d) {
+    //     svg.append("text")
+    //     .attr("class", "label")
+    //     .attr("x", xScale(d.x))
+    //     .attr("y", yScale(d.y))
+    //     .attr("text-anchor", "middle")
+    //     .attr("fill", "white")
+    //     .style("font-size", "14px")
+    //     .text(d.label);
+    // });
+
+});
+
+function exportSvgToPng(svgId, label = "tennis_court", scale = 10, clip = { x: 165, y: 150, width: 690, height: 520 }) {
+  const svgElement= document.getElementById(svgId);
+  const serializer = new XMLSerializer();
+  const svgString = serializer.serializeToString(svgElement);
+
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgString)));
+
+  img.onload = function () {
+    const tempCanvas = document.createElement("canvas");
+    const tempCtx = tempCanvas.getContext("2d");
+
+    const svgWidth = svgElement.viewBox.baseVal.width || svgElement.clientWidth;
+    const svgHeight = svgElement.viewBox.baseVal.height || svgElement.clientHeight;
+
+    // Temporary full canvas to hold the original image
+    tempCanvas.width = svgWidth * scale;
+    tempCanvas.height = svgHeight * scale;
+    tempCtx.setTransform(scale, 0, 0, scale, 0, 0);
+    tempCtx.drawImage(img, 0, 0);
+
+    // Final canvas for cropped output
+    const canvas = document.createElement("canvas");
+    canvas.width = clip.width * scale;
+    canvas.height = clip.height * scale;
+
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(
+      tempCanvas,
+      clip.x * scale,          // source x
+      clip.y * scale,          // source y
+      clip.width * scale,      // source width
+      clip.height * scale,     // source height
+      0, 0,                     // destination x/y
+      clip.width * scale,
+      clip.height * scale
+    );
+
+    // Download the result
+    const pngUrl = canvas.toDataURL("image/png");
+    const downloadLink = document.createElement("a");
+    downloadLink.href = pngUrl;
+    downloadLink.download = `${label.replace(/\s+/g, "_").toLowerCase()}.png`;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
+}
+
+</script>
+
+
+
+
+
+<!-- <script>
+    function downloadSVG() {
+        const svgElement = document.getElementById("court");
+
+        saveSvgAsPng(svgElement, "tennis_court.png", {
+            scale: 10,               // Higher = higher resolution (try 2 or 3)
+            backgroundColor: null,  // No background — keeps transparent
+            encoderOptions: 1.0,    // Max image quality
+            clip: {
+                    x: -220,            // Crop start from left (SVG units)
+                    y: -25,             // Top edge (match your SVG's top)
+                    width: 440,         // Visible width (court width)
+                    height: 480         // Visible height (court height from y = -25 to 455)
+            }
+        });
+    }
+</script> -->
+
+</html>
+
+

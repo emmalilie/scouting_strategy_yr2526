@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Donut Chart - Total Serve Points Won</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f5f5f5;
+            font-family: sans-serif;
+        }
+
+        .chart-container {
+            margin-top: 40px;
+        }
+
+        .chart-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 6px 12px;
+            border: none;
+            background-color: #444;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chart-container" id="charts"></div>
+
+    <script>
+        d3.json("../data/total_serves.json").then(function (data) {
+            const record = {
+                label: data.type,
+                total: data.total,
+                won: data.won,
+                color: "#F2A900"
+            };
+
+            const width = 200;
+            const height = 200;
+            const radius = 70;
+            const winPercentage = record.won / record.total;
+
+            const wrapper = d3.select("#charts")
+                .append("div")
+                .attr("class", "chart-wrapper");
+
+            const svg = wrapper.append("svg")
+                .attr("id", "chart-0")
+                .attr("xmlns", "http://www.w3.org/2000/svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            const group = svg.append("g")
+                .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+            group.append("path")
+                .attr("d", d3.arc()
+                    .innerRadius(radius)
+                    .outerRadius(radius + 20)
+                    .startAngle(0)
+                    .endAngle(2 * Math.PI))
+                .attr("fill", "#DEDEDE");
+
+            group.append("path")
+                .attr("d", d3.arc()
+                    .innerRadius(radius)
+                    .outerRadius(radius + 20)
+                    .startAngle(0)
+                    .endAngle(2 * Math.PI * winPercentage)
+                    .cornerRadius(10))
+                .attr("fill", record.color);
+
+            wrapper.append("div")
+                .text(record.label)
+                .style("margin-top", "5px");
+
+            wrapper.append("button")
+                .text("Download PNG")
+                .on("click", () => exportSvgToPng("chart-0", record.label));
+
+            function exportSvgToPng(svgId, label) {
+                const svgElement = document.getElementById(svgId);
+                const serializer = new XMLSerializer();
+                const svgString = serializer.serializeToString(svgElement);
+
+                const canvas = document.createElement("canvas");
+                const scale = 10;
+                canvas.width = svgElement.width.baseVal.value * scale;
+                canvas.height = svgElement.height.baseVal.value * scale;
+
+                const ctx = canvas.getContext("2d");
+                const img = new Image();
+                img.crossOrigin = "anonymous";
+
+                img.onload = function () {
+                    ctx.setTransform(scale, 0, 0, scale, 0, 0);
+                    ctx.drawImage(img, 0, 0);
+                    const png = canvas.toDataURL("image/png");
+
+                    const a = document.createElement("a");
+                    a.download = `${label.replace(/\s+/g, "_")}.png`;
+                    a.href = png;
+                    a.click();
+                };
+
+                img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgString)));
+            }
+        });
+    </script>
+</body>
+
+</html>

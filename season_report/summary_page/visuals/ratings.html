@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tightly Cropped Bar PNG Export</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bar-container {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            margin-top: 8px;
+            padding: 6px 12px;
+            border: none;
+            background-color: #444;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="bars-wrapper"></div>
+
+    <script>
+        const maxValues = {
+            "Serve": 300,
+            "Return": 300,
+            "Under Pressure": 300
+        };
+
+        const colorMap = {
+            "Serve": "#2C61AB",
+            "Return": "#F2A900",
+            "Under Pressure": "#2C61AB"
+        };
+
+        const fullBarWidth = 414;
+        const barHeight = 12;
+
+        d3.json("../data/ratings.json").then(data => {
+            const wrapper = d3.select("#bars-wrapper");
+
+            data.ratings.forEach((d, i) => {
+                const id = `rating-bar-${i}`;
+                const container = wrapper.append("div").attr("class", "bar-container");
+
+                const svg = container.append("svg")
+                    .attr("id", id)
+                    .attr("width", fullBarWidth)
+                    .attr("height", barHeight);
+
+                const widthScale = d.rating / maxValues[d.type];
+                const fillColor = colorMap[d.type];
+
+                svg.append("rect")
+                    .attr("width", fullBarWidth)
+                    .attr("height", barHeight)
+                    .attr("rx", 6)
+                    .attr("ry", 6)
+                    .attr("fill", "#e0e0e0");
+
+                svg.append("rect")
+                    .attr("width", fullBarWidth * widthScale)
+                    .attr("height", barHeight)
+                    .attr("rx", 6)
+                    .attr("ry", 6)
+                    .attr("fill", fillColor);
+
+                // Add download button
+                container.append("button")
+                    .text(`Download ${d.type} PNG`)
+                    .on("click", () => exportSvgToPng(id, `rating_bar_${d.type.replace(/\s+/g, '_').toLowerCase()}`));
+            });
+        });
+
+        function exportSvgToPng(svgId, filename) {
+            const svgElement = document.getElementById(svgId);
+            const serializer = new XMLSerializer();
+            const svgString = serializer.serializeToString(svgElement);
+
+            const width = svgElement.width.baseVal.value;
+            const height = svgElement.height.baseVal.value;
+            const scale = 5;
+
+            const canvas = document.createElement("canvas");
+            canvas.width = width * scale;
+            canvas.height = height * scale;
+
+            const ctx = canvas.getContext("2d");
+            ctx.setTransform(scale, 0, 0, scale, 0, 0);
+
+            const img = new Image();
+            img.crossOrigin = "anonymous";
+
+            img.onload = function () {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0);
+                const png = canvas.toDataURL("image/png");
+
+                const a = document.createElement("a");
+                a.download = `${filename}.png`;
+                a.href = png;
+                a.click();
+            };
+
+            img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgString)));
+        }
+    </script>
+
+</body>
+
+</html>
+
