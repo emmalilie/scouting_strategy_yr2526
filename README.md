@@ -9,7 +9,7 @@ The purpose of this repository is to generate season reports for the UCLA D1 Ten
 It also generates data to populate Figma templates used for visuals and presentations.
 
 ## Current Projects
-- Automated scoutning reports
+- Automated scouting reports
 - Hand recognition during matches
 - Travel Dashboard
 
