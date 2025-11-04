@@ -1,0 +1,25 @@
+Travel Dashboard Starter Code
+
+install.packages("leaflet")
+library(leaflet)
+install.packages(httr)
+
+library(leaflet)
+library(httr)
+
+my_map<- leaflet()
+my_map <- addTiles(my_map)
+my_map <- setView(my_map, lng = -98.35, lat = 39.5, zoom = 4)
+
+##UCLA
+
+UCLA_logo <- makeIcon(iconUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/UCLA_Bruins_logo.svg/2560px-UCLA_Bruins_logo.svg.png", iconWidth = 40, iconHeight = 35)
+
+UCLA_popup <- paste0(
+  "<b>Los Angeles Tennis Center - Westwood, CA</b><br>",
+  "<img src='https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fuclabruins.com%2Fimages%2F2019%2F1%2F10%2Fimage2Cropped.jpg&height=300&type=webp' width='400' height='267'><br>",
+  "<p style='text-align:center; font-size:14px; color:#333;'><i>Home of the UCLA Bruins</i></p>", "<br>", "<p style='text-align:left; font-size:20px; color:#2774AE; font-style:normal;'<b>Travel Information</p>", "<p style='text-align:left; font-size:14px; color:#333; font-style:normal;'>Time Zone: Pacific Standard Time (+0)</p>", "<p style='text-align:left; font-size:14px; color:#333; font-style:normal;'>Distance: -</p>" 
+)
+
+
+my_map <- addMarkers(my_map, lng = -118.448319, lat = 34.069825, icon = UCLA_logo, popup = UCLA_popup, popupOptions = popupOptions(maxWidth = 400))
