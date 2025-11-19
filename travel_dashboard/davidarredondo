@@ -1,0 +1,92 @@
+my_map<- leaflet()
+my_map <- addTiles(my_map)
+my_map <- setView(my_map, lng = -98.35, lat = 39.5, zoom = 4)
+
+lajolla_logo <- makeIcon(
+  iconUrl = "https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fuclabruins.com%2Fimages%2F2023%2F2%2F17%2FLBTC.png&width=60&height=60&type=webp",
+  iconWidth = 40,
+  iconHeight = 35
+)
+
+lajolla_popup <- paste0(
+  "<div style='font-family:Arial; width:360px;'>",
+
+  "<h2 style='color:#2774AE; margin-top:0;'>La Jolla Beach & Tennis Club</h2>",
+  "<p style='margin:3px 0; color:#555;'>La Jolla, California</p>",
+  "<img src='https://images.trvl-media.com/lodging/1000000/10000/4600/4511/58453bd4.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill' ",
+  "style='display:block; width:100%; height:auto; border-radius:8px; margin-bottom:10px;'>",
+  "<hr>",
+
+  # LOCATION
+  "<details>",
+    "<summary style='cursor:pointer; font-size:16px; color:#2774AE;'>📍 <b>Location</b></summary>",
+    "<p style='margin-left:10px;'>Latitude: 32.85377<br>Longitude: -117.25944</p>",
+  "</details>",
+
+  # CAPACITY
+  "<details>",
+    "<summary style='cursor:pointer; font-size:16px; color:#2774AE;'>🏟 <b>Facility Capacity</b></summary>",
+    "<p style='margin-left:10px;'> 1,000+ (courtside seating, beach access, outdoor event areas)</p>",
+  "</details>",
+
+  # TRAVEL INFO
+  "<details>",
+    "<summary style='cursor:pointer; font-size:16px; color:#2774AE;'>✈️ <b>Travel Information</b></summary>",
+    "<ul style='margin-left:20px;'>",
+      "<li>15–20 minutes from SAN Airport</li>",
+      "<li>Located on La Jolla Shores Beach</li>",
+      "<li>Walkable shops, rentals, and cafés</li>",
+      "<li>Nearby hotels within 5–10 minutes</li>",
+    "</ul>",
+  "</details>",
+
+  # TIME ZONE
+  "<details>",
+    "<summary style='cursor:pointer; font-size:16px; color:#2774AE;'>🕒 <b>Time Zone Difference</b></summary>",
+    "<p style='margin-left:10px;'>Pacific Time (PST)</p>",
+  "</details>",
+
+  # ATTRACTIONS
+"<details>",
+  "<summary style='cursor:pointer; font-size:16px; color:#2774AE;'>🌅 <b>Nearby Attractions</b></summary>",
+  "<div style='margin-left:10px;'>",
+
+    "<p><b>La Jolla Cove</b><br>",
+    "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/LaJolla-2_%2845716612345%29.jpg/1200px-LaJolla-2_%2845716612345%29.jpg' ",
+    "style='display:block; max-width:100%; height:auto; border-radius:6px; border:1px solid #ccc; margin:6px 0 12px;'></p>",
+
+    "<p><b>Birch Aquarium</b><br>",
+    "<img src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/a0/b2/97/aerial-view-of-birch.jpg?w=1200&h=-1&s=1' ",
+    "style='display:block; max-width:100%; height:auto; border-radius:6px; border:1px solid #ccc; margin:6px 0 12px;'></p>",
+
+    "<p><b>Torrey Pines Gliderport</b><br>",
+    "<img src='http://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/8f/2e/7a/torrey-pines-gliderport.jpg?w=1200&h=1200&s=1' ",
+    "style='display:block; max-width:100%; height:auto; border-radius:6px; border:1px solid #ccc; margin:6px 0 12px;'></p>",
+
+  "</div>",
+"</details>",
+
+  # RESTAURANTS
+  "<details>",
+    "<summary style='cursor:pointer; font-size:16px; color:#2774AE;'>🍽️ <b>Popular Restaurants</b></summary>",
+    "<ul style='margin-left:20px;'>",
+      "<li><b>Duke's</b> – Hawaiian food</li>",
+      "<li><b>The Cottage</b> – Californian daytime cuisine</li>",
+      "<li><b>Puesto</b> – Mexican food</li>",
+      "<li><b>George's at the Cove</b> – Seafood with rooftop views</li>",
+    "</ul>",
+  "</details>",
+
+  "</div>"
+)
+
+my_map <- addMarkers(
+  my_map,
+  lng = -117.2594420618283,
+  lat = 32.853769992100126,
+  icon = lajolla_logo,
+  popup = lajolla_popup,
+  popupOptions = popupOptions(maxWidth = 400)
+)
+
+my_map
