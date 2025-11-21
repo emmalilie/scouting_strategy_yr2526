@@ -1,0 +1,91 @@
+Travel Dashboard Weather API Integration
+
+
+## Libraries needed
+library(leaflet)
+library(httr)
+library(jsonlite)
+
+
+## Personal API key that allows dashboard to "communicate with" real-time weather site
+api_key <- "W1Kon4mYmcCeG3QD2cQA5UICUe1XLciu"
+
+
+## Weather Data Extraction Function
+get_weather_hourly_now <- function(lat, lon, api_key,
+                                   units = "imperial",
+                                   timesteps = "1h") {
+  base_url <- "https://api.tomorrow.io/v4/weather/forecast"
+  
+  query <- list(
+    location  = paste(lat, lon, sep = ","),  # "lat,lon"
+    apikey    = api_key,
+    units     = units,                       # "imperial" -> °F, mph
+    timesteps = timesteps,                    # hourly
+    fields = "temperature,humidity,windSpeed"
+  )
+  
+  res <- GET(base_url, query = query)
+  stop_for_status(res)  # error if not 200
+  
+  txt  <- content(res, "text", encoding = "UTF-8")
+  dat  <- fromJSON(txt, simplifyVector = FALSE)
+  
+## Defensive check for Weather Function
+  if (length(dat$timelines$hourly) == 0) {
+    stop("No hourly data returned from Tomorrow.io")
+  }
+  
+## First hourly point = "current-ish"
+  dat$timelines$hourly[[1]]$values
+}
+
+
+## Calls Weather Function at specified latitude/longitude
+ucla_weather_now <- get_weather_hourly_now(34.069825, -118.448319, api_key)
+
+
+## Sets variable names
+temp_f   <- round(ucla_weather_now$temperature)
+temp_f_apparent <- round(ucla_weather_now$temperatureApparent)
+humidity <- round(ucla_weather_now$humidity)
+wind_mph <- round(ucla_weather_now$windSpeed)
+precip_prob <- round(ucla_weather_now$precipitationProbability)
+
+my_map<- leaflet()
+my_map <- addTiles(my_map)
+my_map <- setView(my_map, lng = -98.35, lat = 39.5, zoom = 4)
+
+
+##UCLA
+
+UCLA_logo <- makeIcon(iconUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/UCLA_Bruins_logo.svg/2560px-UCLA_Bruins_logo.svg.png", iconWidth = 40, iconHeight = 35)
+
+UCLA_popup <- paste0(
+  "<b>Los Angeles Tennis Center - Westwood, CA</b><br>",
+  "<img src='https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fuclabruins.com%2Fimages%2F2019%2F1%2F10%2Fimage2Cropped.jpg&height=300&type=webp' width='400' height='267'><br>",
+  "<p style='text-align:center; font-size:14px; color:#333;'><i>Home of the UCLA Bruins</i></p>",
+  "<br>",
+  "<p style='text-align:left; font-size:20px; color:#2774AE; font-style:normal;'><b>Travel Information</b></p>",
+  "<p style='text-align:left; font-size:14px; color:#333; font-style:normal;'>Time Zone: Pacific Time (UTC-8 / UTC-7)</p>",
+  "<p style='text-align:left; font-size:14px; color:#333; font-style:normal;'>Distance: -</p>",
+  "<br>",
+  "<p style='text-align:left; font-size:18px; color:#2774AE; font-style:normal;'><b>Current Weather</b></p>",
+  
+## New additions, adds weather information to popup
+  
+  "<p style='text-align:left; font-size:14px; color:#333;'>🌡️ Current Temperature: ",
+    temp_f, " °F</p>",
+  "<p style='text-align:left; font-size:14px; color:#333;'>🎯🌡️ Real-Feel Temperature: ",
+    temp_f_apparent, " °F</p>",
+  "<p style='text-align:left; font-size:14px; color:#333;'>🌫️ Humidity: ",
+    humidity, "%</p>",
+  "<p style='text-align:left; font-size:14px; color:#333;'>💨 Wind: ",
+    wind_mph, " mph</p>",
+  "<p style='text-align:left; font-size:14px; color:#333;'>🌧️️ Precipitation Probability: ",
+    precip_prob, "%</p>"
+)
+
+my_map <- addMarkers(my_map, lng = -118.448319, lat = 34.069825, icon = UCLA_logo, popup = UCLA_popup, popupOptions = popupOptions(maxWidth = 400))
+
+my_map
