@@ -1,0 +1,158 @@
+---
+title: "travel dashboard"
+output: html_document
+date: "2025-11-04"
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(leaflet)
+library(httr)
+library(jsonlite)
+
+api_key <- "5dd28b4b1eacf9e65e32fe926f901380"
+lat <- 34.069825
+lon <- -118.448319
+
+url <- paste0(
+  "https://api.openweathermap.org/data/2.5/weather?",
+  "lat=", lat,
+  "&lon=", lon,
+  "&units=imperial",
+  "&appid=", api_key
+)
+
+response <- GET(url)
+data_raw <- content(response, "text", encoding = "UTF-8")
+
+# Parse JSON WITHOUT simplifying vectors to atomic
+wx <- fromJSON(data_raw, simplifyVector = FALSE)
+
+# Temperature, wind, humidity
+temp <- round(wx$main$temp)
+wind <- wx$wind$speed
+humidity <- wx$main$humidity
+
+# Weather icon
+icon_code <- wx$weather[[1]]$icon
+icon_url <- paste0("https://openweathermap.org/img/wn/", icon_code, "@2x.png")
+
+UCLA_popup <- paste0(
+  
+  "<div style='width:260px; font-family:Century Gothic, sans-serif; font-size:13px;'>",
+
+  # TITLE + IMAGE with weather icons overlay
+  "<div style='position:relative;'>",
+  "<div style='font-size:14px; font-weight:bold; text-align:center; padding:6px 0; border-radius:6px; color:white; background: linear-gradient(90deg, #2774AE, #FFD100);'>",
+    "Los Angeles Tennis Center",
+  "</div><br>",
+  "<img src='https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fuclabruins.com%2Fimages%2F2019%2F1%2F10%2Fimage2Cropped.jpg&height=200&type=webp' width='260' height='170' style='border-radius:8px;'>",
+
+    # Weather icons overlay top-right with rounded rectangles
+    "<div style='position:absolute; top:60px; right:12px; display:flex; gap:4px;font-weight:bold;'>",
+      # Temperature box
+      "<div style='width:30px; height:40px; border-radius:4px; background-color:rgba(135, 206, 235, 0.65); text-align:center; color:white; font-size:10px; display:flex; flex-direction:column; align-items:center; justify-content:center;'>",
+        "<span>🌡️</span>",
+        "<span>", temp, "°F</span>",
+      "</div>",
+      # Wind box
+      "<div style='width:30px; height:40px; border-radius:4px; background-color:rgba(135, 206, 235, 0.65); text-align:center; color:white; font-size:10px; display:flex; flex-direction:column; align-items:center; justify-content:center;'>",
+        "<span>💨</span>",
+        "<span>", wind, "</span>",
+      "</div>",
+      # Humidity box
+      "<div style='width:30px; height:40px; border-radius:4px; background-color:rgba(135, 206, 235, 0.65); text-align:center; color:white; font-size:10px; display:flex; flex-direction:column; align-items:center; justify-content:center;'>",
+        "<span>💧</span>",
+        "<span>", humidity, "%</span>",
+      "</div>",
+    "</div>",
+  "</div><br>",
+
+  # Subtitle
+  "<p style='text-align:center; margin-top:4px; font-size:12px;'><i>Home of the UCLA Bruins</i></p>",
+
+  # EXPANDABLE DROPDOWNS
+  "<div style='padding:6px; border:1px solid #ccc; border-radius:6px; background:linear-gradient(180deg,#EEF4FA,#ffffff);'>",
+      "<p style='font-size:14px; color:#2774AE; margin:2px 0;'><b>Travel Info</b></p>",
+
+      # LOCATION DETAILS
+      "<details style='margin-bottom:6px;'>",
+          "<summary style='cursor:pointer; font-weight:bold; color:#2774AE;'>Location</summary>",
+          "<p style='margin-top:4px; font-size:12px;'>Westwood, CA — home of UCLA Athletics. Short walk from campus, located next to the Los Angeles Tennis Center.</p>",
+      "</details>",
+
+      # COURT CONDITIONS DETAILS
+      "<details style='margin-bottom:6px;'>",
+          "<summary style='cursor:pointer; font-weight:bold; color:#2774AE;'>Court Conditions</summary>",
+          "<p style='margin-top:4px; font-size:12px;'>Outdoor hard courts. Weather greatly affects ball speed (wind + temperature matter). Evening sessions may require lights.</p>",
+      "</details>",
+
+      # EQUIPMENT DETAILS
+      "<details style='margin-bottom:6px;'>",
+          "<summary style='cursor:pointer; font-weight:bold; color:#2774AE;'>Equipment Notice</summary>",
+          "<p style='margin-top:4px; font-size:12px;'>Recommended to bring: extra grips, sunscreen, hydration, and cold towels on hot days. Courts can get slick at night.</p>",
+      "</details>",
+  
+  # POPULAR SPOTS TO HIT
+        "<details style='margin-bottom:6px;'>",
+            "<summary style='cursor:pointer; font-weight:bold; color:#2774AE;'>Popular Spots Must Go</summary>",
+            "<p style='margin-top:4px; font-size:12px;'>
+            <li>Cava — build-your-own Mediterranean bowls</li>
+            <li>Fat Sal’s — over-the-top deli sandwiches</li>",
+        "</details>",
+    "</div>",
+"</div>"
+)
+
+
+library(leaflet)
+library(htmlwidgets)
+
+# Use DivIcon for scalable marker
+UCLA_logo_div <- makeIcon(
+  iconUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/UCLA_Bruins_logo.svg/2560px-UCLA_Bruins_logo.svg.png",
+  iconWidth = 40, iconHeight = 35
+)
+
+# Create map
+my_map <- leaflet() %>%
+  addTiles() %>%
+  setView(lng = -118.448319, lat = 34.069825, zoom = 13) %>%
+  addMarkers(
+    lng = -118.448319, lat = 34.069825,
+    icon = UCLA_logo_div,
+    popup = paste0("<div class='popup-scale'>", UCLA_popup, "</div>"),
+    popupOptions = popupOptions(maxWidth = 400)
+  )
+
+# JavaScript to scale both popup and marker icon
+my_map <- htmlwidgets::onRender(
+  my_map,
+  "
+  function(el, x) {
+    var baseZoom = 13;
+    function scaleElements() {
+      var zoom = this.getZoom();
+
+      // Scale popup
+      document.querySelectorAll('.popup-scale').forEach(function(popup) {
+        popup.style.transform = 'scale(' + (zoom / baseZoom) + ')';
+        popup.style.transformOrigin = 'top left';
+      });
+
+      // Scale marker icon (SVG img inside leaflet-marker-icon)
+      document.querySelectorAll('.leaflet-marker-icon img').forEach(function(icon) {
+        var baseWidth = 40;  // original icon width
+        var baseHeight = 35; // original icon height
+        icon.style.width = (baseWidth * (zoom / baseZoom)) + 'px';
+        icon.style.height = (baseHeight * (zoom / baseZoom)) + 'px';
+      });
+    }
+
+    this.on('zoomend', scaleElements);
+    scaleElements.call(this); // apply immediately on load
+  }
+  "
+)
+
+my_map
+```
