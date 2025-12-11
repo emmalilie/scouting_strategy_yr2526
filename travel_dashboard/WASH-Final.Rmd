@@ -1,0 +1,217 @@
+---
+title: "WASH-Final-AlexPerry"
+output: html_document
+---
+
+```{r}
+
+library(leaflet)
+library(httr)
+library(jsonlite)
+
+my_map <- leaflet() |>
+  addTiles() |>
+  setView(lng = -98.35, lat = 39.5, zoom = 4)
+
+# ----------------------------------------
+# WEATHER API SETUP
+# ----------------------------------------
+api_key <- "JsuKULiaymh8NfTcZnLhwZMrbR2mntKY"
+
+get_weather_hourly_now <- function(lat, lon, api_key,
+                                   units = "imperial",
+                                   timesteps = "1h") {
+  base_url <- "https://api.tomorrow.io/v4/weather/forecast"
+  
+  query <- list(
+    location  = paste(lat, lon, sep = ","),
+    apikey    = api_key,
+    units     = units,
+    timesteps = timesteps,
+    fields = "temperature,humidity,windSpeed,temperatureApparent,precipitationProbability"
+  )
+  
+  res <- GET(base_url, query = query)
+  stop_for_status(res)
+  
+  txt  <- content(res, "text", encoding = "UTF-8")
+  dat  <- fromJSON(txt, simplifyVector = FALSE)
+  
+  if (length(dat$timelines$hourly) == 0) {
+    stop("No hourly data returned from Tomorrow.io")
+  }
+  
+  dat$timelines$hourly[[1]]$values
+}
+
+# Get weather for Seattle (UW location)
+seattle_weather_now <- get_weather_hourly_now(47.6518, -122.3001, api_key)
+
+temp_f <- round(seattle_weather_now$temperature)
+temp_f_apparent <- round(seattle_weather_now$temperatureApparent)
+humidity <- round(seattle_weather_now$humidity)
+wind_mph <- round(seattle_weather_now$windSpeed)
+precip_prob <- round(seattle_weather_now$precipitationProbability)
+
+
+recommender <- function(temp_f, humidity) {
+  if (temp_f <= 40) {
+    return("It’s very cold — decrease string tension by 2 to 4 lbs.")
+  } else if (temp_f > 40 && temp_f < 60 ) {
+    return("It’s medium cold — decrease string tension by 1 to 2 lbs.")
+  } else if (60<= temp_f && temp_f <= 80){
+    return("Mild conditions — standard tension recommended.")
+  }
+    else if (temp_f>80){
+      return("Very hot - increase string tension by 2 to 4 lbs")
+    }
+}
+
+recforstring <- recommender(temp_f, humidity)
+
+
+
+# ----------------------------------------
+# LOGO
+# ----------------------------------------
+UDUB_logo <- makeIcon(
+  iconUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Washington_Huskies_logo.svg/2560px-Washington_Huskies_logo.svg.png",
+  iconWidth = 35,
+  iconHeight = 25
+)
+
+# ----------------------------------------
+# POPUP (Washington)
+# ----------------------------------------
+UDUB_popup <- paste0(
+  "<div id='udub-popup' style='
+    font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+    width: 330px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    border: 1px solid #ddd;
+  '>",
+  
+  # ----------------------------------------------------
+  # HEADER (gradient + logo + title)
+  # ----------------------------------------------------
+  "<div style='
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px;
+      background: linear-gradient(135deg, #32006E, #8574D0);
+  '>
+      <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Washington_Huskies_logo.svg/2560px-Washington_Huskies_logo.svg.png'
+           style='width:38px; height:28px; object-fit:contain; background:white;
+                  border-radius:6px; padding:2px;'>
+      <div>
+          <div style='font-size:15px; font-weight:800; color:white;'>
+              Bill Quillian Tennis Stadium
+          </div>
+          <div style='font-size:12px; color:#EFEAFF;'>
+              Seattle, Washington • Capacity: 600 </br> Home of the Huskies
+          </div>
+      </div>
+  </div>",
+  
+  # ----------------------------------------------------
+  # IMAGE
+  # ----------------------------------------------------
+  "<img src='https://gohuskies.com/common/controls/image_handler.aspx?thumb_id=13&image_path=/images/2019/10/17/UW_MTEN_Oregon_063.JPG'
+        style='width:100%; height:150px; object-fit:cover; display:block;'>",
+  
+  # ----------------------------------------------------
+  # DROPDOWN SECTIONS
+  # ----------------------------------------------------
+  "<div style='padding:10px; background:#fff;'>",
+  
+  "<details>
+      <summary style='cursor:pointer; font-size:15px; color:#32006E;'>
+          ✈️ <b>Travel Information</b>
+      </summary>
+      <p style='margin-left:10px; font-size:13px;'>
+          • Pacific Time (PT)<br>
+          • Stadium located on UW campus<br>
+          • Easy bus/light rail access to downtown Seattle
+      </p>
+  </details><hr>",
+  
+  "<details>
+      <summary style='cursor:pointer; font-size:15px; color:#32006E;'>
+          📏 <b>Distance from LATC</b>
+      </summary>
+      <p style='margin-left:10px; font-size:13px;'>
+          • 1,134 miles<br>
+          • 2 hr 45 min flight from LAX → SEA
+      </p>
+  </details><hr>",
+  
+  "<details>
+      <summary style='cursor:pointer; font-size:15px; color:#32006E;'>
+          🌤️ <b>Weather</b>
+      </summary>
+      
+      <div style='margin:10px; padding:8px; background:#f5f5f5; border-radius:6px;'>
+          <p style='font-size:12px; font-weight:bold; color:#32006E; margin:0 0 6px 0;'>Current Conditions:</p>
+          <p style='font-size:12px; margin:3px 0;'>🌡️ Temperature: ", temp_f, " °F</p>
+          <p style='font-size:12px; margin:3px 0;'>🎯 Feels Like: ", temp_f_apparent, " °F</p>
+          <p style='font-size:12px; margin:3px 0;'>🌫️ Humidity: ", humidity, "%</p>
+          <p style='font-size:12px; margin:3px 0;'>💨 Wind: ", wind_mph, " mph</p>
+          <p style='font-size:12px; margin:3px 0;'>🌧️ Precip Chance: ", precip_prob, "%</p>
+      </div>
+  </details><hr>",
+  
+  "<details>
+      <summary style='cursor:pointer; font-size:15px; color:#32006E;'>
+          🎾 <b>Stringing Info</b>
+      </summary>
+      <p style='margin-left:10px; font-size:13px;'>
+          • ", recforstring, "
+      </p>
+  </details><hr>
+  ", 
+  
+  "<details>
+      <summary style='cursor:pointer; font-size:15px; color:#32006E;'>
+          🌆 <b>Nearby Attractions</b>
+      </summary>
+      <p style='margin-left:10px; font-size:13px;'>
+          • Chihuly Garden and Glass<br>
+          • University Village (shopping)<br>
+          • Husky Stadium waterfront<br>
+          • Pike Place Market (15–20 min away)
+      </p>
+  </details><hr>",
+  
+  "<details>
+      <summary style='cursor:pointer; font-size:15px; color:#32006E;'>
+          🍽️ <b>Restaurants</b>
+      </summary>
+      <p style='margin-left:10px; font-size:13px;'>
+          • Voula's Offshore Café – Breakfast ($)<br>
+          • Hiroshi's Poke – Bowls ($)<br>
+          • Piatti – Italian ($$$)
+      </p>
+  </details>",
+  
+  "</div>",
+  "</div>"
+)
+
+# ----------------------------------------
+# ADD MARKER TO MAP
+# ----------------------------------------
+my_map <- addMarkers(
+  my_map,
+  lng = -122.3001,
+  lat = 47.6518,
+  icon = UDUB_logo,
+  popup = UDUB_popup,
+  popupOptions = popupOptions(maxWidth = 420)
+)
+
+my_map
+```
+
