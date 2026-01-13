@@ -4,12 +4,24 @@ import pandas as pd
 from datetime import datetime
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0"
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1"
 }
 
-# ----------------------------------------
-# SCRAPE MATCH SCHEDULE (2025–26)
-# ----------------------------------------
+SEASONS = [
+    "2021-22",
+    "2022-23", 
+    "2023-24",
+    "2024-25",
+    "2025-26"
+]
+
+BASE_URL = "https://uclabruins.com/sports/mens-tennis/schedule/text/"
+
 def fetch_schedule():
     url = "https://uclabruins.com/sports/mens-tennis/schedule/text/2025-26"
     response = requests.get(url, headers=HEADERS)
@@ -19,21 +31,17 @@ def fetch_schedule():
     table = soup.find("table")
 
     if not table:
-        print("❌ Schedule table not found")
         return pd.DataFrame()
 
     data = []
-
     for row in table.find_all("tr")[1:]:
         cols = [c.get_text(strip=True) for c in row.find_all("td")]
         if len(cols) < 4:
             continue
-
-        cols += [""] * (7 - len(cols))  # pad to expected length
-
+        cols += [""] * (7 - len(cols))
         data.append({
             "Date": cols[0],
-            "Time": cols[1],
+            "Time": cols[1], 
             "At": cols[2],
             "Opponent": cols[3],
             "Location": cols[4],
@@ -41,43 +49,19 @@ def fetch_schedule():
             "Result": cols[6],
             "Last_Updated": datetime.now().isoformat()
         })
-
     return pd.DataFrame(data)
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0"
-}
-
-SEASONS = [
-    "2021-22",
-    "2022-23",
-    "2023-24",
-    "2024-25",
-    "2025-26"
-]
-
-BASE_URL = "https://uclabruins.com/sports/mens-tennis/schedule/text/"
-
-# ----------------------------------------
-# SCRAPE ONE SEASON
-# ----------------------------------------
 def fetch_season_schedule(season):
-    """
-    season: str, like "2025-26"
-    returns: DataFrame with Date formatted as MM-DD-YYYY
-    """
     url = BASE_URL + season
     response = requests.get(url, headers=HEADERS)
 
     if response.status_code != 200:
-        print(f"❌ Failed to fetch {season}")
         return pd.DataFrame()
 
     soup = BeautifulSoup(response.text, "html.parser")
     table = soup.find("table")
 
     if not table:
-        print(f"⚠️ No table found for {season}")
         return pd.DataFrame()
 
     start_year, end_year = season.split("-")
@@ -89,25 +73,18 @@ def fetch_season_schedule(season):
         tds = [td.get_text(strip=True) for td in tr.find_all("td")]
         tds += [""] * (7 - len(tds))
 
-        date_str = tds[0]  # e.g., "Jan 15 (Wed)"
+        date_str = tds[0]
         formatted_date = ""
 
         if date_str:
-            # Remove weekday part in parentheses
-            date_str = date_str.split("(")[0].strip()  # "Jan 15"
-
+            date_str = date_str.split("(")[0].strip()
             try:
-                # Parse month and day
                 date_obj = datetime.strptime(date_str, "%b %d")
                 month = date_obj.month
-
-                # Determine year based on month
-                if month >= 1 and month <= 5:  # Jan-May = second year
+                if month >= 1 and month <= 5:
                     year = end_year
-                else:  # Jun-Dec = first year
+                else:
                     year = start_year
-
-                # Recreate full date with year
                 date_obj = datetime(year, date_obj.month, date_obj.day)
                 formatted_date = date_obj.strftime("%m-%d-%Y")
             except ValueError:
@@ -116,17 +93,13 @@ def fetch_season_schedule(season):
         rows.append({
             "Date": formatted_date,
             "Opponent": tds[3],
-            "Location": tds[4],
+            "Location": tds[4], 
             "Result": tds[6],
             "Season": season,
             "Last_Updated": datetime.now().isoformat()
         })
-
     return pd.DataFrame(rows)
 
-# ----------------------------------------
-# SCRAPE PLAYER ROSTER
-# ----------------------------------------
 def fetch_player_stats():
     url = "https://static.uclabruins.com/custompages/Stats/2025-26/MTEN/teamcume.htm"
     response = requests.get(url, headers=HEADERS)
@@ -135,32 +108,21 @@ def fetch_player_stats():
     soup = BeautifulSoup(response.text, "html.parser")
     table = soup.find("table")
 
-    stats = []
-
     if not table:
-        print("❌ Stats table not found")
         return pd.DataFrame()
 
-    rows = table.find_all("tr")
-
-    def val(x):
-        return x if x else "N/A"
-
-    for row in rows[1:]:
+    stats = []
+    for row in table.find_all("tr")[1:]:
         cols = [c.get_text(strip=True) for c in row.find_all("td")]
-
-        # Skip subtotal / team rows
         if len(cols) < 5 or cols[0].lower() in {"total", "team"}:
             continue
-
         stats.append({
-            "Player": val(cols[0]),
-            "Singles_Wins": val(cols[1]),
-            "Singles_Losses": val(cols[2]),
-            "Doubles_Wins": val(cols[3]),
-            "Doubles_Losses": val(cols[4])
+            "Player": cols[0] if cols[0] else "N/A",
+            "Singles_Wins": cols[1] if cols[1] else "N/A",
+            "Singles_Losses": cols[2] if cols[2] else "N/A", 
+            "Doubles_Wins": cols[3] if cols[3] else "N/A",
+            "Doubles_Losses": cols[4] if cols[4] else "N/A"
         })
-
     return pd.DataFrame(stats)
 
 def fetch_roster_with_stats():
@@ -186,10 +148,8 @@ def fetch_roster_with_stats():
             continue
 
         full_url = f"https://uclabruins.com{href}"
-
         if full_url in seen_urls:
             continue
-
         seen_urls.add(full_url)
 
         players.append({
@@ -198,31 +158,18 @@ def fetch_roster_with_stats():
         })
 
     roster_df = pd.DataFrame(players)
-
-    # ---- MERGE PLAYER STATS ----
     stats_df = fetch_player_stats()
 
     if not stats_df.empty:
-        roster_df = roster_df.merge(
-            stats_df,
-            on="Player",
-            how="left"
-        )
+        roster_df = roster_df.merge(stats_df, on="Player", how="left")
 
     roster_df["Last_Updated"] = datetime.now().isoformat()
     return roster_df
 
-
-
-# ----------------------------------------
-# GET ALL DATA FOR STREAMLIT
-# ----------------------------------------
 def get_all_data():
-    """Returns all data as dictionaries for direct use in Streamlit"""
     schedule_df = fetch_schedule()
     roster_df = fetch_roster_with_stats()
     
-    # Get all seasons data
     seasons_data = {}
     for season in SEASONS:
         df = fetch_season_schedule(season)
@@ -234,24 +181,3 @@ def get_all_data():
         'roster': roster_df,
         'seasons': seasons_data
     }
-
-# ----------------------------------------
-# MAIN (for standalone execution)
-# ----------------------------------------
-if __name__ == "__main__":
-    print("🔄 Updating UCLA Men's Tennis data...")
-    
-    data = get_all_data()
-    
-    # Optional: still export files if run standalone
-    if not data['current_schedule'].empty:
-        data['current_schedule'].to_csv("ucla_mens_tennis_schedule_2025_26.csv", index=False)
-        print("✅ Schedule CSV updated")
-    
-    if not data['roster'].empty:
-        data['roster'].to_csv("ucla_mens_tennis_roster.csv", index=False)
-        print("✅ Roster CSV updated")
-    
-    print("🏁 Done.")
-
-
