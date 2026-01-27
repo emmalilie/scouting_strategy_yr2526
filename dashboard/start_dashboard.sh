@@ -1,3 +1,4 @@
+./start_dashboard.sh
 #!/bin/bash
 
 echo "Starting UCLA Tennis Dashboard..."

@@ -47,7 +47,6 @@ const Big10Comparison: React.FC = () => {
 
   useEffect(() => {
     fetchComparisonData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [leftSchool, rightSchool, selectedSeason]);
 
   const fetchSchoolData = async (schoolName: string): Promise<SchoolData | null> => {
@@ -204,8 +203,8 @@ const Big10Comparison: React.FC = () => {
           <div className="loading-spinner">Loading...</div>
         </div>
       ) : (
-        <div className="comparison-layout" style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-          <div className="left-side" style={{ flex: 1, minWidth: 0 }}>
+        <div className="comparison-layout">
+          <div className="left-side">
             <div className="school-selector-box">
               <label>School 1:</label>
               <select 
@@ -223,11 +222,11 @@ const Big10Comparison: React.FC = () => {
             {renderSchoolCard(leftData, 'left')}
           </div>
 
-          <div className="vs-divider" style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+          <div className="vs-divider">
             <div className="vs-circle">VS</div>
           </div>
 
-          <div className="right-side" style={{ flex: 1, minWidth: 0 }}>
+          <div className="right-side">
             <div className="school-selector-box">
               <label>School 2:</label>
               <select 
