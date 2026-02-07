@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import datetime
 import logging
+from custom_scrapers import CUSTOM_SCRAPERS
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -230,8 +231,17 @@ def get_all_data():
         'seasons': seasons_data
     }
 
-def fetch_school_season_schedule(base_url: str, season: str):
+def fetch_school_season_schedule(base_url: str, season: str, school_name: str = None):
     """Fetch season schedule for any school given their base URL"""
+    # Check if school needs custom scraper
+    if school_name and school_name in CUSTOM_SCRAPERS:
+        logger.info(f"Using custom scraper for {school_name}")
+        df = CUSTOM_SCRAPERS[school_name](season)
+        if not df.empty:
+            df["Last_Updated"] = datetime.now().isoformat()
+        return df
+    
+    # Default scraper for schools with standard table format
     url = base_url + season
     
     try:
