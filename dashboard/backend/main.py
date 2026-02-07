@@ -259,13 +259,13 @@ def get_school_season_data(school: str, season: str):
             "USC": "https://usctrojans.com/sports/mens-tennis/schedule/text/",
             "Ohio State": "https://ohiostatebuckeyes.com/sports/mens-tennis/schedule/text/",
             "Michigan": "https://mgoblue.com/sports/mens-tennis/schedule/text/",
-            "Penn State": "https://gopsusports.com/sports/mens-tennis/schedule/text/",
-            "Illinois": "https://fightingillini.com/sports/mens-tennis/schedule/text/",
+            "Penn State": "https://gopsusports.com/sports/mens-tennis/schedule/",
+            "Illinois": "https://fightingillini.com/sports/mens-tennis/schedule/",
             "Northwestern": "https://nusports.com/sports/mens-tennis/schedule/text/",
             "Indiana": "https://iuhoosiers.com/sports/mens-tennis/schedule/text/",
-            "Purdue": "https://purduesports.com/sports/mens-tennis/schedule/text/",
+            "Purdue": "https://purduesports.com/sports/mens-tennis/schedule/",
             "Wisconsin": "https://uwbadgers.com/sports/mens-tennis/schedule/text/",
-            "Nebraska": "https://huskers.com/sports/mens-tennis/schedule/text/",
+            "Nebraska": "https://huskers.com/sports/mens-tennis/schedule",
             "Michigan State": "https://msuspartans.com/sports/mens-tennis/schedule/text/"
         }
         
@@ -273,7 +273,7 @@ def get_school_season_data(school: str, season: str):
             raise HTTPException(status_code=404, detail=f"School {school} not found")
         
         base_url = school_urls[school]
-        df = fetch_school_season_schedule(base_url, season)
+        df = fetch_school_season_schedule(base_url, season, school)
         
         if df.empty:
             logger.warning(f"No data found for {school} season {season}")
