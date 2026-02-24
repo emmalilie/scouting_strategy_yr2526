@@ -266,6 +266,59 @@
   color: #721c24;
 }
 
+.roster-section {
+  padding: 20px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.roster-section h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.roster-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.roster-item {
+  display: grid;
+  grid-template-columns: 2fr 60px 80px 80px;
+  gap: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  font-size: 13px;
+  align-items: center;
+}
+
+.player-name {
+  color: #333;
+  font-weight: 600;
+}
+
+.player-year {
+  color: #666;
+  font-weight: 500;
+  text-align: center;
+}
+
+.player-utr {
+  color: #2774AE;
+  font-weight: 600;
+  text-align: center;
+}
+
+.player-record {
+  color: #666;
+  font-weight: 500;
+  text-align: right;
+}
+
 .no-data-placeholder {
   min-height: 600px;
   display: flex;
