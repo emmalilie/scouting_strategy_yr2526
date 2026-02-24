@@ -407,7 +407,7 @@ def get_school_roster(school: str):
     """Get roster for a specific school"""
     try:
         school_file_map = {
-            "UCLA": "ucla_mens_tennis_roster.csv",
+            "UCLA": "rosters/ucla_roster.csv",
             "USC": "rosters/usc_roster.csv",
             "Purdue": "rosters/purdue_roster.csv",
             "Penn State": "rosters/pennstate_roster.csv",
