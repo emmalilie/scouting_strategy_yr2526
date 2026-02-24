@@ -12,6 +12,15 @@ interface SchoolSeasonData {
   Result: string;
 }
 
+interface RosterPlayer {
+  Player: string;
+  Year: string;
+  Hometown: string;
+  UTR: string;
+  Singles_Record: string;
+  Doubles_Record: string;
+}
+
 interface SchoolData {
   name: string;
   logo: string;
@@ -19,6 +28,7 @@ interface SchoolData {
   data: SchoolSeasonData[];
   record: { wins: number; losses: number };
   latestScore: number;
+  roster?: RosterPlayer[];
 }
 
 // All schools including UCLA
@@ -56,10 +66,8 @@ const Big10Comparison: React.FC = () => {
 
       let response;
       if (school.isUcla) {
-        // Fetch UCLA data from the standard endpoint
         response = await axios.get(`${API_BASE}/seasons/${selectedSeason}`);
       } else {
-        // Fetch other school data
         response = await axios.get(`${API_BASE}/schools/${schoolName}/seasons/${selectedSeason}`);
       }
 
@@ -69,13 +77,23 @@ const Big10Comparison: React.FC = () => {
       const losses = games.filter((d: SchoolSeasonData) => d.Result.toUpperCase().startsWith('L')).length;
       const latestScore = gameData.length > 0 ? gameData[gameData.length - 1].CumulativeScore : 0;
 
+      let roster: RosterPlayer[] = [];
+      try {
+        const rosterResponse = await axios.get(`${API_BASE}/schools/${schoolName}/roster`);
+        roster = rosterResponse.data;
+        console.log(`Roster loaded for ${schoolName}:`, roster);
+      } catch (error) {
+        console.log(`No roster available for ${schoolName}`);
+      }
+
       return {
         name: schoolName,
         logo: school.logo,
         color: school.color,
         data: gameData,
         record: { wins, losses },
-        latestScore
+        latestScore,
+        roster
       };
     } catch (error) {
       console.error(`Error fetching ${schoolName} data:`, error);
@@ -177,6 +195,27 @@ const Big10Comparison: React.FC = () => {
               ))}
           </div>
         </div>
+
+        {schoolData.roster && schoolData.roster.length > 0 ? (
+          <div className="roster-section">
+            <h4>Roster ({schoolData.roster.length} players)</h4>
+            <div className="roster-list">
+              {schoolData.roster.slice(0, 6).map((player, idx) => (
+                <div key={idx} className="roster-item">
+                  <span className="player-name">{player.Player}</span>
+                  <span className="player-year">{player.Year}</span>
+                  <span className="player-utr">UTR: {player.UTR}</span>
+                  <span className="player-record">{player.Singles_Record}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="roster-section">
+            <h4>Roster</h4>
+            <p style={{padding: '10px', color: '#999', textAlign: 'center'}}>No roster data available</p>
+          </div>
+        )}
       </div>
     );
   };

@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import datetime
 import logging
-from custom_scrapers import CUSTOM_SCRAPERS
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -231,18 +230,209 @@ def get_all_data():
         'seasons': seasons_data
     }
 
-def fetch_school_season_schedule(base_url: str, season: str, school_name: str = None):
-    """Fetch season schedule for any school given their base URL"""
-    # Check if school needs custom scraper
-    if school_name and school_name in CUSTOM_SCRAPERS:
-        logger.info(f"Using custom scraper for {school_name}")
-        df = CUSTOM_SCRAPERS[school_name](season)
-        if not df.empty:
-            df["Last_Updated"] = datetime.now().isoformat()
-        return df
+def fetch_purdue_season_schedule(season: str):
+    """Custom scraper for Purdue"""
+    url = f"https://purduesports.com/sports/mens-tennis/schedule/{season}"
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        logger.error(f"Error fetching Purdue season {season}: {e}")
+        return pd.DataFrame()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    table = soup.find("table", class_="sidearm-schedule-games-table") or soup.find("table")
     
-    # Default scraper for schools with standard table format
-    url = base_url + season
+    if not table:
+        logger.warning(f"No table found for Purdue season {season}")
+        return pd.DataFrame()
+
+    try:
+        start_year, end_year = season.split("-")
+        start_year = int(start_year)
+        end_year = int("20" + end_year) if len(end_year) == 2 else int(end_year)
+    except ValueError as e:
+        logger.error(f"Invalid season format {season}: {e}")
+        return pd.DataFrame()
+
+    rows = []
+    for tr in table.find_all("tr"):
+        if tr.find("th"):
+            continue
+        tds = tr.find_all("td")
+        if len(tds) < 3:
+            continue
+        
+        cells = [td.get_text(separator=" ", strip=True) for td in tds]
+        cells += [""] * (7 - len(cells))
+        
+        date_str = cells[0]
+        formatted_date = ""
+        if date_str:
+            date_str = date_str.split("(")[0].strip()
+            try:
+                date_obj = datetime.strptime(date_str, "%b %d")
+                month = date_obj.month
+                year = end_year if month <= 5 else start_year
+                date_obj = datetime(year, date_obj.month, date_obj.day)
+                formatted_date = date_obj.strftime("%m-%d-%Y")
+            except ValueError:
+                pass
+        
+        opponent = cells[3] if len(cells) > 3 else cells[1]
+        location = cells[4] if len(cells) > 4 else ""
+        result = cells[6] if len(cells) > 6 else cells[-1]
+        
+        rows.append({
+            "Date": formatted_date,
+            "Opponent": opponent,
+            "Location": location,
+            "Result": result,
+            "Season": season,
+            "Last_Updated": datetime.now().isoformat()
+        })
+    return pd.DataFrame(rows)
+
+def fetch_nebraska_season_schedule(season: str):
+    """Custom scraper for Nebraska"""
+    url = f"https://huskers.com/sports/mens-tennis/schedule/{season}"
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        logger.error(f"Error fetching Nebraska season {season}: {e}")
+        return pd.DataFrame()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    table = soup.find("table", class_="sidearm-schedule-games-table") or soup.find("table")
+    
+    if not table:
+        logger.warning(f"No table found for Nebraska season {season}")
+        return pd.DataFrame()
+
+    try:
+        start_year, end_year = season.split("-")
+        start_year = int(start_year)
+        end_year = int("20" + end_year) if len(end_year) == 2 else int(end_year)
+    except ValueError as e:
+        logger.error(f"Invalid season format {season}: {e}")
+        return pd.DataFrame()
+
+    rows = []
+    for tr in table.find_all("tr"):
+        if tr.find("th"):
+            continue
+        tds = tr.find_all("td")
+        if len(tds) < 3:
+            continue
+        
+        cells = [td.get_text(separator=" ", strip=True) for td in tds]
+        cells += [""] * (7 - len(cells))
+        
+        date_str = cells[0]
+        formatted_date = ""
+        if date_str:
+            date_str = date_str.split("(")[0].strip()
+            try:
+                date_obj = datetime.strptime(date_str, "%b %d")
+                month = date_obj.month
+                year = end_year if month <= 5 else start_year
+                date_obj = datetime(year, date_obj.month, date_obj.day)
+                formatted_date = date_obj.strftime("%m-%d-%Y")
+            except ValueError:
+                pass
+        
+        opponent = cells[3] if len(cells) > 3 else cells[1]
+        location = cells[4] if len(cells) > 4 else ""
+        result = cells[6] if len(cells) > 6 else cells[-1]
+        
+        rows.append({
+            "Date": formatted_date,
+            "Opponent": opponent,
+            "Location": location,
+            "Result": result,
+            "Season": season,
+            "Last_Updated": datetime.now().isoformat()
+        })
+    return pd.DataFrame(rows)
+
+def fetch_pennstate_season_schedule(season: str):
+    """Custom scraper for Penn State"""
+    url = f"https://gopsusports.com/sports/mens-tennis/schedule/{season}"
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        logger.error(f"Error fetching Penn State season {season}: {e}")
+        return pd.DataFrame()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    table = soup.find("table", class_="sidearm-schedule-games-table") or soup.find("table")
+    
+    if not table:
+        logger.warning(f"No table found for Penn State season {season}")
+        return pd.DataFrame()
+
+    try:
+        start_year, end_year = season.split("-")
+        start_year = int(start_year)
+        end_year = int("20" + end_year) if len(end_year) == 2 else int(end_year)
+    except ValueError as e:
+        logger.error(f"Invalid season format {season}: {e}")
+        return pd.DataFrame()
+
+    rows = []
+    for tr in table.find_all("tr"):
+        if tr.find("th"):
+            continue
+        tds = tr.find_all("td")
+        if len(tds) < 3:
+            continue
+        
+        cells = [td.get_text(separator=" ", strip=True) for td in tds]
+        cells += [""] * (7 - len(cells))
+        
+        date_str = cells[0]
+        formatted_date = ""
+        if date_str:
+            date_str = date_str.split("(")[0].strip()
+            try:
+                date_obj = datetime.strptime(date_str, "%b %d")
+                month = date_obj.month
+                year = end_year if month <= 5 else start_year
+                date_obj = datetime(year, date_obj.month, date_obj.day)
+                formatted_date = date_obj.strftime("%m-%d-%Y")
+            except ValueError:
+                pass
+        
+        opponent = cells[3] if len(cells) > 3 else cells[1]
+        location = cells[4] if len(cells) > 4 else ""
+        result = cells[6] if len(cells) > 6 else cells[-1]
+        
+        rows.append({
+            "Date": formatted_date,
+            "Opponent": opponent,
+            "Location": location,
+            "Result": result,
+            "Season": season,
+            "Last_Updated": datetime.now().isoformat()
+        })
+    return pd.DataFrame(rows)
+
+def fetch_school_season_schedule(base_url: str, season: str, school_name: str = None, url_format: str = "text"):
+    """Fetch season schedule for any school given their base URL"""
+    if school_name == "Purdue":
+        return fetch_purdue_season_schedule(season)
+    if school_name == "Nebraska":
+        return fetch_nebraska_season_schedule(season)
+    if school_name == "Penn State":
+        return fetch_pennstate_season_schedule(season)
+    
+    # Build URL based on format
+    if url_format == "text":
+        url = f"{base_url}text/{season}"
+    else:
+        url = base_url + season
     
     try:
         response = requests.get(url, headers=HEADERS, timeout=10)

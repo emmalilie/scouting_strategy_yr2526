@@ -254,26 +254,26 @@ def get_school_season_data(school: str, season: str):
     try:
         from start import fetch_school_season_schedule
         
-        # Map school names to their website URLs
-        school_urls = {
-            "USC": "https://usctrojans.com/sports/mens-tennis/schedule/text/",
-            "Ohio State": "https://ohiostatebuckeyes.com/sports/mens-tennis/schedule/text/",
-            "Michigan": "https://mgoblue.com/sports/mens-tennis/schedule/text/",
-            "Penn State": "https://gopsusports.com/sports/mens-tennis/schedule/",
-            "Illinois": "https://fightingillini.com/sports/mens-tennis/schedule/",
-            "Northwestern": "https://nusports.com/sports/mens-tennis/schedule/text/",
-            "Indiana": "https://iuhoosiers.com/sports/mens-tennis/schedule/text/",
-            "Purdue": "https://purduesports.com/sports/mens-tennis/schedule/",
-            "Wisconsin": "https://uwbadgers.com/sports/mens-tennis/schedule/text/",
-            "Nebraska": "https://huskers.com/sports/mens-tennis/schedule",
-            "Michigan State": "https://msuspartans.com/sports/mens-tennis/schedule/text/"
+        # Map school names to their website URLs and formats
+        school_configs = {
+            "USC": {"url": "https://usctrojans.com/sports/mens-tennis/schedule/", "format": "text"},
+            "Ohio State": {"url": "https://ohiostatebuckeyes.com/sports/mens-tennis/schedule/", "format": "text"},
+            "Michigan": {"url": "https://mgoblue.com/sports/mens-tennis/schedule/", "format": "text"},
+            "Penn State": {"url": "https://gopsusports.com/sports/mens-tennis/schedule/", "format": "season"},
+            "Illinois": {"url": "https://fightingillini.com/sports/mens-tennis/schedule/", "format": "season"},
+            "Northwestern": {"url": "https://nusports.com/sports/mens-tennis/schedule/", "format": "text"},
+            "Indiana": {"url": "https://iuhoosiers.com/sports/mens-tennis/schedule/", "format": "text"},
+            "Purdue": {"url": "https://purduesports.com/sports/mens-tennis/schedule/", "format": "season"},
+            "Wisconsin": {"url": "https://uwbadgers.com/sports/mens-tennis/schedule/", "format": "text"},
+            "Nebraska": {"url": "https://huskers.com/sports/mens-tennis/schedule/", "format": "season"},
+            "Michigan State": {"url": "https://msuspartans.com/sports/mens-tennis/schedule/", "format": "text"}
         }
         
-        if school not in school_urls:
+        if school not in school_configs:
             raise HTTPException(status_code=404, detail=f"School {school} not found")
         
-        base_url = school_urls[school]
-        df = fetch_school_season_schedule(base_url, season, school)
+        config = school_configs[school]
+        df = fetch_school_season_schedule(config["url"], season, school, config["format"])
         
         if df.empty:
             logger.warning(f"No data found for {school} season {season}")
@@ -371,3 +371,71 @@ def debug_csv():
         }
     except Exception as e:
         return {"error": str(e)}
+
+@app.get("/debug/scrape/{school}/{season}")
+def debug_scrape(school: str, season: str):
+    """Debug endpoint to see raw scraped data"""
+    try:
+        from start import fetch_school_season_schedule
+        
+        school_urls = {
+            "Penn State": "https://gopsusports.com/sports/mens-tennis/schedule/",
+            "Purdue": "https://purduesports.com/sports/mens-tennis/schedule/",
+            "Nebraska": "https://huskers.com/sports/mens-tennis/schedule"
+        }
+        
+        if school not in school_urls:
+            return {"error": f"School {school} not in debug list"}
+        
+        base_url = school_urls[school]
+        df = fetch_school_season_schedule(base_url, season, school)
+        
+        return {
+            "school": school,
+            "season": season,
+            "url_used": base_url + season,
+            "rows_found": len(df),
+            "columns": list(df.columns) if not df.empty else [],
+            "raw_data": df.to_dict('records') if not df.empty else [],
+            "first_5_rows": df.head(5).to_dict('records') if not df.empty else []
+        }
+    except Exception as e:
+        return {"error": str(e), "traceback": str(e.__traceback__)}
+
+@app.get("/schools/{school}/roster")
+def get_school_roster(school: str):
+    """Get roster for a specific school"""
+    try:
+        school_file_map = {
+            "UCLA": "ucla_mens_tennis_roster.csv",
+            "USC": "rosters/usc_roster.csv",
+            "Purdue": "rosters/purdue_roster.csv",
+            "Penn State": "rosters/pennstate_roster.csv",
+            "Nebraska": "rosters/nebraska_roster.csv",
+            "Ohio State": "rosters/ohio_state_roster.csv",
+            "Michigan": "rosters/michigan_roster.csv",
+            "Illinois": "rosters/illinois_roster.csv",
+            "Northwestern": "rosters/northwestern_roster.csv",
+            "Indiana": "rosters/indiana_roster.csv",
+            "Wisconsin": "rosters/wisconsin_roster.csv",
+            "Michigan State": "rosters/michigan_state_roster.csv"
+        }
+        
+        if school not in school_file_map:
+            raise HTTPException(status_code=404, detail=f"Roster for {school} not found")
+        
+        csv_path = school_file_map[school]
+        
+        if not os.path.exists(csv_path):
+            raise HTTPException(status_code=404, detail=f"Roster file not found for {school}")
+        
+        df = pd.read_csv(csv_path)
+        df = df.fillna('N/A')
+        
+        return df.to_dict('records')
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error fetching {school} roster: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error fetching {school} roster: {str(e)}")
