@@ -33,7 +33,7 @@ def get_roster():
         
         # If empty, try to read CSV directly
         if roster_df.empty:
-            csv_path = "ucla_mens_tennis_roster.csv"
+            csv_path = "rosters/ucla_roster.csv"
             if os.path.exists(csv_path):
                 logger.info(f"Reading roster directly from {csv_path}")
                 roster_df = pd.read_csv(csv_path)
@@ -348,7 +348,7 @@ def get_school_season_data(school: str, season: str):
 def debug_csv():
     """Debug endpoint to check CSV file"""
     try:
-        csv_path = "ucla_mens_tennis_roster.csv"
+        csv_path = "rosters/ucla_roster.csv"
         
         if not os.path.exists(csv_path):
             return {
@@ -410,7 +410,7 @@ def get_school_roster(school: str):
             "UCLA": "rosters/ucla_roster.csv",
             "USC": "rosters/usc_roster.csv",
             "Purdue": "rosters/purdue_roster.csv",
-            "Penn State": "rosters/pennstate_roster.csv",
+            "Penn State": "rosters/penn_state_roster.csv",
             "Nebraska": "rosters/nebraska_roster.csv",
             "Ohio State": "rosters/ohio_state_roster.csv",
             "Michigan": "rosters/michigan_roster.csv",
@@ -421,13 +421,20 @@ def get_school_roster(school: str):
             "Michigan State": "rosters/michigan_state_roster.csv"
         }
         
+        logger.info(f"Looking for roster for school: {school}")
+        
         if school not in school_file_map:
+            logger.error(f"School {school} not in mapping")
             raise HTTPException(status_code=404, detail=f"Roster for {school} not found")
         
         csv_path = school_file_map[school]
+        logger.info(f"Trying to load roster from: {csv_path}")
         
         if not os.path.exists(csv_path):
-            raise HTTPException(status_code=404, detail=f"Roster file not found for {school}")
+            logger.error(f"File does not exist: {csv_path}")
+            logger.info(f"Current directory: {os.getcwd()}")
+            logger.info(f"Files in rosters/: {os.listdir('rosters') if os.path.exists('rosters') else 'rosters dir not found'}")
+            raise HTTPException(status_code=404, detail=f"Roster file not found for {school} at {csv_path}")
         
         df = pd.read_csv(csv_path)
         df = df.fillna('N/A')

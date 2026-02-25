@@ -19,6 +19,8 @@ interface RosterPlayer {
   UTR: string;
   Singles_Record: string;
   Doubles_Record: string;
+  Profile_URL?: string;
+  UTR_URL?: string;
 }
 
 interface SchoolData {
@@ -33,18 +35,18 @@ interface SchoolData {
 
 // All schools including UCLA
 const ALL_SCHOOLS = [
-  { name: 'UCLA', color: '#2774AE', logo: '🐻', isUcla: true },
-  { name: 'USC', color: '#990000', logo: '🔱', isUcla: false },
+  { name: 'UCLA', color: '#5fbae4', logo: '/image/ucla_logo.png', isUcla: true },
+  { name: 'USC', color: '#990000', logo: '/image/usc_logo.png', isUcla: false },
   { name: 'Ohio State', color: '#BB0000', logo: '🌰', isUcla: false },
-  { name: 'Michigan', color: '#00274C', logo: 'M', isUcla: false },
-  { name: 'Penn State', color: '#041E42', logo: 'PSU', isUcla: false },
-  { name: 'Illinois', color: '#13294B', logo: 'ILL', isUcla: false },
-  { name: 'Northwestern', color: '#4E2A84', logo: 'NU', isUcla: false },
-  { name: 'Indiana', color: '#990000', logo: 'IU', isUcla: false },
-  { name: 'Purdue', color: '#000000', logo: 'PU', isUcla: false },
-  { name: 'Wisconsin', color: '#C5050C', logo: 'W', isUcla: false },
-  { name: 'Nebraska', color: '#E41C38', logo: 'N', isUcla: false },
-  { name: 'Michigan State', color: '#18453B', logo: 'MSU', isUcla: false },
+  { name: 'Michigan', color: '#00274C', logo: '/image/michigan_logo.png', isUcla: false },
+  { name: 'Penn State', color: '#041E42', logo: '/image/penn_state_logo.png', isUcla: false },
+  { name: 'Illinois', color: '#13294B', logo: '/image/illinois_logo.png', isUcla: false },
+  { name: 'Northwestern', color: '#4E2A84', logo: '/image/northwestern_logo.png', isUcla: false },
+  { name: 'Indiana', color: '#990000', logo: '/image/indiana_logo.png', isUcla: false },
+  { name: 'Purdue', color: '#000000', logo: '/image/purdue_logo.png', isUcla: false },
+  { name: 'Wisconsin', color: '#C5050C', logo: '/image/wisconsin_logo.png', isUcla: false },
+  { name: 'Nebraska', color: '#E41C38', logo: '/image/nebraska_logo.png', isUcla: false },
+  { name: 'Michigan State', color: '#18453B', logo: '/image/michigan_st_logo.png', isUcla: false },
 ];
 
 const Big10Comparison: React.FC = () => {
@@ -133,7 +135,13 @@ const Big10Comparison: React.FC = () => {
     return (
       <div className={`school-card ${side}`} style={{ borderColor: schoolData.color }}>
         <div className="school-header" style={{ backgroundColor: schoolData.color }}>
-          <div className="school-logo">{schoolData.logo}</div>
+          <div className="school-logo">
+            {schoolData.logo.startsWith('/image/') ? (
+              <img src={schoolData.logo} alt={`${schoolData.name} logo`} style={{ width: '60px', height: '60px', objectFit: 'contain' }} />
+            ) : (
+              schoolData.logo
+            )}
+          </div>
           <h3>{schoolData.name}</h3>
         </div>
         
@@ -199,13 +207,21 @@ const Big10Comparison: React.FC = () => {
         {schoolData.roster && schoolData.roster.length > 0 ? (
           <div className="roster-section">
             <h4>Roster ({schoolData.roster.length} players)</h4>
-            <div className="roster-list">
+            <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
               {schoolData.roster.slice(0, 6).map((player, idx) => (
-                <div key={idx} className="roster-item">
-                  <span className="player-name">{player.Player}</span>
-                  <span className="player-year">{player.Year}</span>
-                  <span className="player-utr">UTR: {player.UTR}</span>
-                  <span className="player-record">{player.Singles_Record}</span>
+                <div key={idx} style={{display: 'grid', gridTemplateColumns: '2fr 60px 80px 80px', gap: '10px', padding: '10px', background: '#f8f9fa', borderRadius: '6px', fontSize: '13px', alignItems: 'center', position: 'relative', zIndex: 1}}>
+                  {player.Profile_URL ? (
+                    <a href={player.Profile_URL} target="_blank" rel="noopener noreferrer" style={{color: '#2774AE', fontWeight: 600, textDecoration: 'underline', cursor: 'pointer', position: 'relative', zIndex: 10, pointerEvents: 'auto'}}>{player.Player}</a>
+                  ) : (
+                    <span style={{color: '#333', fontWeight: 600}}>{player.Player}</span>
+                  )}
+                  <span style={{color: '#666', fontWeight: 500, textAlign: 'center'}}>{player.Year}</span>
+                  {player.UTR_URL ? (
+                    <a href={player.UTR_URL} target="_blank" rel="noopener noreferrer" style={{color: '#2774AE', fontWeight: 600, textAlign: 'center', textDecoration: 'underline', cursor: 'pointer', position: 'relative', zIndex: 10, pointerEvents: 'auto'}}>UTR: {player.UTR}</a>
+                  ) : (
+                    <span style={{color: '#666', fontWeight: 600, textAlign: 'center'}}>UTR: {player.UTR}</span>
+                  )}
+                  <span style={{color: '#666', fontWeight: 500, textAlign: 'right'}}>{player.Singles_Record}</span>
                 </div>
               ))}
             </div>
@@ -213,7 +229,7 @@ const Big10Comparison: React.FC = () => {
         ) : (
           <div className="roster-section">
             <h4>Roster</h4>
-            <p style={{padding: '10px', color: '#999', textAlign: 'center'}}>No roster data available</p>
+            <p style={{ padding: '10px', color: '#999', textAlign: 'center' }}>No roster data available</p>
           </div>
         )}
       </div>

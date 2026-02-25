@@ -1,7 +1,14 @@
-Player,Year,Hometown,UTR,Singles_Record,Doubles_Record
-James Trotter,Sr,Columbus OH,13.0,0-0,0-0
-Robert Cash,Jr,Cincinnati OH,12.7,0-0,0-0
-Justin Boulais,So,Montreal Canada,12.9,0-0,0-0
-Cannon Kingsley,Fr,Cleveland OH,12.4,0-0,0-0
-Andrew Lutschaunig,Jr,Dayton OH,12.2,0-0,0-0
-Preston Touliatos,So,Toledo OH,12.0,0-0,0-0
+Player,Year,Hometown,UTR,Singles_Record,Doubles_Record,Profile_URL,UTR_URL
+Jack Anthrop,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/jack-anthrop/13056,N/A
+Alexander Bernard,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/alexander-bernard/13057,N/A
+Loren Byers,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/loren-byers/13065,N/A
+Brandon Carpico,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/brandon-carpico/13058,N/A
+Jp Day,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/jp-day/13059,N/A
+Nikita Filin,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/nikita-filin/13060,N/A
+Alex Fuchs,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/alex-fuchs/13061,N/A
+Aidan Kim,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/aidan-kim/13062,N/A
+Victor Lilov,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/victor-lilov/13164,N/A
+Bryce Nakashima,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/bryce-nakashima/13063,N/A
+Alex Okonkwo,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/alex-okonkwo/13066,N/A
+Ilija Palavestra,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/ilija-palavestra/13163,N/A
+Preston Stearns,N/A,N/A,N/A,0-0,0-0,https://ohiostatebuckeyes.com/sports/mens-tennis/roster/preston-stearns/13064,N/A

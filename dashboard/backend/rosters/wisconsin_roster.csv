@@ -1,7 +1,10 @@
-Player,Year,Hometown,UTR,Singles_Record,Doubles_Record
-Jared Pratt,Sr,Madison WI,12.2,0-0,0-0
-Dylan Dietrich,Jr,Milwaukee WI,11.9,0-0,0-0
-Timo Legout,So,Paris France,11.7,0-0,0-0
-Chema Carranza,Fr,Madrid Spain,11.4,0-0,0-0
-Luke Oakley,Jr,Green Bay WI,11.6,0-0,0-0
-Max Benson,So,Appleton WI,11.5,0-0,0-0
+Player,Year,Hometown,UTR,Singles_Record,Doubles_Record,Profile_URL,UTR_URL
+Edouard Aubert,N/A,"Geneva, Switzerland",Unrated,0-0,0-0,https://uwbadgers.com/sports/mens-tennis/roster/edouard-aubert/14677,https://app.utrsports.net/profiles/1083911
+Collin Beduhn,N/A,"Wayzata, Minn.",Unrated,0-0,0-0,https://uwbadgers.com/sports/mens-tennis/roster/collin-beduhn/14678,https://app.utrsports.net/profiles/3073832
+Matthew Fullerton,N/A,"Edina, Minn.",Unrated,0-0,0-0,https://uwbadgers.com/sports/mens-tennis/roster/matthew-fullerton/14679,https://app.utrsports.net/profiles/2530689
+Ferdinand Kloesters,So,"Grünwald, Germany",Unrated,0-0,0-0,https://uwbadgers.com/sports/mens-tennis/roster/ferdinand-kloesters/14680,https://app.utrsports.net/profiles/290224
+Sachiv Kumar,N/A,"Novi, Michigan",Unrated,0-0,0-0,https://uwbadgers.com/sports/mens-tennis/roster/sachiv-kumar/14681,https://app.utrsports.net/profiles/363150
+Patrik Meszaros,N/A,"Budapest, Hungary",Unrated,0-0,0-0,https://uwbadgers.com/sports/mens-tennis/roster/patrik-meszaros/14682,https://app.utrsports.net/profiles/4803674
+Michael Minasyan,N/A,"Stockholm, Sweden",Unrated,0-0,0-0,https://uwbadgers.com/sports/mens-tennis/roster/michael-minasyan/14683,https://app.utrsports.net/profiles/263819
+Oliver Olsson,N/A,"Berlin, Germany",Unrated,0-0,0-0,https://uwbadgers.com/sports/mens-tennis/roster/oliver-olsson/14684,https://app.utrsports.net/profiles/4707790
+Tomas Zlatohlavek,N/A,"Prague, Czech Republic",Unrated,0-0,0-0,https://uwbadgers.com/sports/mens-tennis/roster/tomas-zlatohlavek/14685,https://app.utrsports.net/profiles/3306503

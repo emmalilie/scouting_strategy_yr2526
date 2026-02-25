@@ -179,7 +179,7 @@ def fetch_roster_with_stats():
     """Fetch roster from CSV file and merge with live stats"""
     try:
         # Read roster from CSV file
-        roster_df = pd.read_csv("ucla_mens_tennis_roster.csv")
+        roster_df = pd.read_csv("rosters/ucla_roster.csv")
         logger.info(f"Loaded {len(roster_df)} players from CSV")
         
         # Fetch live stats
@@ -200,7 +200,7 @@ def fetch_roster_with_stats():
         return roster_df
         
     except FileNotFoundError:
-        logger.error("ucla_mens_tennis_roster.csv not found")
+        logger.error("ucla_roster.csv not found")
         return pd.DataFrame()
     except Exception as e:
         logger.error(f"Error loading roster: {e}")

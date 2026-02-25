@@ -161,6 +161,18 @@
 .school-logo {
   font-size: 48px;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.school-logo img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: white;
+  border-radius: 8px;
+  padding: 5px;
 }
 
 .school-header h3 {
@@ -296,9 +308,28 @@
   align-items: center;
 }
 
+.roster-item a {
+  color: #2774AE;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.roster-item a:hover {
+  color: #1a5a8a;
+}
+
 .player-name {
   color: #333;
   font-weight: 600;
+}
+
+.player-name.player-link {
+  color: #2774AE;
+  text-decoration: underline;
+}
+
+.player-name.player-link:hover {
+  color: #1a5a8a;
 }
 
 .player-year {
@@ -308,9 +339,17 @@
 }
 
 .player-utr {
-  color: #2774AE;
   font-weight: 600;
   text-align: center;
+}
+
+.player-utr.player-link {
+  color: #2774AE;
+  text-decoration: underline;
+}
+
+.player-utr.player-link:hover {
+  color: #1a5a8a;
 }
 
 .player-record {

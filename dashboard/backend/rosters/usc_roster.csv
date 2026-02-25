@@ -1,7 +1,11 @@
-Player,Year,Hometown,UTR,Singles_Record,Doubles_Record
-Bradley Frye,Sr,Newport Beach CA,13.5,0-0,0-0
-Peter Makk,Jr,Budapest Hungary,13.2,0-0,0-0
-Lodewijk Weststrate,So,Amsterdam Netherlands,12.8,0-0,0-0
-Daniel Cukierman,Sr,Ramat Hasharon Israel,13.0,0-0,0-0
-Stefan Leustian,Jr,Bucharest Romania,12.5,0-0,0-0
-Jake Sands,So,San Diego CA,12.3,0-0,0-0
+Player,Year,Hometown,UTR,Singles_Record,Doubles_Record,Profile_URL,UTR_URL
+Andrin Casanova,So,"Lucerne, Switzerland",13.08,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/andrin-casanova/18420,https://app.utrsports.net/profiles/5746919
+Connor Church,N/A,"Vancouver, British Columbia, Canada",Unrated,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/connor-church/17855,https://app.utrsports.net/profiles/4822476
+Branko Djuric,Fr,"Budva, Montenegro",13.61,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/branko-djuric/18419,https://app.utrsports.net/profiles/4556725
+Max Exsted,N/A,"Savage, Minnesota",13.4,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/max-exsted/18418,https://app.utrsports.net/profiles/4250519
+Niels Hoffmann,N/A,"Newport Beach, Calif.",Unrated,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/niels-hoffmann/17856,https://app.utrsports.net/profiles/3131692
+Jack McCarthy,N/A,"Gold Coast, Australia",Unrated,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/jack-mccarthy/17861,https://app.utrsports.net/profiles/232214
+Matteo Morazzi,N/A,"Barcelona, Spain",Unrated,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/matteo-morazzi/17858,https://app.utrsports.net/profiles/1296450
+Sklar Phillips,Fr,"Naples, Florida",Unrated,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/sklar-phillips/18421,https://app.utrsports.net/profiles/909605
+Pablo Robledo Hoyos,Fr,"Bogota, Colombia",11.76,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/pablo-robledo-hoyos/17860,https://app.utrsports.net/profiles/5764318
+Nathan Trouve,N/A,"Grenoble, France",13.29,0-0,0-0,https://usctrojans.com/sports/mens-tennis/roster/nathan-trouve/17859,https://app.utrsports.net/profiles/3396050
