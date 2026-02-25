@@ -1,7 +1,9 @@
-Player,Year,Hometown,UTR,Singles_Record,Doubles_Record
-Patrick Maloney,Sr,Ann Arbor MI,13.2,0-0,0-0
-Andrew Fenty,Jr,Detroit MI,12.9,0-0,0-0
-Ondrej Styler,So,Prague Czech Republic,12.6,0-0,0-0
-Gavin Young,Fr,Grand Rapids MI,12.3,0-0,0-0
-Nino Ehrenschneider,Jr,Munich Germany,12.4,0-0,0-0
-Jacob Bickersteth,So,Toronto Canada,12.1,0-0,0-0
+Player,Year,Hometown,UTR,Singles_Record,Doubles_Record,Profile_URL,UTR_URL
+Arnav Bhandari,N/A,"San Ramon, Calif.",Unrated,0-0,0-0,https://mgoblue.com/sports/mens-tennis/roster/arnav-bhandari/27303,https://app.utrsports.net/profiles/3104668
+Alex Cairo,N/A,"Dallas, Texas",Unrated,0-0,0-0,https://mgoblue.com/sports/mens-tennis/roster/alex-cairo/27297,https://app.utrsports.net/profiles/4998636
+Max Dahlin,N/A,"Karlstad, Sweden",13.57,0-0,0-0,https://mgoblue.com/sports/mens-tennis/roster/max-dahlin/27298,https://app.utrsports.net/profiles/5619888
+Mert Oral,N/A,"Ann Arbor, Mich.",Unrated,0-0,0-0,https://mgoblue.com/sports/mens-tennis/roster/mert-oral/27300,https://app.utrsports.net/profiles/4888907
+Joseph Oyebog Jr.,N/A,Skip Ad,Unrated,0-0,0-0,https://mgoblue.com/sports/mens-tennis/roster/joseph-oyebog-jr/27304,https://app.utrsports.net/profiles/4202000
+Pierce Shaya,N/A,"Bloomfield Hills, Mich.",Unrated,0-0,0-0,https://mgoblue.com/sports/mens-tennis/roster/pierce-shaya/27305,https://app.utrsports.net/profiles/3205675
+Nicholas Steiglehner,N/A,"New York, N.Y.",12.7,0-0,0-0,https://mgoblue.com/sports/mens-tennis/roster/nicholas-steiglehner/27301,https://app.utrsports.net/profiles/4013968
+Bjorn Swenson,N/A,"North Oaks, Minn.",13.24,0-0,0-0,https://mgoblue.com/sports/mens-tennis/roster/bjorn-swenson/27302,https://app.utrsports.net/profiles/112464

@@ -1,9 +1,11 @@
-Player,Year,Hometown,UTR,Singles_Record,Doubles_Record
-Aadarsh Tripathi,Fr,Pleasanton CA,12.8,0-0,0-0
-Alexander Hoogmartens,Jr,Beersel Belgium,13.5,0-0,0-0
-Emon Van Loben Sels,So,Sacramento CA,12.5,0-0,0-0
-Giacomo Revelli,Jr,London England,13.2,0-0,0-0
-Gianluca Ballotta,So,Lima Peru,12.9,0-0,0-0
-Kaylan Bigun,Fr,College Park MD,13.1,0-0,0-0
-Rudy Quan,Fr,Roseville CA,13.0,0-0,0-0
-Spencer Johnson,Fr,Rancho Santa Fe CA,12.7,0-0,0-0
+Player,Year,Hometown,UTR,Singles_Record,Doubles_Record,Profile_URL,UTR_URL
+Gianluca Ballotta,N/A,"Lima, Peru",Unrated,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/gianluca-ballotta/15452,https://app.utrsports.net/profiles/2920230
+Cassius Chinlund,N/A,Skip Ad,Unrated,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/cassius-chinlund/15453,https://app.utrsports.net/profiles/5329395
+Andrei Crabel,So,"Beverly Hills, Calif.",Unrated,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/andrei-crabel/15454,https://app.utrsports.net/profiles/4270236
+Spencer Johnson,N/A,"Ladera Ranch, Calif.",13.74,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/spencer-johnson/15455,https://app.utrsports.net/profiles/2580878
+Andy Nguyen,N/A,Skip Ad,13.1,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/andy-nguyen/15460,https://app.utrsports.net/profiles/5600655
+Rudy Quan,N/A,"Thousand Oaks, Calif.",13.53,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/rudy-quan/15456,https://app.utrsports.net/profiles/168171
+Bengt Reinhard,N/A,Skip Ad,12.39,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/bengt-reinhard/15461,https://app.utrsports.net/profiles/1579258
+Aadarsh Tripathi,N/A,"Pleasanton, Calif.",12.97,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/aadarsh-tripathi/15457,https://app.utrsports.net/profiles/5581068
+Emon van Loben Sels,N/A,Skip Ad,13.58,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/emon-van-loben-sels/15458,https://app.utrsports.net/profiles/1633823
+Leo von Bismarck,N/A,"Hamburg, Germany",13.05,0-0,0-0,https://uclabruins.com/sports/mens-tennis/roster/leo-von-bismarck/15459,https://app.utrsports.net/profiles/1695482

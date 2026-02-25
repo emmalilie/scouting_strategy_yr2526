@@ -45,18 +45,18 @@ interface SchoolData {
 
 // All schools including UCLA
 const ALL_SCHOOLS = [
-  { name: "UCLA", color: "#2774AE", logo: "🐻", isUcla: true },
-  { name: "USC", color: "#990000", logo: "🔱", isUcla: false },
+  { name: "UCLA", color: "#2774AE", logo: "/image/ucla_logo.png", isUcla: true },
+  { name: "USC", color: "#990000", logo: "/image/usc_logo.png", isUcla: false },
   { name: "Ohio State", color: "#BB0000", logo: "🌰", isUcla: false },
-  { name: "Michigan", color: "#00274C", logo: "M", isUcla: false },
-  { name: "Penn State", color: "#041E42", logo: "PSU", isUcla: false },
-  { name: "Illinois", color: "#13294B", logo: "ILL", isUcla: false },
-  { name: "Northwestern", color: "#4E2A84", logo: "NU", isUcla: false },
-  { name: "Indiana", color: "#990000", logo: "IU", isUcla: false },
-  { name: "Purdue", color: "#000000", logo: "PU", isUcla: false },
-  { name: "Wisconsin", color: "#C5050C", logo: "W", isUcla: false },
-  { name: "Nebraska", color: "#E41C38", logo: "N", isUcla: false },
-  { name: "Michigan State", color: "#18453B", logo: "MSU", isUcla: false },
+  { name: "Michigan", color: "#00274C", logo: "/image/michigan_logo.png", isUcla: false },
+  { name: "Penn State", color: "#041E42", logo: "/image/penn_state_logo.png", isUcla: false },
+  { name: "Illinois", color: "#13294B", logo: "/image/illinois_logo.png", isUcla: false },
+  { name: "Northwestern", color: "#4E2A84", logo: "/image/northwestern_logo.png", isUcla: false },
+  { name: "Indiana", color: "#990000", logo: "/image/indiana_logo.png", isUcla: false },
+  { name: "Purdue", color: "#000000", logo: "/image/purdue_logo.png", isUcla: false },
+  { name: "Wisconsin", color: "#C5050C", logo: "/image/wisconsin_logo.png", isUcla: false },
+  { name: "Nebraska", color: "#E41C38", logo: "/image/nebraska_logo.png", isUcla: false },
+  { name: "Michigan State", color: "#18453B", logo: "/image/michigan_st_logo.png", isUcla: false },
 ];
 
 const Big10Comparison: React.FC = () => {
@@ -157,7 +157,13 @@ const Big10Comparison: React.FC = () => {
     return (
       <div className={`school-card ${side}`} style={{ borderColor: schoolData.color }}>
         <div className="school-header" style={{ backgroundColor: schoolData.color }}>
-          <div className="school-logo">{schoolData.logo}</div>
+          <div className="school-logo">
+            {schoolData.logo.startsWith('/image/') ? (
+              <img src={schoolData.logo} alt={`${schoolData.name} logo`} style={{ width: '60px', height: '60px', objectFit: 'contain' }} />
+            ) : (
+              schoolData.logo
+            )}
+          </div>
           <h3>{schoolData.name}</h3>
         </div>
         

@@ -1,7 +1,13 @@
-Player,Year,Hometown,UTR,Singles_Record,Doubles_Record
-Trice Pickens,Sr,Evanston IL,12.4,0-0,0-0
-Steven Forman,Jr,Chicago IL,12.1,0-0,0-0
-Natan Rodrigues,So,Rio de Janeiro Brazil,11.9,0-0,0-0
-Presley Thieneman,Fr,Louisville KY,11.6,0-0,0-0
-Simen Bratholm,Jr,Oslo Norway,11.8,0-0,0-0
-Felix Nordby,So,Copenhagen Denmark,11.7,0-0,0-0
+Player,Year,Hometown,UTR,Singles_Record,Doubles_Record,Profile_URL,UTR_URL
+Greyson Casey,N/A,"Oro Valley, Arizona",Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/greyson-casey/12742,https://app.utrsports.net/profiles/4915757
+Dylan Charlap,N/A,"Palos Verdes Estates, Calif.",Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/dylan-charlap/12748,https://app.utrsports.net/profiles/5621453
+Lucas Coriaty,So,"Long Beach, California",Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/lucas-coriaty/12743,https://app.utrsports.net/profiles/2927559
+Dylan Fayerman,N/A,"Acton, Mass.",14.21,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/dylan-fayerman/12749,https://app.utrsports.net/profiles/5075195
+Jacob Golden,N/A,"Austin, Texas",Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/jacob-golden/12750,https://app.utrsports.net/profiles/3067378
+Cooper Han,N/A,Skip Ad,Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/cooper-han/12751,https://app.utrsports.net/profiles/791352
+Cyrus Mahjoob,Jr,Skip Ad,12.85,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/cyrus-mahjoob/12752,https://app.utrsports.net/profiles/117359
+Owen Megargee,N/A,"Washington, D.C.",Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/owen-megargee/12744,https://app.utrsports.net/profiles/2082161
+Chad Miller,N/A,"Cincinnati, Ohio",Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/chad-miller/12745,https://app.utrsports.net/profiles/4217007
+Carter Pate,So,"Charleston, South Carolina",Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/carter-pate/12746,https://app.utrsports.net/profiles/138377
+Ethan Schiffman,Jr,Skip Ad,Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/ethan-schiffman/12753,https://app.utrsports.net/profiles/1588278
+Vincent Yang,N/A,"Kirkland, Washington",Unrated,0-0,0-0,https://nusports.com/sports/mens-tennis/roster/vincent-yang/12747,https://app.utrsports.net/profiles/149674
