@@ -38,7 +38,7 @@ def create_combined():
                                 missing.append(sheet)
                                 #print(f"Sheet {sheet} missing in {file}")  # Debugging
                     except Exception as e:
-                        print(f"⚠️ Error with {file_path}: {e}")
+                        print(f"Error with {file_path}: {e}")
                     print('------------------------------------------------------------------------')
                     print(f'Successfully accessed {file}')
                     print(f'Missing: {missing}, Empty: {empty}, Combined: {combined}')
@@ -57,9 +57,9 @@ def create_combined():
                 with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
                     for sheet, df in sheets_to_write.items():
                         df.to_excel(writer, sheet_name=sheet, index=False)
-                print(f"✅ Created combined.xlsx for {player} with sheets: {list(sheets_to_write.keys())}")
+                print(f"Created combined.xlsx for {player} with sheets: {list(sheets_to_write.keys())}")
             else:
-                print(f"⚠️ No valid data found for {player}, skipping combined.xlsx")
+                print(f"No valid data found for {player}, skipping combined.xlsx")
 
 
 create_combined()
