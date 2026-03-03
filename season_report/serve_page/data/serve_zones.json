@@ -4,14 +4,14 @@
             "type": "First Serve",
             "sides": {
                 "deuce": {
-                    "wide": 21,
-                    "body": 15,
-                    "t": 16
+                    "wide": 12,
+                    "body": 2,
+                    "t": 8
                 },
                 "ad": {
-                    "wide": 19,
-                    "body": 14,
-                    "t": 22
+                    "wide": 13,
+                    "body": 3,
+                    "t": 12
                 }
             }
         },
@@ -20,13 +20,13 @@
             "sides": {
                 "deuce": {
                     "wide": 4,
-                    "body": 10,
-                    "t": 19
+                    "body": 5,
+                    "t": 10
                 },
                 "ad": {
-                    "wide": 14,
-                    "body": 8,
-                    "t": 5
+                    "wide": 7,
+                    "body": 3,
+                    "t": 3
                 }
             }
         }
