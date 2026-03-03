@@ -1,7 +1,9 @@
 import os
 import pandas as pd
 
-base_path = "../data/mens"
+# Get the script's directory and build absolute path
+script_dir = os.path.dirname(os.path.abspath(__file__))
+base_path = os.path.join(script_dir, "..", "data", "mens")
 target_sheets = ["Settings", "Shots", "Points", "Games", "Sets", "Stats"]
 def create_combined():
     """
