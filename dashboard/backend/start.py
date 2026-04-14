@@ -419,6 +419,71 @@ def fetch_pennstate_season_schedule(season: str):
         })
     return pd.DataFrame(rows)
 
+def fetch_illinois_season_schedule(season: str):
+    """Custom scraper for Illinois (Sidearm card-based schedule)"""
+    url = f"https://fightingillini.com/sports/mens-tennis/schedule/{season}"
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        logger.error(f"Error fetching Illinois season {season}: {e}")
+        return pd.DataFrame()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    try:
+        start_year, end_year = season.split("-")
+        start_year = int(start_year)
+        end_year = int("20" + end_year) if len(end_year) == 2 else int(end_year)
+    except ValueError as e:
+        logger.error(f"Invalid season format {season}: {e}")
+        return pd.DataFrame()
+
+    rows = []
+    for game in soup.find_all("li", class_=lambda c: c and "sidearm-schedule-game" in c):
+        # Date
+        date_tag = game.find("div", class_="sidearm-schedule-game-opponent-date")
+        date_str = date_tag.find("span").get_text(strip=True) if date_tag else ""
+        formatted_date = ""
+        if date_str:
+            date_str_clean = date_str.split("(")[0].strip()
+            try:
+                date_obj = datetime.strptime(date_str_clean, "%b %d")
+                month = date_obj.month
+                year = end_year if month <= 5 else start_year
+                formatted_date = datetime(year, month, date_obj.day).strftime("%m-%d-%Y")
+            except ValueError:
+                pass
+
+        # Opponent
+        opp_tag = game.find("div", class_="sidearm-schedule-game-opponent-name")
+        opponent = opp_tag.get_text(strip=True) if opp_tag else ""
+
+        # Location
+        loc_tag = game.find("div", class_="sidearm-schedule-game-location")
+        location = loc_tag.get_text(" ", strip=True) if loc_tag else ""
+
+        # Result from sidearm-schedule-game-result
+        result_tag = game.find("div", class_="sidearm-schedule-game-result")
+        result = ""
+        if result_tag:
+            spans = [s.get_text(strip=True) for s in result_tag.find_all("span") if s.get_text(strip=True)]
+            result = " ".join(spans).strip()
+
+        if not opponent:
+            continue
+
+        rows.append({
+            "Date": formatted_date,
+            "Opponent": opponent,
+            "Location": location,
+            "Result": result,
+            "Season": season,
+            "Last_Updated": datetime.now().isoformat()
+        })
+
+    return pd.DataFrame(rows)
+
 def fetch_school_season_schedule(base_url: str, season: str, school_name: str = None, url_format: str = "text"):
     """Fetch season schedule for any school given their base URL"""
     if school_name == "Purdue":
@@ -427,6 +492,8 @@ def fetch_school_season_schedule(base_url: str, season: str, school_name: str = 
         return fetch_nebraska_season_schedule(season)
     if school_name == "Penn State":
         return fetch_pennstate_season_schedule(season)
+    if school_name == "Illinois":
+        return fetch_illinois_season_schedule(season)
     
     # Build URL based on format
     if url_format == "text":
