@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Serve Placement</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/save-svg-as-png/1.4.17/saveSvgAsPng.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        font-family: 'Clash Display', sans-serif;
+    }
+
+    svg {
+        width: 700px;
+        height: 600px;
+        display: block;
+        background: transparent;
+    }
+
+    .dashed-line {
+      stroke: white;
+      stroke-width: 2;
+      stroke-dasharray: 5,5;
+    }
+  </style>
+</head>
+
+<body style="margin: 0; padding: 0; background: transparent;">
+    <svg id="court" width="1000" height="800" viewBox="0 0 1000 800"></svg>
+    <button onclick="exportSvgToPng('court', 'inside_out')">Download PNG</button>
+</body>
+
+<script>
+
+const svg = d3.select("#court");
+const width = +svg.attr("width");
+const height = +svg.attr("height");
+
+const xScale = d3.scaleLinear()
+    .domain([-350, 350])
+    .range([0, width]);
+
+const yScale = d3.scaleLinear()
+    .domain([-450, 450])
+    .range([height, 0]);
+
+// -------------------------
+// ✅ ADDED SCALING LOGIC
+// -------------------------
+const DATA_X_MAX = 4.5;
+const DATA_Y_MAX = 26;
+
+const xFactor = 157.5 / DATA_X_MAX;   // singles sideline
+const yFactor = 450 / DATA_Y_MAX;      // full court half
+
+function scaleShot(d) {
+    return {
+        ...d,
+        hit_x: d.hit_x,
+        hit_y: d.hit_y,        // positive → player's side (bottom)
+        bounce_x: d.bounce_x,
+        bounce_y: d.bounce_y    // negative → opponent's side (top)
+    };
+}
+
+// Court background
+svg.append("rect")
+    .attr("x", xScale(-210))
+    .attr("y", yScale(450))
+    .attr("width", xScale(210) - xScale(-210))
+    .attr("height", yScale(-450) - yScale(450))
+    .attr("fill", "#6092CE");
+
+// Court lines
+const courtLines = [
+    { x1: 210, y1: -25, x2: 210, y2: 455 },
+    { x1: -210, y1: -25, x2: -210, y2: 455 },
+    { x1: 157.5, y1: -25, x2: 157.5, y2: 455 },
+    { x1: -157.5, y1: -25, x2: -157.5, y2: 455 },
+    { x1: 240, y1: 0, x2: -240, y2: 0, width: 7 },
+    { x1: 0, y1: -25, x2: 0, y2: 245 },
+    { x1: 157.5, y1: 245, x2: -157.5, y2: 245 },
+    { x1: 211.25, y1: 455, x2: -211.25, y2: 455 },
+    { x1: 0, y1: 445, x2: 0, y2: 455 }
+];
+
+const allLines = [];
+
+courtLines.forEach(line => {
+    allLines.push(line);
+    allLines.push({
+        x1: line.x1,
+        y1: -line.y1,
+        x2: line.x2,
+        y2: -line.y2,
+        width: line.width
+    });
+});
+
+allLines.forEach(line => {
+    svg.append("line")
+        .attr("x1", xScale(line.x1))
+        .attr("y1", yScale(line.y1))
+        .attr("x2", xScale(line.x2))
+        .attr("y2", yScale(line.y2))
+        .attr("stroke", "white")
+        .attr("stroke-width", line.width || 4);
+});
+
+Promise.all([d3.json("../data/insideout_fh_bh_side.json")])
+.then(function([data]) {
+
+    const shotsG = svg.append("g").attr("id","shots-layer");
+
+    function directionColor(dir) {
+        if (!dir) return "#aaa";
+        const d = dir.toLowerCase();
+        if (d === "cross court")  return "#FFD700";    // gold
+        if (d === "down the line") return "#00FFFF";   // cyan
+        if (d === "down the t")   return "#00FFFF";    // red
+        if (d === "inside out")   return "#FFD700";    // light green
+        if (d === "inside in")    return "#00FFFF";    // orange
+        if (d === "out wide")     return "#FFD700";    // orchid
+        return "#aaa";
+}
+
+    function drawShots(data) {
+        shotsG.selectAll("*").remove();
+
+        // -------------------------
+        // ✅ ONLY CHANGE HERE
+        // -------------------------
+        const shots = (data.shots || [])
+            .filter(d => d.bounce_x != null && d.bounce_y != null)
+            .map(scaleShot);
+
+        // Trajectories
+        //shotsG.selectAll("line.traj")
+           // .data(shots).join("line")
+           // .attr("x1", d => xScale(d.hit_x))
+           // .attr("y1", d => yScale(d.hit_y))
+           // .attr("x2", d => xScale(d.bounce_x))
+           // .attr("y2", d => yScale(d.bounce_y))
+           // .attr("stroke", "white")
+           // .attr("stroke-width", 1)
+           // .attr("opacity", 0.3);
+
+        // Hit points
+        // shotsG.selectAll("circle.hit")
+            //.data(shots).join("circle")
+            //.attr("cx", d => xScale(d.hit_x))
+           // .attr("cy", d => yScale(d.hit_y))
+            //.attr("r", 4)
+            //.attr("fill", "#ffffff")
+           // .attr("stroke", "black")
+          //  .attr("stroke-width", 0.3);
+
+        // Bounce points
+        shotsG.selectAll("circle.bounce")
+            .data(shots).join("circle")
+            .attr("cx", d => xScale(d.bounce_x))
+            .attr("cy", d => yScale(d.bounce_y))
+            .attr("r", 6)
+            .attr("fill", d => directionColor(d.ballDirection))
+            .attr("opacity", 0.85)
+            .attr("stroke", "black")
+            .attr("stroke-width", 0.4);
+    }
+
+    drawShots(data);
+})
+.catch(err => console.error("DATA LOAD ERROR:", err));
+
+
+// -------------------------
+// EXPORT FUNCTION (unchanged)
+// -------------------------
+function exportSvgToPng(svgId, label = "shot_map", scale = 10) {
+  const svgElement = document.getElementById(svgId);
+  const serializer = new XMLSerializer();
+  const svgString = serializer.serializeToString(svgElement);
+
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgString)));
+
+  img.onload = function () {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const width = svgElement.viewBox.baseVal.width || svgElement.clientWidth;
+    const height = svgElement.viewBox.baseVal.height || svgElement.clientHeight;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+
+    ctx.setTransform(scale, 0, 0, scale, 0, 0);
+    ctx.drawImage(img, 0, 0);
+
+    const pngUrl = canvas.toDataURL("image/png");
+    const a = document.createElement("a");
+    a.href = pngUrl;
+    a.download = label + ".png";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+}
+
+</script>
+</html>

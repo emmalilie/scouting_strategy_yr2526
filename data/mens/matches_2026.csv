@@ -1,0 +1,157 @@
+date,singles_number,order_finished,clincher,player1_school,player2_school,player1_name,player2_name,score,match_winner,home_team_record,away_team_record
+2026-05-02,1,2,False,UCLA,San Diego,Spencer Johnson,Oliver Tarvet,"4-6, 5-7",Oliver Tarvet,22-5,18-8
+2026-05-02,2,0,False,UCLA,San Diego,Rudy Quan,Manvydas Balciunas,"6-7(3), 6-3, 0-1",Unfinished,22-5,18-8
+2026-05-02,3,3,True,UCLA,San Diego,Emon van Loben Sels,Stian Klaassen,"2-6, 6-7(3)",Stian Klaassen,22-5,18-8
+2026-05-02,4,1,False,UCLA,San Diego,Aadarsh Tripathi,Lambert Ruland,"3-6, 2-6",Lambert Ruland,22-5,18-8
+2026-05-02,5,0,False,UCLA,San Diego,Andy Nguyen,Adrien Berrut,"6-4, 3-6, 2-2",Unfinished,22-5,18-8
+2026-05-02,6,0,False,UCLA,San Diego,Cassius Chinlund,Neo Niedner,"3-6, 6-4",Unfinished,22-5,18-8
+2026-05-01,1,3,True,Arizona State,UCLA,Ofek Shimanov,Spencer Johnson,"1-6, 4-6",Spencer Johnson,18-7,17-11
+2026-05-01,2,1,False,Arizona State,UCLA,Mathis Bondaz,Rudy Quan,"3-6, 0-6",Rudy Quan,18-7,17-11
+2026-05-01,3,2,False,Arizona State,UCLA,Shu Matsuoka,Emon van Loben Sels,"4-6, 1-6",Emon van Loben Sels,18-7,17-11
+2026-05-01,4,0,False,Arizona State,UCLA,Niels Villard,Aadarsh Tripathi,"4-6, 2-2",Unfinished,18-7,17-11
+2026-05-01,5,0,False,Arizona State,UCLA,Roi Ginat,Andy Nguyen,"5-7, 1-2",Unfinished,18-7,17-11
+2026-05-01,6,0,False,Arizona State,UCLA,Milos Mikovic,Cassius Chinlund,"2-6, 2-5",Unfinished,18-7,17-11
+2026-04-24,1,4,False,UCLA,Michigan State,Spencer Johnson,Aristotelis Thanos,"3-6, 5-7",Aristotelis Thanos,17-8,17-7
+2026-04-24,2,2,False,UCLA,Michigan State,Rudy Quan,Matthew Forbes,"3-6, 4-6",Matthew Forbes,17-8,17-7
+2026-04-24,3,1,False,UCLA,Michigan State,Emon van Loben Sels,Ozan Baris,"2-6, 2-6",Ozan Baris,17-8,17-7
+2026-04-24,4,3,False,UCLA,Michigan State,Aadarsh Tripathi,D. Rakhmatullayev,"6-3, 6-4",Aadarsh Tripathi,17-8,17-7
+2026-04-24,5,5,True,UCLA,Michigan State,Andy Nguyen,Taym Alazmeh,"3-6, 6-7(1)",Taym Alazmeh,17-8,17-7
+2026-04-24,6,0,False,UCLA,Michigan State,Cassius Chinlund,Mitchell Sheldon,"6-3, 4-6, 1-1",Unfinished,17-8,17-7
+2026-04-23,1,0,False,UCLA,USC,Spencer Johnson,Branko Djuric,"4-6, 7-6(5), 2-1",Unfinished,18-7,17-6
+2026-04-23,2,1,False,UCLA,USC,Rudy Quan,Max Exsted,"6-1, 6-4",Rudy Quan,18-7,17-6
+2026-04-23,3,0,False,UCLA,USC,Emon van Loben Sels,Andrin Casanova,"6-1, 4-6, 4-4",Unfinished,18-7,17-6
+2026-04-23,4,3,True,UCLA,USC,Aadarsh Tripathi,Jack McCarthy,"6-0, 3-6, 6-4",Aadarsh Tripathi,18-7,17-6
+2026-04-23,5,0,False,UCLA,USC,Andy Nguyen,Connor Church,"6-2, 3-6, 1-3",Unfinished,18-7,17-6
+2026-04-23,6,2,False,UCLA,USC,Cassius Chinlund,Niels Hoffmann,"6-2, 7-6(5)",Cassius Chinlund,18-7,17-6
+2026-04-19,1,3,False,UCLA,Washington,Rudy Quan,Soham Purohit,"6-4, 6-3",Rudy Quan,8-17,16-6
+2026-04-19,2,2,False,UCLA,Washington,Emon van Loben Sels,Stephane Kamendje,"4-6, 3-6",Stephane Kamendje,8-17,16-6
+2026-04-19,3,6,True,UCLA,Washington,Aadarsh Tripathi,Rohan Belday,"6-1, 6-7(1), 6-2",Aadarsh Tripathi,8-17,16-6
+2026-04-19,4,4,False,UCLA,Washington,Andy Nguyen,Brett Pearson,"6-7(3), 2-6",Brett Pearson,8-17,16-6
+2026-04-19,5,1,False,UCLA,Washington,Cassius Chinlund,Hyeonseok Seo,"6-2, 6-2",Cassius Chinlund,8-17,16-6
+2026-04-19,6,5,False,UCLA,Washington,Bengt Reinhard,Nikola Plavsic,"3-6, 6-7(3)",Nikola Plavsic,8-17,16-6
+2026-04-17,1,5,True,UCLA,Oregon,Rudy Quan,Vlad Breazu,"6-2, 6-3",Rudy Quan,14-9,15-6
+2026-04-17,2,3,False,UCLA,Oregon,Emon van Loben Sels,Pierre Mouesca,"6-4, 6-3",Emon van Loben Sels,14-9,15-6
+2026-04-17,3,0,False,UCLA,Oregon,Aadarsh Tripathi,Sam Olszakowski,"4-6, 5-3",Unfinished,14-9,15-6
+2026-04-17,4,1,False,UCLA,Oregon,Andy Nguyen,Lachlan Robertson,"6-2, 6-2",Andy Nguyen,14-9,15-6
+2026-04-17,5,4,False,UCLA,Oregon,Cassius Chinlund,Declan Galligan,"6-4, 6-1",Cassius Chinlund,14-9,15-6
+2026-04-17,6,2,False,UCLA,Oregon,Bengt Reinhard,Cameron Burton,"2-6, 4-6",Cameron Burton,14-9,15-6
+2026-04-12,1,2,False,Northwestern,UCLA,Cyrus Mahjoob,Emon van Loben Sels,"2-6, 2-6",Emon van Loben Sels,14-6,15-12
+2026-04-12,2,0,False,Northwestern,UCLA,Greyson Casey,Aadarsh Tripathi,"3-6, 4-2",Unfinished,14-6,15-12
+2026-04-12,3,1,False,Northwestern,UCLA,Ethan Schiffman,Andy Nguyen,"0-3, 0-96",Andy Nguyen,14-6,15-12
+2026-04-12,4,3,True,Northwestern,UCLA,Chad Miller,Cassius Chinlund,"0-6, 3-6",Cassius Chinlund,14-6,15-12
+2026-04-12,5,0,False,Northwestern,UCLA,Cooper Han,Bengt Reinhard,"4-6, 3-4",Unfinished,14-6,15-12
+2026-04-12,6,0,False,Northwestern,UCLA,Vincent Yang,Leo von Bismarck,"1-6, 4-4",Unfinished,14-6,15-12
+2026-04-11,1,0,False,Illinois,UCLA,Kenta Miyoshi,Rudy Quan,"6-3, 5-7, 1-1",Unfinished,13-6,20-5
+2026-04-11,2,5,True,Illinois,UCLA,Gabriel Debru,Emon van Loben Sels,"7-6(4), 7-6(3)",Gabriel Debru,13-6,20-5
+2026-04-11,3,3,False,Illinois,UCLA,William Mroz,Aadarsh Tripathi,"4-6, 5-7",Aadarsh Tripathi,13-6,20-5
+2026-04-11,4,2,False,Illinois,UCLA,Sasha Colleu,Cassius Chinlund,"3-6, 3-6",Cassius Chinlund,13-6,20-5
+2026-04-11,5,4,False,Illinois,UCLA,Adam Jilly,Bengt Reinhard,"5-7, 6-2, 6-1",Adam Jilly,13-6,20-5
+2026-04-11,6,1,False,Illinois,UCLA,Zach Viiala,Leo von Bismarck,"6-1, 6-1",Zach Viiala,13-6,20-5
+2026-04-04,1,3,False,Penn State,UCLA,Michael Wright,Emon van Loben Sels,"4-6, 3-6",Emon van Loben Sels,13-5,14-10
+2026-04-04,2,4,False,Penn State,UCLA,Marcus Schoeman,Andy Nguyen,"2-6, 5-7",Andy Nguyen,13-5,14-10
+2026-04-04,3,5,False,Penn State,UCLA,Reiya Hattori,Aadarsh Tripathi,"3-6, 4-6",Aadarsh Tripathi,13-5,14-10
+2026-04-04,4,1,False,Penn State,UCLA,David Lindsay,Cassius Chinlund,"2-6, 1-6",Cassius Chinlund,13-5,14-10
+2026-04-04,5,6,True,Penn State,UCLA,Eyal Shyovitz,Bengt Reinhard,"3-6, 5-7",Bengt Reinhard,13-5,14-10
+2026-04-04,6,2,False,Penn State,UCLA,Kyle Chesman,Leo von Bismarck,"6-1, 6-4",Kyle Chesman,13-5,14-10
+2026-04-03,1,1,False,Ohio State,UCLA,Aidan Kim,Spencer Johnson,"6-3, 6-1",Aidan Kim,12-5,20-3
+2026-04-03,2,0,False,Ohio State,UCLA,Preston Stearns,Rudy Quan,"6-1, 6-7(3), 1-1",Unfinished,12-5,20-3
+2026-04-03,3,0,False,Ohio State,UCLA,Jack Anthrop,Emon van Loben Sels,"5-7, 6-1, 3-0",Unfinished,12-5,20-3
+2026-04-03,4,0,False,Ohio State,UCLA,Alex Okonkwo,Andy Nguyen,"6-4, 6-6",Unfinished,12-5,20-3
+2026-04-03,5,2,False,Ohio State,UCLA,Nikita Filin,Aadarsh Tripathi,"6-2, 6-3",Nikita Filin,12-5,20-3
+2026-04-03,6,3,True,Ohio State,UCLA,Bryce Nakashima,Cassius Chinlund,"6-1, 7-6(6)",Bryce Nakashima,12-5,20-3
+2026-03-29,1,5,True,UCLA,Michigan State,Spencer Johnson,Aristotelis Thanos,"6-1, 2-6, 2-6",Aristotelis Thanos,11-7,12-4
+2026-03-29,2,2,False,UCLA,Michigan State,Emon van Loben Sels,Matthew Forbes,"6-2, 6-2",Emon van Loben Sels,11-7,12-4
+2026-03-29,3,0,False,UCLA,Michigan State,Andy Nguyen,Ozan Baris,"3-6, 5-6",Unfinished,11-7,12-4
+2026-03-29,4,4,False,UCLA,Michigan State,Aadarsh Tripathi,D. Rakhmatullayev,"4-6, 1-6",D. Rakhmatullayev,11-7,12-4
+2026-03-29,5,3,False,UCLA,Michigan State,Cassius Chinlund,Taym Alazmeh,"6-4, 6-2",Cassius Chinlund,11-7,12-4
+2026-03-29,6,1,False,UCLA,Michigan State,Bengt Reinhard,Mitchell Sheldon,"2-6, 2-6",Mitchell Sheldon,11-7,12-4
+2026-03-27,1,2,False,UCLA,Michigan,Spencer Johnson,Max Dahlin,"4-6, 2-6",Max Dahlin,7-8,12-3
+2026-03-27,2,0,False,UCLA,Michigan,Rudy Quan,Bjorn Swenson,"3-6, 6-3, 1-2",Unfinished,7-8,12-3
+2026-03-27,3,3,False,UCLA,Michigan,Emon van Loben Sels,Mert Oral,"6-2, 6-4",Emon van Loben Sels,7-8,12-3
+2026-03-27,4,4,False,UCLA,Michigan,Andy Nguyen,Nicholas Steiglehner,"2-6, 4-6",Nicholas Steiglehner,7-8,12-3
+2026-03-27,5,1,False,UCLA,Michigan,Cassius Chinlund,Alex Cairo,"6-3, 6-0",Cassius Chinlund,7-8,12-3
+2026-03-27,6,5,True,UCLA,Michigan,Bengt Reinhard,Pierce Shaya,"6-3, 6-4",Bengt Reinhard,7-8,12-3
+2026-03-22,1,1,False,Nebraska,UCLA,Nikolay Sysoev,Rudy Quan,"2-6, 1-6",Rudy Quan,11-3,9-8
+2026-03-22,2,5,True,Nebraska,UCLA,Jeri Lassila,Emon van Loben Sels,"6-7(5), 3-6",Emon van Loben Sels,11-3,9-8
+2026-03-22,3,4,False,Nebraska,UCLA,Niels Van Der Sijs,Andy Nguyen,"4-6, 2-6",Andy Nguyen,11-3,9-8
+2026-03-22,4,2,False,Nebraska,UCLA,Joan Torres Espinosa,Aadarsh Tripathi,"3-6, 2-6",Aadarsh Tripathi,11-3,9-8
+2026-03-22,5,3,False,Nebraska,UCLA,Henry Lamchinniah,Cassius Chinlund,"0-6, 1-6",Cassius Chinlund,11-3,9-8
+2026-03-22,6,0,False,Nebraska,UCLA,Matt Shearer,Bengt Reinhard,"3-6, 2-3",Unfinished,11-3,9-8
+2026-03-20,1,2,False,Wisconsin,UCLA,Michael Minasyan,Spencer Johnson,"3-6, 2-6",Spencer Johnson,10-3,11-4
+2026-03-20,2,6,True,Wisconsin,UCLA,Patrik Meszaros,Rudy Quan,"5-7, 6-4, 0-1",Rudy Quan,10-3,11-4
+2026-03-20,3,1,False,Wisconsin,UCLA,Ferdinand Kloesters,Emon van Loben Sels,"3-6, 2-6",Emon van Loben Sels,10-3,11-4
+2026-03-20,4,3,False,Wisconsin,UCLA,Edouard Aubert,Andy Nguyen,"5-7, 2-6",Andy Nguyen,10-3,11-4
+2026-03-20,5,5,False,Wisconsin,UCLA,Tomas Zlatohlavek,Aadarsh Tripathi,"5-7, 4-6",Aadarsh Tripathi,10-3,11-4
+2026-03-20,6,4,False,Wisconsin,UCLA,Matthew Fullerton,Cassius Chinlund,"1-6, 5-7",Cassius Chinlund,10-3,11-4
+2026-03-13,1,4,True,USC,UCLA,Branko Djuric,Spencer Johnson,"6-4, 2-6, 6-7(6)",Spencer Johnson,9-3,10-4
+2026-03-13,2,2,False,USC,UCLA,Nathan Trouve,Rudy Quan,"2-6, 6-4, 6-3",Nathan Trouve,9-3,10-4
+2026-03-13,3,0,False,USC,UCLA,Max Exsted,Emon van Loben Sels,"7-5, 5-7, 4-5",Unfinished,9-3,10-4
+2026-03-13,4,1,False,USC,UCLA,Andrin Casanova,Andy Nguyen,"5-7, 3-6",Andy Nguyen,9-3,10-4
+2026-03-13,5,3,False,USC,UCLA,Jack McCarthy,Aadarsh Tripathi,"6-3, 4-6, 1-6",Aadarsh Tripathi,9-3,10-4
+2026-03-13,6,0,False,USC,UCLA,Connor Church,Cassius Chinlund,"6-7(4), 6-2, 5-2",Unfinished,9-3,10-4
+2026-03-08,1,5,False,UCLA,Purdue,Spencer Johnson,Nour Fathalla,"6-7(6), 6-2, 3-6",Nour Fathalla,4-7,8-3
+2026-03-08,2,4,False,UCLA,Purdue,Rudy Quan,Henrik Villanger,"7-6(6), 6-3",Rudy Quan,4-7,8-3
+2026-03-08,3,1,False,UCLA,Purdue,Emon van Loben Sels,Stefan Simeunovic,"6-2, 6-2",Emon van Loben Sels,4-7,8-3
+2026-03-08,4,2,False,UCLA,Purdue,Andy Nguyen,Maj Premzl,"6-4, 6-2",Andy Nguyen,4-7,8-3
+2026-03-08,5,3,False,UCLA,Purdue,Aadarsh Tripathi,Juan David Velasquez,"6-4, 7-6(6)",Aadarsh Tripathi,4-7,8-3
+2026-03-08,6,6,True,UCLA,Purdue,Cassius Chinlund,Jacob Lee,"2-6, 7-6(2), 7-5",Cassius Chinlund,4-7,8-3
+2026-03-06,1,0,False,UCLA,Indiana,Spencer Johnson,Sam Landau,"6-3, 6-7(7), 1-1",Unfinished,6-4,7-3
+2026-03-06,2,4,False,UCLA,Indiana,Rudy Quan,Jip van Assendelft,"6-1, 4-6, 6-1",Rudy Quan,6-4,7-3
+2026-03-06,3,5,True,UCLA,Indiana,Emon van Loben Sels,Facundo Yunis,"7-6(3), 6-2",Emon van Loben Sels,6-4,7-3
+2026-03-06,4,1,False,UCLA,Indiana,Aadarsh Tripathi,Michael Andre,"6-4, 6-2",Aadarsh Tripathi,6-4,7-3
+2026-03-06,5,3,False,UCLA,Indiana,Cassius Chinlund,Braeden Gelletich,"7-5, 6-2",Cassius Chinlund,6-4,7-3
+2026-03-06,6,2,False,UCLA,Indiana,Bengt Reinhard,Aidan Atwood,"4-6, 4-6",Aidan Atwood,6-4,7-3
+2026-02-26,1,3,False,UCLA,San Diego,Spencer Johnson,Oliver Tarvet,"6-3, 7-6(4)",Spencer Johnson,7-3,6-3
+2026-02-26,2,6,True,UCLA,San Diego,Rudy Quan,Vincent Marysko,"3-6, 7-6(2), 7-5",Rudy Quan,7-3,6-3
+2026-02-26,3,5,False,UCLA,San Diego,Emon van Loben Sels,Manvydas Balciunas,"4-6, 6-4, 6-3",Emon van Loben Sels,7-3,6-3
+2026-02-26,4,1,False,UCLA,San Diego,Gianluca Ballotta,Stian Klaassen,"2-6, 4-6",Stian Klaassen,7-3,6-3
+2026-02-26,5,2,False,UCLA,San Diego,Aadarsh Tripathi,Lambert Ruland,"4-6, 4-6",Lambert Ruland,7-3,6-3
+2026-02-26,6,4,False,UCLA,San Diego,Bengt Reinhard,Neo Niedner,"6-2, 2-6, 4-6",Neo Niedner,7-3,6-3
+2026-02-21,1,5,False,UCLA,USC,Spencer Johnson,Branko Djuric,"4-6, 6-2, 6-3",Spencer Johnson,8-3,5-3
+2026-02-21,2,2,False,UCLA,USC,Rudy Quan,Nathan Trouve,"7-5, 7-5",Rudy Quan,8-3,5-3
+2026-02-21,3,1,False,UCLA,USC,Emon van Loben Sels,Jack McCarthy,"6-4, 6-1",Emon van Loben Sels,8-3,5-3
+2026-02-21,4,4,False,UCLA,USC,Andy Nguyen,Max Exsted,"3-6, 6-7(3)",Max Exsted,8-3,5-3
+2026-02-21,5,3,False,UCLA,USC,Aadarsh Tripathi,Andrin Casanova,"6-1, 0-6, 5-7",Andrin Casanova,8-3,5-3
+2026-02-21,6,6,True,UCLA,USC,Cassius Chinlund,Niels Hoffmann,"6-7(6), 6-1, 1-6",Niels Hoffmann,8-3,5-3
+2026-02-15,1,5,False,UNLV,UCLA,Ilia Snitari,Spencer Johnson,"3-6, 7-5, 0-1",Spencer Johnson,5-2,5-3
+2026-02-15,2,2,False,UNLV,UCLA,Marko Maksimovic,Rudy Quan,"2-6, 2-6",Rudy Quan,5-2,5-3
+2026-02-15,3,3,False,UNLV,UCLA,Illia Maksymchuk,Emon van Loben Sels,"4-6, 1-6",Emon van Loben Sels,5-2,5-3
+2026-02-15,4,1,False,UNLV,UCLA,Michael Kouame,Andy Nguyen,"1-6, 0-6",Andy Nguyen,5-2,5-3
+2026-02-15,5,6,True,UNLV,UCLA,Vitaliy Horovoy,Cassius Chinlund,"4-6, 6-7(3)",Cassius Chinlund,5-2,5-3
+2026-02-15,6,4,False,UNLV,UCLA,Taiyo Hirano,Gianluca Ballotta,"6-7(5), 2-6",Gianluca Ballotta,5-2,5-3
+2026-02-07,1,4,False,UCLA,Pepperdine,Spencer Johnson,Edward Winter,"1-6, 6-2, 6-4",Spencer Johnson,5-3,4-2
+2026-02-07,2,5,True,UCLA,Pepperdine,Rudy Quan,Maxi Homberg,"6-0, 3-6, 6-4",Rudy Quan,5-3,4-2
+2026-02-07,3,0,False,UCLA,Pepperdine,Emon van Loben Sels,Lasse Poertner,"6-3, 4-6, 2-4",Unfinished,5-3,4-2
+2026-02-07,4,3,False,UCLA,Pepperdine,Andy Nguyen,Aleksa Pisaric,"1-6, 5-7",Aleksa Pisaric,5-3,4-2
+2026-02-07,5,2,False,UCLA,Pepperdine,Aadarsh Tripathi,Ribeiro de Almeida,"5-7, 4-6",Ribeiro de Almeida,5-3,4-2
+2026-02-07,6,1,False,UCLA,Pepperdine,Cassius Chinlund,David Fix,"6-1, 6-2",Cassius Chinlund,5-3,4-2
+2026-02-01,1,2,False,UCLA,California,Spencer Johnson,Lechno-Wasiutynski,"7-6(6), 6-3",Spencer Johnson,4-4,3-2
+2026-02-01,2,4,False,UCLA,California,Rudy Quan,Tiago Silva,"6-4, 7-5",Rudy Quan,4-4,3-2
+2026-02-01,3,6,True,UCLA,California,Emon van Loben Sels,Timofey Stepanov,"1-6, 6-4, 7-6(4)",Emon van Loben Sels,4-4,3-2
+2026-02-01,4,3,False,UCLA,California,Andy Nguyen,Lenn Luemkemann,"6-4, 6-3",Andy Nguyen,4-4,3-2
+2026-02-01,5,5,False,UCLA,California,Aadarsh Tripathi,Bernardo Munk Mesa,"7-5, 3-6, 2-6",Bernardo Munk Mesa,4-4,3-2
+2026-02-01,6,1,False,UCLA,California,Cassius Chinlund,Paris Pouatcha,"3-6, 4-6",Paris Pouatcha,4-4,3-2
+2026-01-31,1,5,True,UCLA,Stanford,Spencer Johnson,Samir Banerjee,"3-6, 6-7(13)",Samir Banerjee,5-0,2-2
+2026-01-31,2,0,False,UCLA,Stanford,Rudy Quan,Alex Chang,"7-6(6), 5-5",Unfinished,5-0,2-2
+2026-01-31,3,3,False,UCLA,Stanford,Emon van Loben Sels,Hudson Rivera,"3-6, 4-6",Hudson Rivera,5-0,2-2
+2026-01-31,4,4,False,UCLA,Stanford,Andy Nguyen,Jagger Leach,"4-6, 3-6",Jagger Leach,5-0,2-2
+2026-01-31,5,1,False,UCLA,Stanford,Aadarsh Tripathi,Alex Razeghi,"4-6, 1-6",Alex Razeghi,5-0,2-2
+2026-01-31,6,2,False,UCLA,Stanford,Cassius Chinlund,Mark Krupkin,"7-5, 6-4",Cassius Chinlund,5-0,2-2
+2026-01-24,1,2,False,UC Santa Barbara,UCLA,Lucca Liu,Rudy Quan,"6-3, 6-4",Lucca Liu,2-1,3-0
+2026-01-24,2,0,False,UC Santa Barbara,UCLA,Dominique Rolland,Spencer Johnson,"3-6, 4-5",Unfinished,2-1,3-0
+2026-01-24,3,0,False,UC Santa Barbara,UCLA,Miguel Avendano,Emon van Loben Sels,"3-6, 3-5",Unfinished,2-1,3-0
+2026-01-24,4,4,True,UC Santa Barbara,UCLA,Diogo Morais,Andy Nguyen,"6-2, 6-3",Diogo Morais,2-1,3-0
+2026-01-24,5,1,False,UC Santa Barbara,UCLA,Carson Lee,Aadarsh Tripathi,"1-6, 1-6",Aadarsh Tripathi,2-1,3-0
+2026-01-24,6,3,False,UC Santa Barbara,UCLA,Charlie Underwood,Gianluca Ballotta,"6-3, 6-2",Charlie Underwood,2-1,3-0
+2026-01-23,1,0,False,New Mexico,UCLA,Dario Ciobotaru,Rudy Quan,"3-6, 1-4",Unfinished,2-0,2-1
+2026-01-23,2,2,False,New Mexico,UCLA,Jakub Prachar,Spencer Johnson,"3-6, 1-6",Spencer Johnson,2-0,2-1
+2026-01-23,3,0,False,New Mexico,UCLA,Philip Bosin,Emon van Loben Sels,"4-6, 2-2",Unfinished,2-0,2-1
+2026-01-23,4,0,False,New Mexico,UCLA,Alberto Perez,Gianluca Ballotta,"6-2, 0-6",Unfinished,2-0,2-1
+2026-01-23,5,3,True,New Mexico,UCLA,Tyler Waddock,Cassius Chinlund,"3-6, 2-6",Cassius Chinlund,2-0,2-1
+2026-01-23,6,1,False,New Mexico,UCLA,Carl Labitzke,Bengt Reinhard,"1-6, 1-6",Bengt Reinhard,2-0,2-1
+2026-01-17,1,6,True,UC Irvine,UCLA,Hiroki Sakagawa,Spencer Johnson,"6-4, 6-7(1), 0-1",Spencer Johnson,1-0,0-1
+2026-01-17,2,2,False,UC Irvine,UCLA,Tal Goodman,Rudy Quan,"2-6, 2-6",Rudy Quan,1-0,0-1
+2026-01-17,3,4,False,UC Irvine,UCLA,Max Fardanesh,Emon van Loben Sels,"6-3, 2-6, 4-6",Emon van Loben Sels,1-0,0-1
+2026-01-17,4,5,False,UC Irvine,UCLA,Sohrob Amiryavari,Andy Nguyen,"6-7(5), 6-1, 0-1",Andy Nguyen,1-0,0-1
+2026-01-17,5,1,False,UC Irvine,UCLA,Ruining Huang,Gianluca Ballotta,"1-6, 2-6",Gianluca Ballotta,1-0,0-1
+2026-01-17,6,3,False,UC Irvine,UCLA,Greg Gamal,Cassius Chinlund,"5-7, 3-6",Cassius Chinlund,1-0,0-1
