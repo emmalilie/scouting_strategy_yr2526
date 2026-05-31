@@ -2,15 +2,15 @@
     "records": [
         {
             "type": "Overall Record",
-            "total": 23,
-            "won": 13,
-            "lost": 10
+            "total": 52,
+            "won": 39,
+            "lost": 13
         },
         {
             "type": "Conference Record",
-            "total": 6,
-            "won": 6,
-            "lost": 0
+            "total": 10,
+            "won": 8,
+            "lost": 2
         }
     ]
 }

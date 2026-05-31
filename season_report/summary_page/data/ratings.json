@@ -2,15 +2,15 @@
     "ratings": [
         {
             "type": "Serve",
-            "rating": 233.8
+            "rating": 233.3
         },
         {
             "type": "Return",
-            "rating": 191.0
+            "rating": 236.0
         },
         {
             "type": "Under Pressure",
-            "rating": 172.1
+            "rating": 250.7
         }
     ]
 }
