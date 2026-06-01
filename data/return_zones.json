@@ -5,26 +5,26 @@
       "sides": {
         "deuce": {
           "Forehand": {
-            "Cross Court": 18,
-            "Down the Line": 47,
-            "Middle": 59
+            "Cross Court": 10,
+            "Down the Line": 4,
+            "Middle": 32
           },
           "Backhand": {
-            "Cross Court": 30,
-            "Down the Line": 37,
-            "Middle": 67
+            "Cross Court": 12,
+            "Down the Line": 31,
+            "Middle": 27
           }
         },
         "ad": {
           "Forehand": {
-            "Cross Court": 35,
+            "Cross Court": 21,
             "Down the Line": 7,
-            "Middle": 36
+            "Middle": 21
           },
           "Backhand": {
-            "Cross Court": 37,
-            "Down the Line": 43,
-            "Middle": 70
+            "Cross Court": 20,
+            "Down the Line": 12,
+            "Middle": 25
           }
         }
       }
@@ -34,26 +34,26 @@
       "sides": {
         "deuce": {
           "Forehand": {
-            "Cross Court": 14,
-            "Down the Line": 31,
-            "Middle": 34
+            "Cross Court": 5,
+            "Down the Line": 15,
+            "Middle": 10
           },
           "Backhand": {
-            "Cross Court": 12,
-            "Down the Line": 30,
-            "Middle": 47
+            "Cross Court": 4,
+            "Down the Line": 14,
+            "Middle": 15
           }
         },
         "ad": {
           "Forehand": {
-            "Cross Court": 11,
+            "Cross Court": 9,
             "Down the Line": 8,
-            "Middle": 9
+            "Middle": 6
           },
           "Backhand": {
-            "Cross Court": 44,
-            "Down the Line": 23,
-            "Middle": 50
+            "Cross Court": 10,
+            "Down the Line": 7,
+            "Middle": 19
           }
         }
       }

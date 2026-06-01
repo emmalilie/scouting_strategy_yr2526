@@ -381,7 +381,8 @@ def debug_scrape(school: str, season: str):
         school_urls = {
             "Penn State": "https://gopsusports.com/sports/mens-tennis/schedule/",
             "Purdue": "https://purduesports.com/sports/mens-tennis/schedule/",
-            "Nebraska": "https://huskers.com/sports/mens-tennis/schedule"
+            "Nebraska": "https://huskers.com/sports/mens-tennis/schedule",
+            "Illinois": "https://fightingillini.com/sports/mens-tennis/schedule/",
         }
         
         if school not in school_urls:
