@@ -35,7 +35,7 @@ interface SchoolData {
 
 // All schools including UCLA
 const ALL_SCHOOLS = [
-  { name: 'UCLA', color: '#5fbae4', logo: '/image/ucla_logo.png', isUcla: true },
+  { name: 'UCLA', color: '#3280da', logo: '/image/ucla_logo.png', isUcla: true },
   { name: 'USC', color: '#990000', logo: '/image/usc_logo.png', isUcla: false },
   { name: 'Ohio State', color: '#BB0000', logo: '🌰', isUcla: false },
   { name: 'Michigan', color: '#00274C', logo: '/image/michigan_logo.png', isUcla: false },
@@ -208,7 +208,7 @@ const Big10Comparison: React.FC = () => {
           <div className="roster-section">
             <h4>Roster ({schoolData.roster.length} players)</h4>
             <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
-              {schoolData.roster.slice(0, 6).map((player, idx) => (
+              {schoolData.roster.map((player, idx) => (
                 <div key={idx} style={{display: 'grid', gridTemplateColumns: '2fr 60px 80px 80px', gap: '10px', padding: '10px', background: '#f8f9fa', borderRadius: '6px', fontSize: '13px', alignItems: 'center', position: 'relative', zIndex: 1}}>
                   {player.Profile_URL ? (
                     <a href={player.Profile_URL} target="_blank" rel="noopener noreferrer" style={{color: '#2774AE', fontWeight: 600, textDecoration: 'underline', cursor: 'pointer', position: 'relative', zIndex: 10, pointerEvents: 'auto'}}>{player.Player}</a>

@@ -66,7 +66,8 @@ def _extract_year(text: str) -> str:
     return YEAR_KEYWORDS.get(text.lower().strip().rstrip("."), "N/A")
 
 def _norm(name: str) -> str:
-    return re.sub(r"[^a-z ]", "", name.lower()).strip()
+    """Normalize a player name for dedup comparisons."""
+    return re.sub(r"[^a-z]", "", name.lower())
 
 
 # ---------------------------------------------------------------------------
@@ -74,19 +75,14 @@ def _norm(name: str) -> str:
 # ---------------------------------------------------------------------------
 
 async def fetch_rendered(url: str, browser, wait_for: str = ".sidearm-roster-player, .s-person, article, tr") -> str:
-    """
-    Load a page with Playwright, wait for player content to appear,
-    return the fully rendered HTML.
-    """
     page = await browser.new_page()
     try:
         await page.goto(url, wait_until="domcontentloaded", timeout=30000)
-        # Wait for any known player element to appear
         try:
             await page.wait_for_selector(wait_for, timeout=10000)
         except PWTimeout:
-            pass  # Continue anyway — maybe the selector just didn't match
-        await page.wait_for_timeout(2000)  # Extra buffer for lazy-loaded content
+            pass
+        await page.wait_for_timeout(2000)
         html = await page.content()
         return html
     finally:
@@ -94,7 +90,7 @@ async def fetch_rendered(url: str, browser, wait_for: str = ".sidearm-roster-pla
 
 
 # ---------------------------------------------------------------------------
-# UTR lookup (unchanged — uses requests, not Playwright)
+# UTR lookup
 # ---------------------------------------------------------------------------
 
 def get_utr_data(player_name: str, school: str = "") -> tuple[str, str]:
@@ -120,69 +116,81 @@ def get_utr_data(player_name: str, school: str = "") -> tuple[str, str]:
 
 
 # ---------------------------------------------------------------------------
-# Roster HTML parser — works on rendered HTML from any Sidearm variant
+# Roster HTML parser
+# FIX: `seen` is now shared across all three strategies so a player ID
+#      matched in Strategy A can never be re-matched in B or C.
+#      Names are also normalised and checked to prevent text-duplicate entries
+#      that slip through when the same player has two different href anchors.
 # ---------------------------------------------------------------------------
 
-# Broad profile link pattern covers all school URL formats
 PROFILE_RE = re.compile(r"/(?:sports/mens-tennis|sport/mten)/roster/[^/]+/(\d+)", re.I)
 
 def parse_roster_html(html: str, base_url: str) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
     players: list[dict] = []
-    seen: set[str] = set()
 
-    # --- Strategy A: find all profile links (works for most Sidearm sites) ---
+    # ── shared dedup state ──────────────────────────────────────────────────
+    seen_ids:   set[str] = set()   # numeric profile IDs  (e.g. "12345")
+    seen_names: set[str] = set()   # normalised names     (e.g. "johndoe")
+    # ────────────────────────────────────────────────────────────────────────
+
+    def _add(pid: str, name: str, profile_url: str, year: str, hometown: str) -> bool:
+        """
+        Return True and record the player only if neither their ID nor their
+        normalised name has been seen before.
+        """
+        norm_name = _norm(name)
+        if (pid and pid in seen_ids) or norm_name in seen_names:
+            return False
+        if pid:
+            seen_ids.add(pid)
+        seen_names.add(norm_name)
+        players.append({
+            "Name": name,
+            "Year_In_School": year,
+            "Profile_URL": profile_url,
+            "Hometown": hometown,
+        })
+        return True
+
+    # --- Strategy A: specific Sidearm profile link pattern ---
     for link in soup.find_all("a", href=PROFILE_RE):
         href = link["href"]
         m = PROFILE_RE.search(href)
         if not m:
             continue
         pid = m.group(1)
-        if pid in seen:
-            continue
-        seen.add(pid)
-
         profile_url = urljoin(base_url, href)
         name = _extract_name(link)
         if not name:
             continue
-
         card = _find_card(link)
-        year = _extract_year(_field_text(card, r"academic.year|class.year|eligibility|year"))
+        year     = _extract_year(_field_text(card, r"academic.year|class.year|eligibility|year"))
         hometown = _field_text(card, r"hometown|city|high.school") or "N/A"
-
-        players.append({"Name": name, "Year_In_School": year, "Profile_URL": profile_url, "Hometown": hometown})
+        _add(pid, name, profile_url, year, hometown)
 
     if players:
         return players
 
-    # --- Strategy B: generic profile link pattern (Penn State / Nebraska / Purdue / Illinois variants) ---
+    # --- Strategy B: generic /roster/<slug>/<id> pattern ---
     GENERIC_RE = re.compile(r"/roster/[^/]+/\d+", re.I)
     for link in soup.find_all("a", href=GENERIC_RE):
         href = link["href"]
         pid_m = re.search(r"/(\d+)/?$", href)
-        if not pid_m:
-            continue
-        pid = pid_m.group(1)
-        if pid in seen:
-            continue
-        seen.add(pid)
-
+        pid = pid_m.group(1) if pid_m else ""
         profile_url = urljoin(base_url, href)
         name = _extract_name(link)
         if not name or len(name) < 3:
             continue
-
         card = _find_card(link)
-        year = _extract_year(_field_text(card, r"year|class|eligibility|academic"))
+        year     = _extract_year(_field_text(card, r"year|class|eligibility|academic"))
         hometown = _field_text(card, r"hometown|city|location") or "N/A"
-
-        players.append({"Name": name, "Year_In_School": year, "Profile_URL": profile_url, "Hometown": hometown})
+        _add(pid, name, profile_url, year, hometown)
 
     if players:
         return players
 
-    # --- Strategy C: s-person cards (some newer Sidearm layouts) ---
+    # --- Strategy C: s-person / player-card elements ---
     for card in soup.find_all(class_=re.compile(r"s-person|roster-player|player-card", re.I)):
         name_tag = (card.find(class_=re.compile(r"name", re.I)) or card.find(["h2", "h3", "h4"]))
         if not name_tag:
@@ -190,21 +198,14 @@ def parse_roster_html(html: str, base_url: str) -> list[dict]:
         name = name_tag.get_text(" ", strip=True)
         if not name or len(name) < 3:
             continue
-
         link = card.find("a", href=True)
         href = link["href"] if link else ""
         pid_m = re.search(r"/(\d+)/?$", href)
         pid = pid_m.group(1) if pid_m else ""
-        if pid in seen:
-            continue
-        if pid:
-            seen.add(pid)
-
         profile_url = urljoin(base_url, href) if href else "N/A"
-        year = _extract_year(_field_text(card, r"year|class|eligibility|academic"))
+        year     = _extract_year(_field_text(card, r"year|class|eligibility|academic"))
         hometown = _field_text(card, r"hometown|city|location") or "N/A"
-
-        players.append({"Name": name, "Year_In_School": year, "Profile_URL": profile_url, "Hometown": hometown})
+        _add(pid, name, profile_url, year, hometown)
 
     return players
 
@@ -295,6 +296,8 @@ async def scrape_player_profile(url: str, browser) -> dict:
 
 # ---------------------------------------------------------------------------
 # Per-school scraper
+# FIX: dedup rows within a school by normalised name before UTR lookups,
+#      so we never hit the UTR API twice for the same player.
 # ---------------------------------------------------------------------------
 
 async def scrape_school(school_key: str, cfg: dict, browser) -> pd.DataFrame:
@@ -310,14 +313,23 @@ async def scrape_school(school_key: str, cfg: dict, browser) -> pd.DataFrame:
     log.info(f"  Found {len(players)} players")
 
     if not players:
-        # Dump a snippet to help debug
         soup = BeautifulSoup(html, "html.parser")
         log.warning(f"  DEBUG — page title: {soup.title.string if soup.title else 'N/A'}")
         log.warning(f"  DEBUG — all <a href> containing 'roster': {[a['href'] for a in soup.find_all('a', href=re.compile(r'roster', re.I))[:5]]}")
 
     rows = []
+    seen_in_school: set[str] = set()   # FIX: catches any stragglers at row-build time
+
     for p in players:
         name     = p["Name"]
+        norm     = _norm(name)
+
+        # Belt-and-suspenders: skip if this normalised name already has a row
+        if norm in seen_in_school:
+            log.info(f"    Skipping duplicate (row-level): {name}")
+            continue
+        seen_in_school.add(norm)
+
         year     = p.get("Year_In_School", "N/A")
         hometown = p.get("Hometown", "N/A")
 
@@ -350,6 +362,8 @@ async def scrape_school(school_key: str, cfg: dict, browser) -> pd.DataFrame:
 
 # ---------------------------------------------------------------------------
 # Entry point
+# FIX: dedup the combined CSV on (School, normalised Player name) so that
+#      re-runs or partial overlaps don't produce duplicate final rows.
 # ---------------------------------------------------------------------------
 
 async def main():
@@ -374,6 +388,16 @@ async def main():
 
     if all_frames:
         combined = pd.concat(all_frames, ignore_index=True)
+
+        # FIX: final dedup on the combined frame — keep first occurrence
+        before = len(combined)
+        combined["_norm_player"] = combined["Player"].apply(_norm)
+        combined = combined.drop_duplicates(subset=["School", "_norm_player"]).drop(columns=["_norm_player"])
+        combined = combined.reset_index(drop=True)
+        after = len(combined)
+        if before != after:
+            log.info(f"  Deduped combined CSV: {before} → {after} rows (removed {before - after})")
+
         out = os.path.join(ROSTERS_DIR, "all_rosters.csv")
         combined.to_csv(out, index=False)
         log.info(f"\nCombined -> {out} ({len(combined)} total rows)")
